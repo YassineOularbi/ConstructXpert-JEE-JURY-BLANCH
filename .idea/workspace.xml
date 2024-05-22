@@ -12,6 +12,12 @@
     <list default="true" id="19efa339-2073-4c37-96e1-5edffce9bc32" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../BRIEF-WEATHER-APP/BRIEF-WEATHER-APP.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../BRIEF-WEATHER-APP/src/City.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/model/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/model/Equipment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/model/Material.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/model/Supervisor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/model/Team.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/model/Vehicle.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Magerama-cinema-BM/src/main/java/jee/javapack/servlets/CinemaHome.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../QUIZ-JAVA/QUIZ-JAVA.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../STUDENT-MANAGEMENT-SPRINGBOOT-ANGULAR" afterDir="false" />
@@ -50,16 +56,6 @@
       <change afterPath="$PROJECT_DIR$/../../hibernate/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../hibernate/src/main/webapp/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/enums/Contrat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/enums/Contract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/enums/Priority.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/enums/Priority.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/enums/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/enums/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/enums/StatusProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/enums/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/enums/StatusTask.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/model/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/model/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/model/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/model/Resource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/model/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/model/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,10 +66,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaFXApplication" />
-        <option value="Class" />
         <option value="Servlet" />
         <option value="Filter" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -164,7 +160,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716389413926</updated>
-      <workItem from="1716389415112" duration="5701000" />
+      <workItem from="1716389415112" duration="6708000" />
     </task>
     <servers />
   </component>
