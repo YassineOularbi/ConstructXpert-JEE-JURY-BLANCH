@@ -9,7 +9,8 @@ public class DatabaseConfig {
     private static final String username = "root";
     private static final String password = "1234";
 
-    private static Connection getConnection() throws SQLException {
+    public Connection getConnection() throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
         return DriverManager.getConnection(url, username, password);
     }
 }
