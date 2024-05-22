@@ -1,9 +1,9 @@
 package org.enums;
 
 public enum Status {
-    TODO("ToDo"),
-    IN_PROGRESS("InProgress"),
-    COMPLETED("Completed");
+    TODO("TODO"),
+    IN_PROGRESS("IN_PROGRESS"),
+    COMPLETED("COMPLETED");
 
     private final String statusName;
 

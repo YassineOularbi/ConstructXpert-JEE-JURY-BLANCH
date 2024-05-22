@@ -105,7 +105,7 @@ public class UserRepositoryImpl implements UserRepository {
             user.setUserEmail(resultSet.getString("user_email"));
             user.setPassword(resultSet.getString("user_password"));
             user.setPicture(resultSet.getString("picture"));
-            user.setRole(Role.valueOf(resultSet.getString("user_role").toUpperCase()));
+            user.setRole(Role.valueOf(resultSet.getString("user_role")));
         }
 
         resultSet.close();
