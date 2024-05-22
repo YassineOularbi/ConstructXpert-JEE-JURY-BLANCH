@@ -56,8 +56,8 @@ public class ProjectRepositoryImpl implements ProjectRepository {
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setString(1, project.getName());
         statement.setString(2, project.getGeolocation());
-        statement.setDate(3, new Date(project.getDateStart().getTime()));
-        statement.setDate(4, new Date(project.getDateEnd().getTime()));
+        statement.setDate(3, project.getDateStart());
+        statement.setDate(4, project.getDateEnd());
         statement.setString(5, project.getStatus().toString());
         statement.setString(6, project.getDescription());
         statement.setInt(7, project.getRoom());
@@ -73,6 +73,7 @@ public class ProjectRepositoryImpl implements ProjectRepository {
         statement.setString(17, project.getPicture());
         statement.executeUpdate();
         statement.close();
+        connection.close();
     }
 
     @Override
@@ -103,6 +104,7 @@ public class ProjectRepositoryImpl implements ProjectRepository {
         statement.setLong(18, project.getId());
         statement.executeUpdate();
         statement.close();
+        connection.close();
     }
 
     @Override
@@ -113,6 +115,7 @@ public class ProjectRepositoryImpl implements ProjectRepository {
         statement.setLong(1, id);
         statement.executeUpdate();
         statement.close();
+        connection.close();
     }
 
     @Override
@@ -148,6 +151,7 @@ public class ProjectRepositoryImpl implements ProjectRepository {
 
         resultSet.close();
         statement.close();
+        connection.close();
         return project;
     }
 

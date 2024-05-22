@@ -1,8 +1,6 @@
 package org.repository;
 
-import org.model.Employee;
 import org.model.Project;
-import org.model.User;
 
 import java.sql.SQLException;
 import java.util.List;

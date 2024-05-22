@@ -9,12 +9,7 @@ import java.util.List;
 
 public class EmployeeRepositoryImpl implements EmployeeRepository{
 
-    private final DatabaseConfig databaseConfig;
-
-    public EmployeeRepositoryImpl(DatabaseConfig databaseConfig) {
-        this.databaseConfig = databaseConfig;
-    }
-
+    DatabaseConfig databaseConfig = new DatabaseConfig();
     @Override
     public List<Employee> getAll() throws SQLException {
         return null;

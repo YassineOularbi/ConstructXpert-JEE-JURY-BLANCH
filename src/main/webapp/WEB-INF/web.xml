@@ -19,4 +19,12 @@
         <servlet-name>ProjectServlet</servlet-name>
         <url-pattern>/ProjectServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>TaskServlet</servlet-name>
+        <servlet-class>org.servlet.task.TaskServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TaskServlet</servlet-name>
+        <url-pattern>/TaskServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

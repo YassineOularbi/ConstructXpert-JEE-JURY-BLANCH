@@ -97,7 +97,7 @@ public class UserRepositoryImpl implements UserRepository {
         statement.setLong(1, id);
         ResultSet resultSet = statement.executeQuery();
         User user = null;
-        while (resultSet.next()) {
+        if (resultSet.next()) {
             user = new User();
             user.setId(resultSet.getLong("id"));
             user.setName(resultSet.getString("name_user"));
