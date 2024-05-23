@@ -1,60 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ajouter une tâche</title>
+  <title>Login</title>
   <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
-  <h1>Ajouter une tâche</h1>
-  <form action="TaskServlet" method="POST">
-    <div class="form-group">
-      <label for="title">Titre :</label>
-      <input type="text" class="form-control" id="title" name="title" required>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="text-center mt-5">Login</h2>
+      <form action="dashboard" method="post">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+      </form>
     </div>
-    <div class="form-group">
-      <label for="type">Type :</label>
-      <input type="text" class="form-control" id="type" name="type" required>
-    </div>
-    <div class="form-group">
-      <label for="startDate">Date de début :</label>
-      <input type="date" class="form-control" id="startDate" name="startDate">
-    </div>
-    <div class="form-group">
-      <label for="endDate">Date de fin :</label>
-      <input type="date" class="form-control" id="endDate" name="endDate">
-    </div>
-    <div class="form-group">
-      <label for="description">Description :</label>
-      <textarea class="form-control" id="description" name="description" rows="3"></textarea>
-    </div>
-    <div class="form-group">
-      <label for="priority">Priorité :</label>
-      <select class="form-control" id="priority" name="priority" required>
-        <option value="LOW">Faible</option>
-        <option value="MEDIUM">Moyenne</option>
-        <option value="HIGH">Élevée</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="status">Statut :</label>
-      <select class="form-control" id="status" name="status" required>
-        <option value="TODO">À faire</option>
-        <option value="IN_PROGRESS">En cours</option>
-        <option value="COMPLETED">Terminé</option>
-      </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Ajouter</button>
-  </form>
+  </div>
 </div>
-
 <!-- Bootstrap JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>

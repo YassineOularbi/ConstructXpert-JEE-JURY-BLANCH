@@ -1,5 +1,6 @@
 package org.dto;
 
+import org.enums.Role;
 import org.model.User;
 
 public class UserDTO {
@@ -7,12 +8,17 @@ public class UserDTO {
     private String userName;
     private String userEmail;
     private String picture;
+    private Role role;
 
     public UserDTO(User user) {
         this.name = user.getName();
         this.userName = user.getUserName();
         this.userEmail = user.getUserEmail();
         this.picture = user.getPicture();
+        this.role = user.getRole();
+    }
+
+    public UserDTO() {
     }
 
     public String getName() {
@@ -47,13 +53,22 @@ public class UserDTO {
         this.picture = picture;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return "UserDTO{" +
-                "name='" + name + '\'' +
+                ", name='" + name + '\'' +
                 ", userName='" + userName + '\'' +
                 ", userEmail='" + userEmail + '\'' +
                 ", picture='" + picture + '\'' +
+                ", role=" + role +
                 '}';
     }
 }

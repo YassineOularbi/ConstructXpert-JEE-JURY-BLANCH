@@ -12,11 +12,9 @@
     <list default="true" id="19efa339-2073-4c37-96e1-5edffce9bc32" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../BRIEF-WEATHER-APP/BRIEF-WEATHER-APP.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../BRIEF-WEATHER-APP/src/City.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/enums/ResourceType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/repository/ResourceRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/service/EquipmentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/service/MaterialService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/service/VehicleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/servlet/DashboardServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Dashboard.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Magerama-cinema-BM/src/main/java/jee/javapack/servlets/CinemaHome.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../QUIZ-JAVA/QUIZ-JAVA.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../STUDENT-MANAGEMENT-SPRINGBOOT-ANGULAR" afterDir="false" />
@@ -54,22 +52,13 @@
       <change afterPath="$PROJECT_DIR$/../../hibernate/src/main/webapp/WEB-INF/jsp/update-student-form.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../hibernate/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../hibernate/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/model/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/model/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/model/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/model/Equipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/model/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/model/Material.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/model/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/model/Resource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/model/Supervisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/model/Supervisor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/model/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/model/Team.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/model/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/model/Vehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/repository/ResourceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/repository/ResourceRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/service/ProjectService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/service/ResourceService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/service/TaskService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/resource/ResourceServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/resource/ResourceServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/auth/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/auth/AuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/repository/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/repository/UserRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,11 +69,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaFXApplication" />
-        <option value="Servlet" />
         <option value="Filter" />
         <option value="Interface" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="Jsp File" />
+        <option value="Servlet" />
       </list>
     </option>
   </component>
@@ -120,7 +110,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Tomcat Server.Tomcat 8.5.100.executor": "Run",
     "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "database",
+    "git-widget-placeholder": "authentication",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -135,6 +125,11 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ConstructXpert-JEE-JURY-BLANCH\src\main\webapp" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Tomcat 8.5.100" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.100" ALTERNATIVE_JRE_ENABLED="false">
       <deployment>
@@ -183,7 +178,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716389413926</updated>
-      <workItem from="1716389415112" duration="24904000" />
+      <workItem from="1716389415112" duration="30305000" />
     </task>
     <servers />
   </component>
