@@ -27,4 +27,13 @@
         <servlet-name>TaskServlet</servlet-name>
         <url-pattern>/TaskServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AuthenticationServlet</servlet-name>
+        <servlet-class>org.servlet.AuthenticationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AuthenticationServlet</servlet-name>
+        <url-pattern>/auth</url-pattern>
+    </servlet-mapping>
+
 </web-app>

@@ -1,6 +1,7 @@
 package org.repository;
 
 import org.config.DatabaseConfig;
+import org.dto.UserDTO;
 import org.enums.Role;
 import org.model.User;
 
@@ -113,5 +114,30 @@ public class UserRepositoryImpl implements UserRepository {
         connection.close();
 
         return user;
+    }
+
+    @Override
+    public UserDTO authentication(String username, String password) throws SQLException, ClassNotFoundException {
+        Connection connection = databaseConfig.getConnection();
+        String query = "SELECT * FROM user_table WHERE user_name=? AND user_password=?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, username);
+        statement.setString(2, password);
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            UserDTO user = new UserDTO();
+            user.setName(resultSet.getString("name_user"));
+            user.setUserName(resultSet.getString("user_name"));
+            user.setUserEmail(resultSet.getString("user_email"));
+            user.setPicture(resultSet.getString("picture"));
+            user.setRole(Role.valueOf(resultSet.getString("user_role")));
+            return user;
+        }
+
+        resultSet.close();
+        statement.close();
+        connection.close();
+
+        return null;
     }
 }

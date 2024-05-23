@@ -1,5 +1,6 @@
 package org.repository;
 
+import org.dto.UserDTO;
 import org.model.User;
 
 import java.sql.SQLException;
@@ -11,4 +12,5 @@ public interface UserRepository {
     void update(User user) throws SQLException, ClassNotFoundException;
     void delete(Long id) throws SQLException, ClassNotFoundException;
     User getById(Long id) throws SQLException, ClassNotFoundException;
+    UserDTO authentication(String username, String password) throws SQLException, ClassNotFoundException;
 }
