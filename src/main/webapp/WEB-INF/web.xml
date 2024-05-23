@@ -28,19 +28,12 @@
         <url-pattern>/TaskServlet</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>DashboardServlet</servlet-name>
-        <servlet-class>org.servlet.DashboardServlet</servlet-class>
+        <servlet-name>AuthenticationServlet</servlet-name>
+        <servlet-class>org.servlet.AuthenticationServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>DashboardServlet</servlet-name>
-        <url-pattern>/dashboard</url-pattern>
-    </servlet-mapping>
-    <filter>
-        <filter-name>AuthenticationFilter</filter-name>
-        <filter-class>org.auth.AuthenticationFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>AuthenticationFilter</filter-name>
+        <servlet-name>AuthenticationServlet</servlet-name>
         <url-pattern>/auth</url-pattern>
-    </filter-mapping>
+    </servlet-mapping>
+
 </web-app>

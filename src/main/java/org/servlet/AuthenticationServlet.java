@@ -7,14 +7,12 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "DashboardServlet", value = "/DashboardServlet")
-public class DashboardServlet extends HttpServlet {
+@WebServlet(name = "AuthenticationServlet", value = "/AuthenticationServlet")
+public class AuthenticationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        UserDTO userDTO = (UserDTO) session.getAttribute("user");
-        System.out.println(userDTO.toString());
-        this.getServletContext().getRequestDispatcher("/Dashboard.jsp").forward(request, response);
+
+        this.getServletContext().getRequestDispatcher("/Authentication.jsp").forward(request, response);
     }
 
     @Override
@@ -23,6 +21,5 @@ public class DashboardServlet extends HttpServlet {
         UserDTO userDTO = (UserDTO) session.getAttribute("user");
         System.out.println(userDTO.toString());
         this.getServletContext().getRequestDispatcher("/Dashboard.jsp").forward(request, response);
-
     }
 }

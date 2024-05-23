@@ -85,8 +85,8 @@ public class ProjectRepositoryImpl implements ProjectRepository {
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setString(1, project.getName());
         statement.setString(2, project.getGeolocation());
-        statement.setDate(3, new Date(project.getDateStart().getTime()));
-        statement.setDate(4, new Date(project.getDateEnd().getTime()));
+        statement.setDate(3, project.getDateStart());
+        statement.setDate(4, project.getDateEnd());
         statement.setString(5, project.getStatus().getStatusName());
         statement.setString(6, project.getDescription());
         statement.setInt(7, project.getRoom());

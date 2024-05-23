@@ -4,7 +4,6 @@ import org.dto.UserDTO;
 import org.enums.Role;
 import org.repository.UserRepository;
 import org.repository.UserRepositoryImpl;
-import org.service.UserService;
 
 import javax.servlet.*;
 import javax.servlet.annotation.*;
@@ -14,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebFilter(urlPatterns = "/dashboard")
+@WebFilter(urlPatterns = "/auth")
 public class AuthenticationFilter implements Filter {
     public void init(FilterConfig config) throws ServletException {
     }
@@ -33,6 +32,7 @@ public class AuthenticationFilter implements Filter {
         UserDTO user = null;
         try {
             user = userRepository.authentication(username, password);
+            System.out.println(user);
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -40,17 +40,13 @@ public class AuthenticationFilter implements Filter {
             if (user.getRole().equals(Role.ADMIN)) {
                 session.setAttribute("user", user);
                 chain.doFilter(request, response);
-               // HttpServletResponse httpResponse = (HttpServletResponse) response;
-              //  httpResponse.sendRedirect(((HttpServletRequest) request).getContextPath() + "/dashboard");
             } else {
-                //chain.doFilter(request, response);
                 HttpServletResponse httpResponse = (HttpServletResponse) response;
-                httpResponse.sendRedirect(((HttpServletRequest) request).getContextPath() + "/");
+                httpResponse.sendRedirect(((HttpServletRequest) request).getContextPath());
             }
         } else {
-
             HttpServletResponse httpResponse = (HttpServletResponse) response;
-            httpResponse.sendRedirect("/index.jsp");
+            httpResponse.sendRedirect(((HttpServletRequest) request).getContextPath());
         }
     }
 }
