@@ -1,6 +1,5 @@
 package org.service;
 
-import org.model.Employee;
 import org.model.Supervisor;
 import org.repository.EmployeeRepository;
 import org.repository.EmployeeRepositoryImpl;

@@ -27,6 +27,21 @@ public class Employee {
         this.employeeType = employeeType;
     }
 
+    public Employee(Long id, String name, String jobType, String picture, Boolean availability) {
+        this.id = id;
+        this.name = name;
+        this.jobType = jobType;
+        this.picture = picture;
+        this.availability = availability;
+    }
+
+    public Employee(String name, String jobType, String picture, Boolean availability) {
+        this.name = name;
+        this.jobType = jobType;
+        this.picture = picture;
+        this.availability = availability;
+    }
+
     public Employee() {
     }
 
@@ -86,6 +101,7 @@ public class Employee {
                 ", jobType='" + jobType + '\'' +
                 ", picture='" + picture + '\'' +
                 ", availability=" + availability +
+                ", employeeType=" + employeeType +
                 '}';
     }
 }

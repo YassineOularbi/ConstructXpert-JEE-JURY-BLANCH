@@ -3,7 +3,6 @@ package org.repository;
 import org.config.DatabaseConfig;
 import org.enums.Status;
 import org.model.Project;
-import org.model.User;
 
 import java.sql.*;
 import java.util.ArrayList;

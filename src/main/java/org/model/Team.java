@@ -15,8 +15,17 @@ public class Team extends Employee{
         this.setEmployeeType(EmployeeType.TEAM);
     }
 
+    public Team(Long id, String name, String jobType, String picture, Boolean availability) {
+        super(id, name, jobType, picture, availability);
+        this.setEmployeeType(EmployeeType.TEAM);
+    }
+
+    public Team(String name, String jobType, String picture, Boolean availability) {
+        super(name, jobType, picture, availability);
+        this.setEmployeeType(EmployeeType.TEAM);
+    }
+
     public Team() {
         super();
     }
-
 }
