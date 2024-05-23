@@ -10,17 +10,29 @@ public class Task {
     private Long id;
     private String title;
     private String type;
-    private Date start_date;
-    private Date end_date;
+    private Date startDate;
+    private Date endDate;
+    private String description;
     private Priority priority;
     private Status status;
 
-    public Task(Long id, String title, String type, Date start_date, Date end_date, Priority priority, Status status) {
+    public Task(Long id, String title, String type, Date startDate, Date endDate, String description, Priority priority, Status status) {
         this.id = id;
         this.title = title;
         this.type = type;
-        this.start_date = start_date;
-        this.end_date = end_date;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.description = description;
+        this.priority = priority;
+        this.status = status;
+    }
+
+    public Task(String title, String type, Date startDate, Date endDate, String description, Priority priority, Status status) {
+        this.title = title;
+        this.type = type;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.description = description;
         this.priority = priority;
         this.status = status;
     }
@@ -52,20 +64,28 @@ public class Task {
         this.type = type;
     }
 
-    public Date getStart_date() {
-        return start_date;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setStart_date(Date start_date) {
-        this.start_date = start_date;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
-    public Date getEnd_date() {
-        return end_date;
+    public Date getEndDate() {
+        return endDate;
     }
 
-    public void setEnd_date(Date end_date) {
-        this.end_date = end_date;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Priority getPriority() {
@@ -90,8 +110,9 @@ public class Task {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", type='" + type + '\'' +
-                ", start_date=" + start_date +
-                ", end_date=" + end_date +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", description='" + description + '\'' +
                 ", priority=" + priority +
                 ", status=" + status +
                 '}';

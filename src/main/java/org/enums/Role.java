@@ -1,9 +1,9 @@
 package org.enums;
 
 public enum Role {
-    ADMIN("admin"),
-    CLIENT("client"),
-    SUPERVISOR("supervisor");
+    ADMIN("ADMIN"),
+    CLIENT("CLIENT"),
+    SUPERVISOR("SUPERVISOR");
 
     private final String roleName;
 

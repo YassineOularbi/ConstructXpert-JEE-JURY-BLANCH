@@ -1,9 +1,9 @@
 package org.enums;
 
 public enum Priority {
-    HIGH("High"),
-    MEDIUM("Medium"),
-    LOW("Low");
+    HIGH("HIGH"),
+    MEDIUM("MEDIUM"),
+    LOW("LOW");
 
     private final String PriorityName;
 

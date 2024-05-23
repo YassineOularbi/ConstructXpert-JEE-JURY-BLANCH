@@ -1,6 +1,9 @@
 package org.model;
 
-import java.util.Date;
+import org.enums.ResourceType;
+
+import java.sql.Date;
+
 
 public class Resource {
     private Long id;
@@ -11,9 +14,43 @@ public class Resource {
     private String picture;
     private String quantity;
     private Boolean availability;
+    private ResourceType resourceType;
+
+    public Resource(Long id, String title, String type, String provider, Date acquisitionDate, String picture, String quantity, Boolean availability, ResourceType resourceType) {
+        this.id = id;
+        this.title = title;
+        this.type = type;
+        this.provider = provider;
+        this.acquisitionDate = acquisitionDate;
+        this.picture = picture;
+        this.quantity = quantity;
+        this.availability = availability;
+        this.resourceType = resourceType;
+    }
+
+    public Resource(String title, String type, String provider, Date acquisitionDate, String picture, String quantity, Boolean availability, ResourceType resourceType) {
+        this.title = title;
+        this.type = type;
+        this.provider = provider;
+        this.acquisitionDate = acquisitionDate;
+        this.picture = picture;
+        this.quantity = quantity;
+        this.availability = availability;
+        this.resourceType = resourceType;
+    }
 
     public Resource(Long id, String title, String type, String provider, Date acquisitionDate, String picture, String quantity, Boolean availability) {
         this.id = id;
+        this.title = title;
+        this.type = type;
+        this.provider = provider;
+        this.acquisitionDate = acquisitionDate;
+        this.picture = picture;
+        this.quantity = quantity;
+        this.availability = availability;
+    }
+
+    public Resource(String title, String type, String provider, Date acquisitionDate, String picture, String quantity, Boolean availability) {
         this.title = title;
         this.type = type;
         this.provider = provider;
@@ -58,7 +95,7 @@ public class Resource {
         this.provider = provider;
     }
 
-    public Date getAcquisitionDate() {
+    public java.sql.Date getAcquisitionDate() {
         return acquisitionDate;
     }
 
@@ -81,18 +118,25 @@ public class Resource {
     public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
-
-    public boolean isAvailability() {
+    public Boolean getAvailability() {
         return availability;
     }
 
-    public void setAvailability(boolean availability) {
+    public void setAvailability(Boolean availability) {
         this.availability = availability;
+    }
+
+    public ResourceType getResourceType() {
+        return resourceType;
+    }
+
+    public void setResourceType(ResourceType resourceType) {
+        this.resourceType = resourceType;
     }
 
     @Override
     public String toString() {
-        return "Task{" +
+        return "Resource{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", type='" + type + '\'' +
@@ -101,6 +145,7 @@ public class Resource {
                 ", picture='" + picture + '\'' +
                 ", quantity='" + quantity + '\'' +
                 ", availability=" + availability +
+                ", resourceType=" + resourceType +
                 '}';
     }
 }

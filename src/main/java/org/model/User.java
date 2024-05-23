@@ -7,16 +7,25 @@ public class User {
     private String name;
     private String userName;
     private String userEmail;
-    private String userPassword;
+    private String password;
     private String picture;
     private Role role;
 
-    public User(Long id, String name, String userName, String userEmail, String userPassword, String picture, Role role) {
+    public User(Long id, String name, String userName, String userEmail, String password, String picture, Role role) {
         this.id = id;
         this.name = name;
         this.userName = userName;
         this.userEmail = userEmail;
-        this.userPassword = userPassword;
+        this.password = password;
+        this.picture = picture;
+        this.role = role;
+    }
+
+    public User(String name, String userName, String userEmail, String password, String picture, Role role) {
+        this.name = name;
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.password = password;
         this.picture = picture;
         this.role = role;
     }
@@ -56,12 +65,12 @@ public class User {
         this.userEmail = userEmail;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getPicture() {
@@ -87,7 +96,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", userName='" + userName + '\'' +
                 ", userEmail='" + userEmail + '\'' +
-                ", userPassword='" + userPassword + '\'' +
+                ", userPassword='" + password + '\'' +
                 ", picture='" + picture + '\'' +
                 ", role=" + role +
                 '}';

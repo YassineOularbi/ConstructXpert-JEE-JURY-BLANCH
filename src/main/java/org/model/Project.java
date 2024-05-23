@@ -48,6 +48,26 @@ public class Project {
         this.picture = picture;
     }
 
+    public Project(String name, String geolocation, Date dateStart, Date dateEnd, Status status, String description, Integer room, Integer bath, Integer garage, Integer terrace, String wallMaterial, String foundationType, String roofingType, Double areaSize, Double budget, String planFloor, String picture) {
+        this.name = name;
+        this.geolocation = geolocation;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
+        this.status = status;
+        this.description = description;
+        this.room = room;
+        this.bath = bath;
+        this.garage = garage;
+        this.terrace = terrace;
+        this.wallMaterial = wallMaterial;
+        this.foundationType = foundationType;
+        this.roofingType = roofingType;
+        this.areaSize = areaSize;
+        this.budget = budget;
+        this.planFloor = planFloor;
+        this.picture = picture;
+    }
+
     public Project() {
     }
 

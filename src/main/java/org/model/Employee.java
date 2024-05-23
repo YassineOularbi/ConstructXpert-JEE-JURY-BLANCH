@@ -1,14 +1,41 @@
 package org.model;
 
+import org.enums.EmployeeType;
+
 public class Employee {
     private Long id;
     private String name;
     private String jobType;
     private String picture;
     private Boolean availability;
+    private EmployeeType employeeType;
+
+    public Employee(Long id, String name, String jobType, String picture, Boolean availability, EmployeeType employeeType) {
+        this.id = id;
+        this.name = name;
+        this.jobType = jobType;
+        this.picture = picture;
+        this.availability = availability;
+        this.employeeType = employeeType;
+    }
+
+    public Employee(String name, String jobType, String picture, Boolean availability, EmployeeType employeeType) {
+        this.name = name;
+        this.jobType = jobType;
+        this.picture = picture;
+        this.availability = availability;
+        this.employeeType = employeeType;
+    }
 
     public Employee(Long id, String name, String jobType, String picture, Boolean availability) {
         this.id = id;
+        this.name = name;
+        this.jobType = jobType;
+        this.picture = picture;
+        this.availability = availability;
+    }
+
+    public Employee(String name, String jobType, String picture, Boolean availability) {
         this.name = name;
         this.jobType = jobType;
         this.picture = picture;
@@ -50,12 +77,20 @@ public class Employee {
         this.picture = picture;
     }
 
-    public boolean isAvailability() {
+    public boolean getAvailability() {
         return availability;
     }
 
     public void setAvailability(boolean availability) {
         this.availability = availability;
+    }
+
+    public EmployeeType getEmployeeType() {
+        return employeeType;
+    }
+
+    public void setEmployeeType(EmployeeType employeeType) {
+        this.employeeType = employeeType;
     }
 
     @Override
@@ -66,6 +101,7 @@ public class Employee {
                 ", jobType='" + jobType + '\'' +
                 ", picture='" + picture + '\'' +
                 ", availability=" + availability +
+                ", employeeType=" + employeeType +
                 '}';
     }
 }

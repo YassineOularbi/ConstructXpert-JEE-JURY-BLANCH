@@ -1,34 +1,31 @@
 package org.model;
 
-public class Team extends Employee{
-    private Integer number;
+import org.enums.EmployeeType;
 
-    public Team(Long id, String name, String jobType, String picture, Boolean availability, Integer number) {
-        super(id, name, jobType, picture, availability);
-        this.number = number;
+public class Team extends Employee{
+
+
+    public Team(Long id, String name, String jobType, String picture, Boolean availability, EmployeeType employeeType) {
+        super(id, name, jobType, picture, availability, employeeType);
+        this.setEmployeeType(EmployeeType.TEAM);
     }
 
-    public Team(Integer number) {
-        super();
-        this.number = number;
+    public Team(String name, String jobType, String picture, Boolean availability, EmployeeType employeeType) {
+        super(name, jobType, picture, availability, employeeType);
+        this.setEmployeeType(EmployeeType.TEAM);
+    }
+
+    public Team(Long id, String name, String jobType, String picture, Boolean availability) {
+        super(id, name, jobType, picture, availability);
+        this.setEmployeeType(EmployeeType.TEAM);
+    }
+
+    public Team(String name, String jobType, String picture, Boolean availability) {
+        super(name, jobType, picture, availability);
+        this.setEmployeeType(EmployeeType.TEAM);
     }
 
     public Team() {
         super();
-    }
-
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
-    @Override
-    public String toString() {
-        return "Team{" +
-                "number=" + number +
-                '}';
     }
 }
