@@ -79,48 +79,75 @@ const togglePassword = e => {
     }
 };
 
-// Charts
 
-const ctx1 = document.getElementById("chart-1").getContext("2d");
-const myChart = new Chart(ctx1, {
-  type: "polarArea",
-  data: {
-    labels: ["Projet 1", "Projet 2", "Projet 3"],
-    datasets: [
-      {
-        label: "# of Votes",
-        data: [600, 800, 1000],
-        backgroundColor: [
-            "#FF914C",
-            "#FFBD59",
-            "#D9D9D9",
-        ],
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-  },
+// selection
+
+document.addEventListener('DOMContentLoaded', function () {
+  const materials = document.querySelectorAll('.wallMaterial');
+  const selected = document.getElementById('wallMaterial-selected');
+  const price = document.getElementById('wallMaterial-price')
+
+  materials.forEach(function (material) {
+      material.addEventListener('change', function () {
+          materials.forEach(function (m) {
+              m.closest('label').classList.remove('selected');
+          });
+          if (this.checked) {
+              this.closest('label').classList.add('selected');
+              selected.textContent = this.value;
+              price.textContent = this.getAttribute("data-price");
+          }
+      });
+  });
 });
 
-const ctx2 = document.getElementById("chart-2").getContext("2d");
-const myChart2 = new Chart(ctx2, {
-  type: "bar",
-  data: {
-    labels: ["Projet 1", "Projet 2", "Projet"],
-    datasets: [
-      {
-        label: "Budget",
-        data: [600, 800, 1000],
-        backgroundColor: [
-          "#FF914C",
-          "#FFBD59",
-          "#D9D9D9",
-        ],
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-  },
+document.addEventListener('DOMContentLoaded', function () {
+  const foundations = document.querySelectorAll('.foundationType');
+  const selected = document.getElementById('foundationType-selected');
+  const price = document.getElementById('foundationType-price')
+
+  foundations.forEach(function (foundation) {
+      foundation.addEventListener('change', function () {
+          foundations.forEach(function (f) {
+              f.closest('label').classList.remove('selected');
+          });
+          if (this.checked) {
+              this.closest('label').classList.add('selected');
+              selected.textContent = this.value;
+              price.textContent = this.getAttribute("data-price");
+          }
+      });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const rooflings = document.querySelectorAll('.rooflingType');
+  const selected = document.getElementById('rooflingType-selected');
+  const price = document.getElementById('rooflingType-price')
+
+  rooflings.forEach(function (roofling) {
+      roofling.addEventListener('change', function () {
+          rooflings.forEach(function (r) {
+              r.closest('label').classList.remove('selected');
+          });
+          if (this.checked) {
+              this.closest('label').classList.add('selected');
+              selected.textContent = this.value;
+              price.textContent = this.getAttribute("data-price");
+          }
+      });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const areasize = document.querySelector('.areaSize');
+  const budget = document.querySelector('.budget');
+  const priceWall = document.getElementById('wallMaterial-price')
+  const priceFoundation = document.getElementById('foundationType-price')
+  const priceRoofling = document.getElementById('rooflingType-price')
+
+      areasize.addEventListener('input', function () {
+          let comptebudget = (areasize.value * priceWall.textContent) + (areasize.value * priceFoundation.textContent) + (areasize.value * priceRoofling.textContent);
+          budget.value = comptebudget;
+      });
 });

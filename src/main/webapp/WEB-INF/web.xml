@@ -12,12 +12,28 @@
         <url-pattern>/UserServlet</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>ProjectServlet</servlet-name>
-        <servlet-class>org.servlet.project.ProjectServlet</servlet-class>
+        <servlet-name>AddProject</servlet-name>
+        <servlet-class>org.servlet.project.AddProject</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ProjectServlet</servlet-name>
-        <url-pattern>/ProjectServlet</url-pattern>
+        <servlet-name>AddProject</servlet-name>
+        <url-pattern>/add-project</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteProject</servlet-name>
+        <servlet-class>org.servlet.project.DeleteProject</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteProject</servlet-name>
+        <url-pattern>/delete-project</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateProject</servlet-name>
+        <servlet-class>org.servlet.project.UpdateProject</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateProject</servlet-name>
+        <url-pattern>/update-project</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>TaskServlet</servlet-name>
@@ -34,6 +50,14 @@
     <servlet-mapping>
         <servlet-name>AuthenticationServlet</servlet-name>
         <url-pattern>/auth</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DisplayProjects</servlet-name>
+        <servlet-class>org.servlet.project.DisplayProjects</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisplayProjects</servlet-name>
+        <url-pattern>/projects</url-pattern>
     </servlet-mapping>
 
 </web-app>

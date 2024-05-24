@@ -12,20 +12,23 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 
-@WebServlet(name = "ProjectServlet", value = "/ProjectServlet")
-public class ProjectServlet extends HttpServlet {
+@WebServlet(name = "UpdateProject", value = "/UpdateProject")
+public class UpdateProject extends HttpServlet {
     ProjectRepository projectRepository = new ProjectRepositoryImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Long id = Long.valueOf(request.getParameter("id"));
         try {
-            projectRepository.delete(1L);
+            request.setAttribute("project", projectRepository.getById(id));
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        this.getServletContext().getRequestDispatcher("/UpdateProject.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Long id = Long.valueOf(request.getParameter("id"));
         String name = request.getParameter("name");
         String geolocation = request.getParameter("geolocation");
         Date dateStart = Date.valueOf(request.getParameter("dateStart"));
@@ -44,13 +47,14 @@ public class ProjectServlet extends HttpServlet {
         String planFloor = request.getParameter("planFloor");
         String picture = request.getParameter("picture");
 
-        Project project = new Project(name, geolocation, dateStart, dateEnd, status, description, room, bath, garage, terrace,
+        Project project = new Project(id, name, geolocation, dateStart, dateEnd, status, description, room, bath, garage, terrace,
                 wallMaterial, foundationType, roofingType, areaSize, budget, planFloor, picture);
         try {
-            projectRepository.add(project);
+            projectRepository.update(project);
+            request.setAttribute("projects", projectRepository.getAll());
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
+        this.getServletContext().getRequestDispatcher("/Projects.jsp").forward(request, response);
     }
 }

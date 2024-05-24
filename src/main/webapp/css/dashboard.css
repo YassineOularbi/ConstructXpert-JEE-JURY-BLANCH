@@ -35,6 +35,10 @@ body{
     height: 100vh;
     width: 100%;
 }
+a{
+    text-decoration: none;
+    color: var(--black-color);
+}
 ::-webkit-scrollbar {
     width: 5px;
     height:5px;
@@ -454,4 +458,327 @@ body{
 .fc-scrollgrid-sync-inner a{
     text-decoration: 0;
     color: var(--black-color);
+}
+/* Project */
+.main-header{
+    width: 100%;
+    height: 10%;
+    padding: 10px 30px;
+}
+.main-header .main-section span{
+    font-size: 12px;
+    color: gray;
+}
+.main-scroll{
+    width: 90%;
+    margin: 40px;
+    gap: 50px;
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.add-project{
+    width: 270px;
+    height: 300px;
+    background-color: var(--grey-color);
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    align-content: center;
+
+}
+.add-project a i{
+    font-size: 60px;
+}
+.main-actions{
+    margin-top: 10px;
+    width: 30%;
+    gap: 20px;
+
+}
+.main-actions i{
+    padding: 0 10px;
+    font-size: 20px;
+}
+.main-actions div{
+    height: 40px;
+}
+.create-project{
+    width: 100%;
+    height: 90%;
+    background-color: var(--white-color);
+}
+.create-project form{
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    margin-top: -10px;
+}
+.create-project .up{
+    width: 100%;
+    height: 40%;
+    background-color: var(--white-color);
+}
+.create-project .down{
+    width: 100%;
+    height: 60%;
+    background-color: var(--white-color);
+}
+.create-project .up div{
+    width: 25%;
+}
+.create-project .up div div{
+    position: relative;
+    width: 100%;
+    height: 33%;
+    margin-bottom: 2px;
+    padding: 0 10px;
+}
+.create-project .up label{
+    font-size: 12px;
+    font-weight: bold;
+}
+.create-project .up i{
+    position: absolute;
+    bottom: 17px;
+    left: 15px;
+}
+.create-project .up input{
+    width: 100%;
+    outline: none;
+    padding-left: 30px;
+    border-radius: 7px;
+    border: 1px solid var(--black-color);
+}
+.create-project .up select{
+    width: 100%;
+    height: 25px;
+    outline: none;
+    border-radius: 7px;
+    border: 1px solid var(--black-color);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0;
+    padding-top: 4px;
+    padding-left: 30px;
+    background-color: var(--white-color);
+}
+.create-project .up input::placeholder{
+    font-size: 13px;
+    font-weight: 600;
+}
+.create-project .down .down-left{
+    width: 50%;
+    height: 90%;
+    padding: 4px 10px;
+}
+.create-project .down .down-left-head{
+    height: 20%;
+}
+.create-project .down .down-left-head h4{
+    font-size: 15px;
+    font-weight: bold;
+}
+.create-project .down .down-left-head p{
+    margin: 0;
+    font-size: 10px;
+}
+.down-left .composante{
+    width: 100%;
+    height: 80%;
+}
+.down-left .composante .wall-material{
+    width: 100%;
+    height: 50%;
+    gap: 30px;
+}
+.composante span{
+    font-size: 11px;
+    font-weight: bold;
+}
+.composante label{
+    width: 100px;
+    height: 80px;
+    position: relative;
+    background: #fff;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    margin: 5px 0;
+}
+.composante img{
+    position: absolute;
+    left: 13px;
+    width: 70px;
+    height: 60px;
+}
+.composante  p{
+    position: absolute;
+    bottom: -10px;
+    left: 15px;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+.down-composante{
+    gap: 30px;
+}
+.down-composante div div{
+    gap: 30px;
+}
+.create-project .down .down-right{
+    width: 50%;
+    height: 100%;
+    padding: 4px 20px;
+}
+.down-right h4{
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+.down-right .ligne{
+    border-top: 1px solid var(--black-color);
+    height: 30px;
+}
+.down-right .ligne p{
+    font-size: 12px;
+    font-weight: bold;
+}
+.down-right .ligne .title{
+    font-size: 12px;
+    font-weight: bold;
+    align-content: center;
+    width: 33%;
+    text-align: start;
+    color: grey;
+}
+.down-right .ligne .material{
+    font-size: 13px;
+    font-weight: bold;
+    align-content: center;
+    width: 33%;
+    text-align: center;
+    color: var(--primary-color);
+}
+.down-right .ligne .price{
+    font-size: 12px;
+    font-weight: bold;
+    align-content: center;
+    width: 33%;
+    text-align: end;
+    color: var(--black-color);
+}
+.down-right .ligne input{
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid var(--black-color);
+    height: 30px;
+    width: 80%;
+}
+.down-right .ligne .budget{
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid var(--primary-color);
+    height: 30px;
+    width: 80%;
+    background-color: #ff914c8c;
+
+}
+.down-right .ligne .btn-submit{
+    border: none;
+    background-color: var(--primary-color);
+    height: 30px;
+    width: 50%;
+    border-radius: 10px;
+}
+.down-right .ligne .des-area{
+    font-size: 10px;
+    margin-bottom: 10px;
+    line-height: -5px;
+}
+.down-right .ligne p{
+    margin: 0;
+}
+.selected{
+    background-color: #ff914c5d;
+    border: 1px solid var(--primary-color);
+}
+.project-card{
+    position: relative;
+    border: none;
+    width: 270px;
+    height: 300px;
+    background-color: var(--white-color);
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    align-content: center;
+}
+.project-card .project-img{
+    border-radius: 20px;
+    height: 150px;
+    
+}
+.project-card .dropdown{
+    position: absolute;
+    top: 5px;
+    right: 7px;
+}
+.project-card .project-head{
+    height: 40px;
+    padding: 0 10px;
+}
+.project-card .project-head h6{
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--black-color);
+}
+.project-card span{
+    font-size: 12px;
+    font-weight: bold;
+    color: grey;
+}
+.project-card .progresss{
+    margin-top: -10px;
+    width: 100%;
+    padding: 0 10px;
+}
+.project-card .progress-project{
+    width: 75%;
+    height: 5px;
+    border-radius: 3px;
+    background-color: var(--secondary-color);
+}
+.project-card .progressed{
+    height: 5px;
+    border-radius: 3px;
+    transition: var(--tran-04);
+    background-color: var(--primary-color);
+}
+.project-card .project-details{
+    padding: 0 15px;
+}
+.project-card .project-details i{
+    font-size: 17px;
+    margin: 5px 0;
+}
+.project-card .project-details .geolocation{
+    border-left: 1px solid var(--black-color);
+    border-right: 1px solid var(--black-color);
+    padding: 0 10px;
+}
+.project-card .project-action{
+    width: 100%;
+    height: 50px;
+    padding: 10px 10px;
+}
+.project-card .project-action a{
+    background-color: var(--primary-color);
+    padding: 5px 85px;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: var(--black-color);
+    font-size: 12px;
+    font-weight: bold;
 }
