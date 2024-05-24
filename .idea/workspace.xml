@@ -12,12 +12,8 @@
     <list default="true" id="19efa339-2073-4c37-96e1-5edffce9bc32" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../BRIEF-WEATHER-APP/BRIEF-WEATHER-APP.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../BRIEF-WEATHER-APP/src/City.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/servlet/project/DeleteProject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/servlet/project/DisplayProjects.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/servlet/project/UpdateProject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/CreateProject.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Projects.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/UpdateProject.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/servlet/project/ViewProject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/ViewProject.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Magerama-cinema-BM/src/main/java/jee/javapack/servlets/CinemaHome.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../QUIZ-JAVA/QUIZ-JAVA.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../STUDENT-MANAGEMENT-SPRINGBOOT-ANGULAR" afterDir="false" />
@@ -56,10 +52,15 @@
       <change afterPath="$PROJECT_DIR$/../../hibernate/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../hibernate/src/main/webapp/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/auth/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/auth/AuthenticationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/AuthenticationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/AuthenticationServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/project/ProjectServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/project/AddProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/project/AddProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/project/AddProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/project/DeleteProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/project/DeleteProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/project/DisplayProjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/project/DisplayProjects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/project/UpdateProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/project/UpdateProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/CreateProject.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/CreateProject.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/Dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Dashboard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Projects.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Projects.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/UpdateProject.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/UpdateProject.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/dashboard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/script.js" afterDir="false" />
@@ -77,9 +78,9 @@
         <option value="Filter" />
         <option value="Interface" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="CSS File" />
         <option value="Jsp File" />
+        <option value="Class" />
         <option value="Servlet" />
       </list>
     </option>
@@ -154,6 +155,24 @@
       <predefined_log_file id="Tomcat Manager" />
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="53246" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
@@ -187,7 +206,7 @@
       <updated>1716389413926</updated>
       <workItem from="1716389415112" duration="33152000" />
       <workItem from="1716475878828" duration="2157000" />
-      <workItem from="1716504740734" duration="12678000" />
+      <workItem from="1716504740734" duration="19480000" />
     </task>
     <servers />
   </component>

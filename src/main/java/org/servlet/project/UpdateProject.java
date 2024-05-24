@@ -1,5 +1,6 @@
 package org.servlet.project;
 
+import org.dto.UserDTO;
 import org.enums.Status;
 import org.model.Project;
 import org.repository.ProjectRepository;
@@ -23,6 +24,9 @@ public class UpdateProject extends HttpServlet {
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        HttpSession session = request.getSession();
+        UserDTO userDTO = (UserDTO) session.getAttribute("user");
+        request.setAttribute("user", userDTO);
         this.getServletContext().getRequestDispatcher("/UpdateProject.jsp").forward(request, response);
     }
 
@@ -55,6 +59,9 @@ public class UpdateProject extends HttpServlet {
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        HttpSession session = request.getSession();
+        UserDTO userDTO = (UserDTO) session.getAttribute("user");
+        request.setAttribute("user", userDTO);
         this.getServletContext().getRequestDispatcher("/Projects.jsp").forward(request, response);
     }
 }

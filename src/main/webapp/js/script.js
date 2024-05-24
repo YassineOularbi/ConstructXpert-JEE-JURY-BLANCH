@@ -151,3 +151,28 @@ document.addEventListener('DOMContentLoaded', function () {
           budget.value = comptebudget;
       });
 });
+
+// project details
+
+document.addEventListener('DOMContentLoaded', function () {
+  const overview = document.querySelector(".overview")
+  const gallery = document.querySelector(".gallery")
+  const change = document.querySelectorAll(".project-action")
+  const overviewAct = document.querySelector(".overview-action")
+  const galleryAct = document.querySelector(".gallery-action")
+  change.forEach(function(ch){
+    ch.addEventListener("click", function(){
+      if(overview.style.display === "flex"){
+        gallery.style.display = "flex"
+        overview.style.display = "none"
+        overviewAct.classList.remove("actived-view")
+        galleryAct.classList.add("actived-view")
+      } else {
+        gallery.style.display = "none"
+        overview.style.display = "flex"
+        overviewAct.classList.add("actived-view")
+        galleryAct.classList.remove("actived-view")
+      }
+    })
+  })
+});

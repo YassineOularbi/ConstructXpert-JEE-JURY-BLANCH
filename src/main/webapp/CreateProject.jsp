@@ -97,11 +97,11 @@
             <i class="fa-regular fa-comment"></i>
         </div>
         <div class="info-user d-flex flex-column">
-            <span>Yassine OULARBI</span>
-            <span>Admin</span>
+            <span>${user.getName()}</span>
+            <span>${user.getRole()}</span>
         </div>
         <div class="user">
-            <img src="https://th.bing.com/th/id/OIP.mZJt_Xli7Gj3AIXoCbbfUAHaHa?rs=1&pid=ImgDetMain alt="">
+            <img src="${user.getPicture()}">
         </div>
 </header>
 <section class=" main">

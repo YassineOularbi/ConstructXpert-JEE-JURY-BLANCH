@@ -1,5 +1,6 @@
 package org.servlet.project;
 
+import org.dto.UserDTO;
 import org.enums.Status;
 import org.model.Project;
 import org.repository.ProjectRepository;
@@ -17,6 +18,9 @@ public class AddProject extends HttpServlet {
     ProjectRepository projectRepository = new ProjectRepositoryImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        UserDTO userDTO = (UserDTO) session.getAttribute("user");
+        request.setAttribute("user", userDTO);
         this.getServletContext().getRequestDispatcher("/CreateProject.jsp").forward(request, response);
     }
 
@@ -48,6 +52,9 @@ public class AddProject extends HttpServlet {
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-    this.getServletContext().getRequestDispatcher("/Projects.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        UserDTO userDTO = (UserDTO) session.getAttribute("user");
+        request.setAttribute("user", userDTO);
+        this.getServletContext().getRequestDispatcher("/Projects.jsp").forward(request, response);
     }
 }
