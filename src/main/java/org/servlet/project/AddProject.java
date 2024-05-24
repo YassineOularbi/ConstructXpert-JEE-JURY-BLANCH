@@ -1,5 +1,6 @@
 package org.servlet.project;
 
+import org.dto.UserDTO;
 import org.enums.Status;
 import org.model.Project;
 import org.repository.ProjectRepository;
@@ -12,16 +13,15 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 
-@WebServlet(name = "ProjectServlet", value = "/ProjectServlet")
-public class ProjectServlet extends HttpServlet {
+@WebServlet(name = "AddProject", value = "/AddProject")
+public class AddProject extends HttpServlet {
     ProjectRepository projectRepository = new ProjectRepositoryImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            projectRepository.delete(1L);
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+        HttpSession session = request.getSession();
+        UserDTO userDTO = (UserDTO) session.getAttribute("user");
+        request.setAttribute("user", userDTO);
+        this.getServletContext().getRequestDispatcher("/CreateProject.jsp").forward(request, response);
     }
 
     @Override
@@ -48,9 +48,13 @@ public class ProjectServlet extends HttpServlet {
                 wallMaterial, foundationType, roofingType, areaSize, budget, planFloor, picture);
         try {
             projectRepository.add(project);
+            request.setAttribute("projects", projectRepository.getAll());
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
+        HttpSession session = request.getSession();
+        UserDTO userDTO = (UserDTO) session.getAttribute("user");
+        request.setAttribute("user", userDTO);
+        this.getServletContext().getRequestDispatcher("/Projects.jsp").forward(request, response);
     }
 }

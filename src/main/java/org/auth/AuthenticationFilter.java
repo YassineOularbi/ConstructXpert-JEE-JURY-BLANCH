@@ -26,13 +26,10 @@ public class AuthenticationFilter implements Filter {
         HttpSession session = ((HttpServletRequest) request).getSession();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        System.out.println(username);
-        System.out.println(password);
         UserRepository userRepository = new UserRepositoryImpl();
         UserDTO user = null;
         try {
             user = userRepository.authentication(username, password);
-            System.out.println(user);
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
