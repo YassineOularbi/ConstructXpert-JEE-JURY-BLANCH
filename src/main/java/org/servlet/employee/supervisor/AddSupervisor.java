@@ -29,8 +29,8 @@ public class AddSupervisor extends HttpServlet {
         String picture = request.getParameter("picture");
         Supervisor supervisor = new Supervisor(name, type, picture, true);
         try {
-            request.setAttribute("supervisors", supervisorService.getAllSupervisors());
             supervisorService.add(supervisor);
+            request.setAttribute("supervisors", supervisorService.getAllSupervisors());
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }

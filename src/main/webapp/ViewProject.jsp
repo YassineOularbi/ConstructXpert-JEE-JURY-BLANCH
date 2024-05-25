@@ -40,7 +40,7 @@
                         <i class='bx bxs-building-house'></i>
                         <span class="text nav-text">Project</span>
                     </a>
-                    <a class="nav-link my-2">
+                    <a class="nav-link my-2" href="teams">
                         <i class="fa-solid fa-users active-i"></i>
                         <span class="text nav-text active-span">Team</span>
                     </a>

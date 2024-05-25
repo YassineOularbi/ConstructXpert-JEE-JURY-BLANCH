@@ -2,13 +2,13 @@
   Created by IntelliJ IDEA.
   User: user
   Date: 24/05/2024
-  Time: 00:26
+  Time: 16:07
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,14 +16,15 @@
     <link rel="shortcut icon" href="assets/logo-head.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <style><%@include file="css/style.css"%></style>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style><%@include file="css/dashboard.css"%></style>
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
+
 <body>
 <nav class="sidebar">
     <div class="menu-bar">
@@ -38,7 +39,7 @@
                         <i class='bx bxs-building-house'></i>
                         <span class="text nav-text">Project</span>
                     </a>
-                    <a class="nav-link my-2" href="teams">
+                    <a class="nav-link hovered my-2 active" href="teams">
                         <i class="fa-solid fa-users active-i"></i>
                         <span class="text nav-text active-span">Team</span>
                     </a>
@@ -50,7 +51,7 @@
                         <i class="fa-solid fa-truck-front"></i>
                         <span class="text nav-text">Vehicle</span>
                     </a>
-                    <a class="nav-link  hovered my-2 active" href="equipments">
+                    <a class="nav-link my-2" href="equipments">
                         <i class="fa-solid fa-screwdriver-wrench"></i>
                         <span class="text nav-text">Equipment</span>
                     </a>
@@ -103,64 +104,44 @@
             <img src="${user.getPicture()}">
         </div>
 </header>
-<section class="main">
+<section class=" main">
     <div class="main-header d-flex flex-row justify-content-between">
         <div class="main-section">
-            <h6>Equipments</h6>
-            <span>Number of equipments : 12</span>
-        </div>
-        <div class="main-actions d-flex flex-row justify-content-around">
-            <div class="filter">
-                <i class="fa-solid fa-filter"></i>
-                <span>Filter</span>
-            </div>
-            <div class="featured">
-                <span>Featured</span>
-                <i class="fa-solid fa-sort-down"></i>
-            </div>
-            <div class="sort">
-                <i class="fa-brands fa-microsoft"></i>
-                <i class="fa-solid fa-list"></i>
-            </div>
+            <h6>Teams <span>&#x2794; Create Team</span></h6>
         </div>
     </div>
-    <div class="main-scroll  d-flex flex-row">
-        <c:forEach var="equipment" items="${equipments}">
-            <div class="project-card card justify-content-between d-flex flex-column">
-                <div class="dropdown">
-                    <button class="btn dropdown-toggle-split" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-solid fa-ellipsis"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item item-update" href="update-equipment?id=${equipment.getId()}">Update</a></li>
-                        <li><a class="dropdown-item" href="delete-equipment?id=${equipment.getId()}">Delete</a></li>
-                    </ul>
+    <div class="create">
+        <form action="add-team" method="post" class="d-flex flex-row">
+            <div class="resource-left resource">
+                <div class="name">
+                    <label for="name">Name :</label>
+                    <i class="fa-solid fa-users active-i"></i>
+                    <input type="text" id="name" class="name" name="name"
+                           placeholder="Enter team name " required>
                 </div>
-                <img style="height: 200px;" src="${equipment.getPicture()}" class="card-img-top project-img" alt="Room Image">
-                <div class="project-head d-flex flex-row justify-content-between align-items-center">
-                    <h6>${equipment.getTitle()}</h6>
-                    <span>${equipment.getType()}</span>
+                <div class="type">
+                    <label for="type">Job Type :</label>
+                    <i class="fa-solid fa-dna"></i>
+                    <input type="text" id="type" class="type" name="type"
+                           placeholder="Enter team job type " required>
                 </div>
-                <div class="resource-head project-head d-flex flex-row justify-content-between align-items-center">
-                    <p>Quantity : ${equipment.getQuantity()} u</p>
-                    <span>Available &#x2794;</span>
+                <div class="picture">
+                    <label for="picture">Picture :</label>
+                    <i class="fa-solid fa-image"></i>
+                    <input type="url" id="picture" class="picture" name="picture"
+                           placeholder="Enter team picture " required>
                 </div>
             </div>
-        </c:forEach>
-        <div class="add">
-            <a href="add-equipment">
-                <i class="fa-thin fa-plus"></i>
-                <h6>Add Equipment</h6>
-            </a>
-        </div>
+            <button type="submit" class="btn resource-btn">Create</button>
+        </form>
     </div>
 </section>
 <script src="https://kit.fontawesome.com/6150be860f.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
-<script><%@include file="js/script.js"%></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+
+
+
 
 </body>
-</html>
+
+</html></html>

@@ -179,4 +179,36 @@
         <servlet-name>DeleteSupervisor</servlet-name>
         <url-pattern>/delete-supervisor</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DisplayTeams</servlet-name>
+        <servlet-class>org.servlet.employee.team.DisplayTeams</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisplayTeams</servlet-name>
+        <url-pattern>/teams</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddTeam</servlet-name>
+        <servlet-class>org.servlet.employee.team.AddTeam</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddTeam</servlet-name>
+        <url-pattern>/add-team</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteTeam</servlet-name>
+        <servlet-class>org.servlet.employee.team.DeleteTeam</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteTeam</servlet-name>
+        <url-pattern>/delete-team</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateTeam</servlet-name>
+        <servlet-class>org.servlet.employee.team.UpdateTeam</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateTeam</servlet-name>
+        <url-pattern>/update-team</url-pattern>
+    </servlet-mapping>
 </web-app>
