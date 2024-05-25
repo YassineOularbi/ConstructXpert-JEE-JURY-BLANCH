@@ -1,21 +1,15 @@
-package org.servlet.resource;
+package org.servlet.resource.vehicle;
 
-import org.model.Equipment;
-import org.model.Material;
-import org.model.Vehicle;
-import org.service.EquipmentService;
-import org.service.MaterialService;
 import org.service.VehicleService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.sql.SQLException;
 
-@WebServlet(name = "ResourceServlet", value = "/ResourceServlet")
-public class ResourceServlet extends HttpServlet {
-
+@WebServlet(name = "DeleteVehicle", value = "/DeleteVehicle")
+public class DeleteVehicle extends HttpServlet {
+    VehicleService vehicleService = new VehicleService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

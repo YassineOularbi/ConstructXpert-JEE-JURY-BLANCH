@@ -12,6 +12,14 @@
         <url-pattern>/auth</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>DisplayProjects</servlet-name>
+        <servlet-class>org.servlet.project.DisplayProjects</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisplayProjects</servlet-name>
+        <url-pattern>/projects</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>AddProject</servlet-name>
         <servlet-class>org.servlet.project.AddProject</servlet-class>
     </servlet>
@@ -44,12 +52,20 @@
         <url-pattern>/view-detail</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>DisplayProjects</servlet-name>
-        <servlet-class>org.servlet.project.DisplayProjects</servlet-class>
+        <servlet-name>DisplayVehicles</servlet-name>
+        <servlet-class>org.servlet.resource.vehicle.DisplayVehicles</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>DisplayProjects</servlet-name>
-        <url-pattern>/projects</url-pattern>
+        <servlet-name>DisplayVehicles</servlet-name>
+        <url-pattern>/vehicles</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddVehicle</servlet-name>
+        <servlet-class>org.servlet.resource.vehicle.AddVehicle</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddVehicle</servlet-name>
+        <url-pattern>/add-vehicle</url-pattern>
     </servlet-mapping>
 
 </web-app>
