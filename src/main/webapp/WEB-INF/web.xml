@@ -99,4 +99,12 @@
         <servlet-name>AddEquipment</servlet-name>
         <url-pattern>/add-equipment</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateEquipment</servlet-name>
+        <servlet-class>org.servlet.resource.equipment.UpdateEquipment</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateEquipment</servlet-name>
+        <url-pattern>/update-equipment</url-pattern>
+    </servlet-mapping>
 </web-app>
