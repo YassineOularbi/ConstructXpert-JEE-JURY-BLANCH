@@ -47,7 +47,7 @@
                         <i class="fa-solid fa-user-tie"></i>
                         <span class="text nav-text">Supervisor</span>
                     </a>
-                    <a class="nav-link hovered my-2 active" href="vehicles">
+                    <a class="nav-link my-2" href="vehicles">
                         <i class="fa-solid fa-truck-front"></i>
                         <span class="text nav-text">Vehicle</span>
                     </a>
@@ -55,7 +55,7 @@
                         <i class="fa-solid fa-screwdriver-wrench"></i>
                         <span class="text nav-text">Equipment</span>
                     </a>
-                    <a class="nav-link my-2" href="materials">
+                    <a class="nav-link hovered my-2 active" href="materials">
                         <i class="fa-solid fa-recycle"></i>
                         <span class="text nav-text">Material</span>
                     </a>
@@ -107,50 +107,51 @@
 <section class=" main">
     <div class="main-header d-flex flex-row justify-content-between">
         <div class="main-section">
-            <h6>Vehicles <span>&#x2794; Create Vehicle</span></h6>
+            <h6>Materials <span>&#x2794; Update Material</span></h6>
         </div>
     </div>
     <div class="create">
-        <form action="add-vehicle" method="post" class="d-flex flex-row">
+        <form action="update-material" method="post" class="d-flex flex-row">
             <div class="resource-left resource">
                 <div class="title">
                     <label for="title">Title :</label>
-                    <i class="fa-solid fa-truck-front"></i>
+                    <i class="fa-solid fa-recycle"></i>
                     <input type="text" id="title" class="title" name="title"
-                           placeholder="Enter vehicle title " required>
+                           placeholder="Enter equipment title " required value="${material.getTitle()}">
                 </div>
                 <div class="type">
                     <label for="type">Type :</label>
                     <i class="fa-solid fa-dna"></i>
                     <input type="text" id="type" class="type" name="type"
-                           placeholder="Enter vehicle type " required>
+                           placeholder="Enter equipment type " required value="${material.getType()}">
                 </div>
                 <div class="provider">
                     <label for="provider">Provider :</label>
                     <i class="fa-solid fa-store"></i>
                     <input type="text" id="provider" class="provider" name="provider"
-                           placeholder="Enter vehicle provider " required>
+                           placeholder="Enter equipment provider " required value="${material.getProvider()}">
                 </div>
             </div>
             <div class="resource-right resource">
                 <div class="acquisitionDate">
                     <label for="acquisitionDate">Acquisition Date :</label>
-                    <input type="date" id="acquisitionDate" class="acquisitionDate" name="acquisitionDate" required>
+                    <input type="date" id="acquisitionDate" class="acquisitionDate" name="acquisitionDate" required value="${material.getAcquisitionDate()}">
                 </div>
                 <div class="picture">
                     <label for="provider">Picture :</label>
                     <i class="fa-solid fa-image"></i>
                     <input type="url" id="picture" class="picture" name="picture"
-                           placeholder="Enter vehicle picture " required>
+                           placeholder="Enter equipment picture " required value="${material.getPicture()}">
                 </div>
                 <div class="quantity">
                     <label for="quantity">Quantity :</label>
                     <i class="fa-solid fa-layer-group"></i>
                     <input type="number" id="quantity" class="quantity" name="quantity"
-                           placeholder="Enter vehicle quantity" required>
+                           placeholder="Enter equipment quantity" required value="${material.getQuantity()}">
                 </div>
             </div>
-            <button type="submit" class="btn resource-btn">Create</button>
+            <input hidden="hidden" value="${material.getId()}" name="id">
+            <button type="submit" class="btn resource-btn">Update</button>
         </form>
     </div>
 </section>
@@ -162,4 +163,4 @@
 
 </body>
 
-</html></html>
+</html>

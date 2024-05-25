@@ -56,7 +56,7 @@
                         <i class="fa-solid fa-screwdriver-wrench"></i>
                         <span class="text nav-text">Equipment</span>
                     </a>
-                    <a class="nav-link my-2">
+                    <a class="nav-link my-2" href="materials">
                         <i class="fa-solid fa-recycle"></i>
                         <span class="text nav-text">Material</span>
                     </a>

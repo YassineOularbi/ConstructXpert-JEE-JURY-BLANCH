@@ -115,4 +115,36 @@
         <servlet-name>DeleteEquipment</servlet-name>
         <url-pattern>/delete-equipment</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DisplayMaterials</servlet-name>
+        <servlet-class>org.servlet.resource.material.DisplayMaterials</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisplayMaterials</servlet-name>
+        <url-pattern>/materials</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddMaterial</servlet-name>
+        <servlet-class>org.servlet.resource.material.AddMaterial</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddMaterial</servlet-name>
+        <url-pattern>/add-material</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateMaterial</servlet-name>
+        <servlet-class>org.servlet.resource.material.UpdateMaterial</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateMaterial</servlet-name>
+        <url-pattern>/update-material</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteMaterial</servlet-name>
+        <servlet-class>org.servlet.resource.material.DeleteMaterial</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteMaterial</servlet-name>
+        <url-pattern>/delete-material</url-pattern>
+    </servlet-mapping>
 </web-app>

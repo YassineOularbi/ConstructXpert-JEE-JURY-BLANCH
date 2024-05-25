@@ -1,8 +1,8 @@
-package org.servlet.resource.equipment;
+package org.servlet.resource.material;
 
 import org.dto.UserDTO;
-import org.model.Equipment;
-import org.service.EquipmentService;
+import org.model.Material;
+import org.service.MaterialService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -11,21 +11,21 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 
-@WebServlet(name = "UpdateEquipment", value = "/UpdateEquipment")
-public class UpdateEquipment extends HttpServlet {
-    EquipmentService equipmentService = new EquipmentService();
+@WebServlet(name = "UpdateMaterial", value = "/UpdateMaterial")
+public class UpdateMaterial extends HttpServlet {
+    MaterialService materialService = new MaterialService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long id = Long.valueOf(request.getParameter("id"));
         try {
-            request.setAttribute("equipment", equipmentService.getById(id));
+            request.setAttribute("material", materialService.getById(id));
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         HttpSession session = request.getSession();
         UserDTO userDTO = (UserDTO) session.getAttribute("user");
         request.setAttribute("user", userDTO);
-        this.getServletContext().getRequestDispatcher("/UpdateEquipment.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/UpdateMaterial.jsp").forward(request, response);
     }
 
     @Override
@@ -38,16 +38,16 @@ public class UpdateEquipment extends HttpServlet {
         String picture = request.getParameter("picture");
         String quantity = request.getParameter("quantity");
 
-        Equipment equipment = new Equipment(id, title, type, provider, acquisitionDate, picture, quantity, true);
+        Material material = new Material(id, title, type, provider, acquisitionDate, picture, quantity, true);
         try {
-            equipmentService.update(equipment);
-            request.setAttribute("equipments", equipmentService.getAllEquipment());
+            materialService.update(material);
+            request.setAttribute("materials", materialService.getAllMaterials());
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         HttpSession session = request.getSession();
         UserDTO userDTO = (UserDTO) session.getAttribute("user");
         request.setAttribute("user", userDTO);
-        this.getServletContext().getRequestDispatcher("/Equipments.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/Materials.jsp").forward(request, response);
     }
 }

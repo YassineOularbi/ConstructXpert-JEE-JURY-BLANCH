@@ -55,7 +55,7 @@
                         <i class="fa-solid fa-screwdriver-wrench"></i>
                         <span class="text nav-text">Equipment</span>
                     </a>
-                    <a class="nav-link my-2">
+                    <a class="nav-link my-2" href="materials">
                         <i class="fa-solid fa-recycle"></i>
                         <span class="text nav-text">Material</span>
                     </a>
@@ -151,7 +151,7 @@
                 </div>
             </div>
             <input hidden="hidden" value="${equipment.getId()}" name="id">
-            <button type="submit" class="btn resource-btn">Create</button>
+            <button type="submit" class="btn resource-btn">Update</button>
         </form>
     </div>
 </section>
