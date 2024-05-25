@@ -2,7 +2,6 @@ package org.servlet.resource.equipment;
 
 import org.dto.UserDTO;
 import org.model.Equipment;
-import org.model.Vehicle;
 import org.service.EquipmentService;
 
 import javax.servlet.*;

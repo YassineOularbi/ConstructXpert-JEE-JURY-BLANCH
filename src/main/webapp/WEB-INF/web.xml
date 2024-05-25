@@ -123,4 +123,12 @@
         <servlet-name>DisplayMaterials</servlet-name>
         <url-pattern>/materials</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AddMaterial</servlet-name>
+        <servlet-class>org.servlet.resource.material.AddMaterial</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddMaterial</servlet-name>
+        <url-pattern>/add-material</url-pattern>
+    </servlet-mapping>
 </web-app>
