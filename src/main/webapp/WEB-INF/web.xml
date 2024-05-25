@@ -67,5 +67,13 @@
         <servlet-name>AddVehicle</servlet-name>
         <url-pattern>/add-vehicle</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteVehicle</servlet-name>
+        <servlet-class>org.servlet.resource.vehicle.DeleteVehicle</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteVehicle</servlet-name>
+        <url-pattern>/delete-vehicle</url-pattern>
+    </servlet-mapping>
 
 </web-app>
