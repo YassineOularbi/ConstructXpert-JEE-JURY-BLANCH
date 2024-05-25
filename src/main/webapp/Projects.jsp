@@ -172,7 +172,7 @@
                 </div>
             </div>
             <div class="project-action">
-                <a href="" >Add Tasks</a>
+                <a href="tasks?id=${project.getId()}&name=${project.getName()}">Show Tasks</a>
             </div>
         </div>
         </c:forEach>

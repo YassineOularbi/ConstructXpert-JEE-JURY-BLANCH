@@ -11,8 +11,7 @@
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <!-- <style><%@include file="css/dashboard.css"%></style> -->
-    <link rel="stylesheet" href="css/dashboard.css">
+    <style><%@include file="css/dashboard.css"%></style>
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -152,7 +151,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -166,7 +165,7 @@
             </div>
             <div class="task">
                 <div class="task-overflow  d-flex flex-column">
-                    
+
                 </div>
             </div>
         </div>
@@ -180,7 +179,7 @@
             </div>
             <div class="task">
                 <div class="task-overflow  d-flex flex-column">
-                    
+
                 </div>
             </div>
         </div>
@@ -191,7 +190,7 @@
         crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/6150be860f.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
-/* <script><%@include file="js/script.js"%></script> */
+<script><%@include file="js/script.js"%></script>
 
 
 </body>

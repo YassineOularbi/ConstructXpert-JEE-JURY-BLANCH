@@ -116,7 +116,7 @@
             <h6 class="actived-view project-action overview-action">Overview</h6>
             <h6 class="project-action gallery-action">Project Gallery</h6>
         </div>
-        <a href="">Add Tasks</a>
+        <a href="tasks?id=${project.getId()}&name=${project.getName()}">Show Tasks</a>
     </div>
     <div class="overview">
         <div class="view-description">
