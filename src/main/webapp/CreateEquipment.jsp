@@ -47,11 +47,11 @@
                         <i class="fa-solid fa-user-tie"></i>
                         <span class="text nav-text">Supervisor</span>
                     </a>
-                    <a class="nav-link hovered my-2 active" href="vehicles">
+                    <a class="nav-link my-2" href="vehicles">
                         <i class="fa-solid fa-truck-front"></i>
                         <span class="text nav-text">Vehicle</span>
                     </a>
-                    <a class="nav-link my-2" href="equipments">
+                    <a class="nav-link hovered my-2 active" href="equipments">
                         <i class="fa-solid fa-screwdriver-wrench"></i>
                         <span class="text nav-text">Equipment</span>
                     </a>
@@ -107,29 +107,29 @@
 <section class=" main">
     <div class="main-header d-flex flex-row justify-content-between">
         <div class="main-section">
-            <h6>Vehicles <span>&#x2794; Create Vehicle</span></h6>
+            <h6>Equipments <span>&#x2794; Create Equipment</span></h6>
         </div>
     </div>
     <div class="create">
-        <form action="add-vehicle" method="post" class="d-flex flex-row">
+        <form action="add-equipment" method="post" class="d-flex flex-row">
             <div class="resource-left resource">
                 <div class="title">
                     <label for="title">Title :</label>
-                    <i class="fa-solid fa-truck-front"></i>
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
                     <input type="text" id="title" class="title" name="title"
-                           placeholder="Enter vehicle title " required>
+                           placeholder="Enter equipment title " required>
                 </div>
                 <div class="type">
                     <label for="type">Type :</label>
                     <i class="fa-solid fa-dna"></i>
                     <input type="text" id="type" class="type" name="type"
-                           placeholder="Enter vehicle type " required>
+                           placeholder="Enter equipment type " required>
                 </div>
                 <div class="provider">
                     <label for="provider">Provider :</label>
                     <i class="fa-solid fa-store"></i>
                     <input type="text" id="provider" class="provider" name="provider"
-                           placeholder="Enter vehicle provider " required>
+                           placeholder="Enter equipment provider " required>
                 </div>
             </div>
             <div class="resource-right resource">
@@ -141,13 +141,13 @@
                     <label for="provider">Picture :</label>
                     <i class="fa-solid fa-image"></i>
                     <input type="url" id="picture" class="picture" name="picture"
-                           placeholder="Enter vehicle picture " required>
+                           placeholder="Enter equipment picture " required>
                 </div>
                 <div class="quantity">
                     <label for="quantity">Quantity :</label>
                     <i class="fa-solid fa-layer-group"></i>
                     <input type="number" id="quantity" class="quantity" name="quantity"
-                           placeholder="Enter vehicle quantity" required>
+                           placeholder="Enter equipment quantity" required>
                 </div>
             </div>
             <button type="submit" class="btn resource-btn">Create</button>

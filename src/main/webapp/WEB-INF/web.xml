@@ -91,4 +91,12 @@
         <servlet-name>DisplayEquipments</servlet-name>
         <url-pattern>/equipments</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AddEquipment</servlet-name>
+        <servlet-class>org.servlet.resource.equipment.AddEquipment</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddEquipment</servlet-name>
+        <url-pattern>/add-equipment</url-pattern>
+    </servlet-mapping>
 </web-app>
