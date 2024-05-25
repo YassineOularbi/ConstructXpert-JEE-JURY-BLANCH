@@ -1,5 +1,6 @@
 package org.service;
 
+import org.model.Employee;
 import org.model.Supervisor;
 import org.repository.EmployeeRepository;
 import org.repository.EmployeeRepositoryImpl;
@@ -14,8 +15,8 @@ public class SupervisorService {
         return employeeRepository.getAllSupervisor();
     }
 
-    public Supervisor getById(Long id) throws SQLException, ClassNotFoundException {
-        return (Supervisor) employeeRepository.getById(id);
+    public Employee getById(Long id) throws SQLException, ClassNotFoundException {
+        return employeeRepository.getById(id);
     }
 
     public void add(Supervisor supervisor) throws SQLException, ClassNotFoundException {

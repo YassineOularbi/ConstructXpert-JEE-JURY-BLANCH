@@ -40,7 +40,7 @@
                         <i class="fa-solid fa-users active-i"></i>
                         <span class="text nav-text active-span">Team</span>
                     </a>
-                    <a class="nav-link my-2">
+                    <a class="nav-link my-2" href="supervisors">
                         <i class="fa-solid fa-user-tie"></i>
                         <span class="text nav-text">Supervisor</span>
                     </a>
