@@ -32,11 +32,11 @@
         <div class="menu d-flex flex-column justify-content-between">
             <div class="first-option">
                 <div class="menu-links">
-                    <a class="nav-link my-2">
+                    <a class="nav-link my-2" href="dashboard">
                         <i class='bx bxs-dashboard'></i>
                         <span class="text nav-text">Dashboard</span>
                     </a>
-                    <a class="nav-link hovered my-2 active">
+                    <a class="nav-link hovered my-2 active" href="projects">
                         <i class='bx bxs-building-house'></i>
                         <span class="text nav-text">Project</span>
                     </a>
@@ -48,7 +48,7 @@
                         <i class="fa-solid fa-user-tie"></i>
                         <span class="text nav-text">Supervisor</span>
                     </a>
-                    <a class="nav-link my-2">
+                    <a class="nav-link my-2" href="vehicles">
                         <i class="fa-solid fa-truck-front"></i>
                         <span class="text nav-text">Vehicle</span>
                     </a>

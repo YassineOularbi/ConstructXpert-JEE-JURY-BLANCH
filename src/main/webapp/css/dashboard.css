@@ -477,7 +477,7 @@ a{
     flex-wrap: wrap;
     justify-content: center;
 }
-.add-project{
+.add{
     width: 270px;
     height: 300px;
     background-color: var(--grey-color);
@@ -488,7 +488,7 @@ a{
     align-content: center;
 
 }
-.add-project a i{
+.add a i{
     font-size: 60px;
 }
 .main-actions{
@@ -504,54 +504,54 @@ a{
 .main-actions div{
     height: 40px;
 }
-.create-project{
+.create{
     width: 100%;
     height: 90%;
     background-color: var(--white-color);
 }
-.create-project form{
+.create form{
     width: 100%;
     height: 100%;
     padding: 0 20px;
     margin-top: -10px;
 }
-.create-project .up{
+.create .up{
     width: 100%;
     height: 40%;
     background-color: var(--white-color);
 }
-.create-project .down{
+.create .down{
     width: 100%;
     height: 60%;
     background-color: var(--white-color);
 }
-.create-project .up div{
+.create .up div{
     width: 25%;
 }
-.create-project .up div div{
+.create .up div div{
     position: relative;
     width: 100%;
     height: 33%;
     margin-bottom: 2px;
     padding: 0 10px;
 }
-.create-project .up label{
+.create .up label{
     font-size: 12px;
     font-weight: bold;
 }
-.create-project .up i{
+.create .up i{
     position: absolute;
     bottom: 17px;
     left: 15px;
 }
-.create-project .up input{
+.create .up input{
     width: 100%;
     outline: none;
     padding-left: 30px;
     border-radius: 7px;
     border: 1px solid var(--black-color);
 }
-.create-project .up select{
+.create .up select{
     width: 100%;
     height: 25px;
     outline: none;
@@ -564,23 +564,23 @@ a{
     padding-left: 30px;
     background-color: var(--white-color);
 }
-.create-project .up input::placeholder{
+.create .up input::placeholder{
     font-size: 13px;
     font-weight: 600;
 }
-.create-project .down .down-left{
+.create .down .down-left{
     width: 50%;
     height: 90%;
     padding: 4px 10px;
 }
-.create-project .down .down-left-head{
+.create .down .down-left-head{
     height: 20%;
 }
-.create-project .down .down-left-head h4{
+.create .down .down-left-head h4{
     font-size: 15px;
     font-weight: bold;
 }
-.create-project .down .down-left-head p{
+.create .down .down-left-head p{
     margin: 0;
     font-size: 10px;
 }
@@ -626,7 +626,7 @@ a{
 .down-composante div div{
     gap: 30px;
 }
-.create-project .down .down-right{
+.create .down .down-right{
     width: 50%;
     height: 100%;
     padding: 4px 20px;
@@ -904,4 +904,53 @@ a{
 .plan-right .img img{
     width: 100%;
     height: 100%;
+}
+/* Project end */
+/* Resource */
+.create .resource-left{
+    width: 50%;
+    height: 100%;
+}
+.create .resource-right{
+    width: 50%;
+    height: 100%;
+}
+.create .resource div{
+    position: relative;
+    width: 100%;
+    height: 30%;
+    padding: 0 20px;
+}
+.create .resource label{
+    font-size: 14px;
+    font-weight: bold;
+}
+.create .resource i{
+    position: absolute;
+    top: 30px;
+    left: 25px;
+}
+.create .resource input{
+    width: 100%;
+    height: 30px;
+    outline: none;
+    padding-left: 30px;
+    border-radius: 7px;
+    border: 1px solid var(--black-color);
+}
+.create .resource-btn{
+    position: absolute;
+    bottom: 60px;
+    left: 400px;
+    width: 300px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: var(--primary-color);
+}
+.resource-head p{
+    font-size: 12px;
+    font-weight: bold;
+}
+.resource-head span{
+    color: var(--primary-color);
 }

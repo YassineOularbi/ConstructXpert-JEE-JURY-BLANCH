@@ -1,6 +1,14 @@
-
+<%--
+  Created by IntelliJ IDEA.
+  User: user
+  Date: 24/05/2024
+  Time: 16:07
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +16,15 @@
     <link rel="shortcut icon" href="assets/logo-head.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style><%@include file="css/dashboard.css"%></style>
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
+
 <body>
 <nav class="sidebar">
     <div class="menu-bar">
@@ -38,7 +47,7 @@
                         <i class="fa-solid fa-user-tie"></i>
                         <span class="text nav-text">Supervisor</span>
                     </a>
-                    <a class="nav-link  hovered my-2 active" href="vehicles">
+                    <a class="nav-link hovered my-2 active" href="vehicles">
                         <i class="fa-solid fa-truck-front"></i>
                         <span class="text nav-text">Vehicle</span>
                     </a>
@@ -95,63 +104,62 @@
             <img src="${user.getPicture()}">
         </div>
 </header>
-<section class="main">
+<section class=" main">
     <div class="main-header d-flex flex-row justify-content-between">
         <div class="main-section">
-            <h6>Vehicles</h6>
-            <span>Number of vehicles : 12</span>
-        </div>
-        <div class="main-actions d-flex flex-row justify-content-around">
-            <div class="filter">
-                <i class="fa-solid fa-filter"></i>
-                <span>Filter</span>
-            </div>
-            <div class="featured">
-                <span>Featured</span>
-                <i class="fa-solid fa-sort-down"></i>
-            </div>
-            <div class="sort">
-                <i class="fa-brands fa-microsoft"></i>
-                <i class="fa-solid fa-list"></i>
-            </div>
+            <h6>Vehicles <span>&#x2794; Create Vehicle</span></h6>
         </div>
     </div>
-    <div class="main-scroll  d-flex flex-row">
-        <div class="project-card card justify-content-between d-flex flex-column">
-
-            <div class="dropdown">
-                <button class="btn dropdown-toggle-split" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-ellipsis"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="view-detail?id=${project.getId()}">View Detail</a></li>
-                    <li><a class="dropdown-item item-update" href="update-project?id=${project.getId()}">Update</a></li>
-                    <li><a class="dropdown-item" href="delete-project?id=${project.getId()}">Delete</a></li>
-                </ul>
+    <div class="create">
+        <form action="add-vehicle" method="post" class="d-flex flex-row">
+            <div class="resource-left resource">
+                <div class="title">
+                    <label for="title">Title :</label>
+                    <i class="fa-solid fa-truck-front"></i>
+                    <input type="text" id="title" class="title" name="title"
+                           placeholder="Enter vehicle title " required>
+                </div>
+                <div class="type">
+                    <label for="type">Type :</label>
+                    <i class="fa-solid fa-dna"></i>
+                    <input type="text" id="type" class="type" name="type"
+                           placeholder="Enter vehicle type " required>
+                </div>
+                <div class="provider">
+                    <label for="provider">Provider :</label>
+                    <i class="fa-solid fa-store"></i>
+                    <input type="text" id="provider" class="provider" name="provider"
+                           placeholder="Enter resource provider " required>
+                </div>
             </div>
-            <img style="height: 200px;" src="https://www.komatsu.eu/-/media/projects/komatsu/products/bulldozer/d61pxi_24.ashx?rev=ce2ab6ef60fb4d9c8f445b8d4b2f793b" class="card-img-top project-img" alt="Room Image">
-            <div class="project-head d-flex flex-row justify-content-between align-items-center">
-                <h6>D61EXi/PXi-24</h6>
-                <span>Crawler Dozers</span>
+            <div class="resource-right resource">
+                <div class="acquisitionDate">
+                    <label for="acquisitionDate">Acquisition Date :</label>
+                    <input type="date" id="acquisitionDate" class="acquisitionDate" name="acquisitionDate" required>
+                </div>
+                <div class="picture">
+                    <label for="provider">Picture :</label>
+                    <i class="fa-solid fa-image"></i>
+                    <input type="url" id="picture" class="picture" name="picture"
+                           placeholder="Enter resource picture " required>
+                </div>
+                <div class="quantity">
+                    <label for="quantity">Quantity :</label>
+                    <i class="fa-solid fa-layer-group"></i>
+                    <input type="number" id="quantity" class="quantity" name="quantity"
+                           placeholder="Enter resource quantity" required>
+                </div>
             </div>
-            <div class="resource-head project-head d-flex flex-row justify-content-between align-items-center">
-                <p>Quantity : 5 u</p>
-                <span>Available &#x2794;</span>
-            </div>
-        </div>
-        <div class="add">
-            <a href="add-vehicle">
-                <i class="fa-thin fa-plus"></i>
-                <h6>Add Vehicle</h6>
-            </a>
-        </div>
+            <button type="submit" class="btn resource-btn">Create</button>
+        </form>
     </div>
 </section>
 <script src="https://kit.fontawesome.com/6150be860f.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+
+
+
 
 </body>
-</html>
+
+</html></html>
