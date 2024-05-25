@@ -43,7 +43,7 @@
                         <i class="fa-solid fa-users active-i"></i>
                         <span class="text nav-text active-span">Team</span>
                     </a>
-                    <a class="nav-link my-2">
+                    <a class="nav-link my-2" href="supervisors">
                         <i class="fa-solid fa-user-tie"></i>
                         <span class="text nav-text">Supervisor</span>
                     </a>
@@ -123,13 +123,13 @@
                     <label for="type">Type :</label>
                     <i class="fa-solid fa-dna"></i>
                     <input type="text" id="type" class="type" name="type"
-                           placeholder="Enter equipment type " required>
+                           placeholder="Enter material type " required>
                 </div>
                 <div class="provider">
                     <label for="provider">Provider :</label>
                     <i class="fa-solid fa-store"></i>
                     <input type="text" id="provider" class="provider" name="provider"
-                           placeholder="Enter equipment provider " required>
+                           placeholder="Enter material provider " required>
                 </div>
             </div>
             <div class="resource-right resource">
@@ -141,13 +141,13 @@
                     <label for="provider">Picture :</label>
                     <i class="fa-solid fa-image"></i>
                     <input type="url" id="picture" class="picture" name="picture"
-                           placeholder="Enter equipment picture " required>
+                           placeholder="Enter material picture " required>
                 </div>
                 <div class="quantity">
                     <label for="quantity">Quantity :</label>
                     <i class="fa-solid fa-layer-group"></i>
                     <input type="number" id="quantity" class="quantity" name="quantity"
-                           placeholder="Enter equipment quantity" required>
+                           placeholder="Enter material quantity" required>
                 </div>
             </div>
             <button type="submit" class="btn resource-btn">Create</button>

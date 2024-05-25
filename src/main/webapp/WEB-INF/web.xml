@@ -147,4 +147,36 @@
         <servlet-name>DeleteMaterial</servlet-name>
         <url-pattern>/delete-material</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DisplaySupervisors</servlet-name>
+        <servlet-class>org.servlet.employee.supervisor.DisplaySupervisors</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisplaySupervisors</servlet-name>
+        <url-pattern>/supervisors</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddSupervisor</servlet-name>
+        <servlet-class>org.servlet.employee.supervisor.AddSupervisor</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddSupervisor</servlet-name>
+        <url-pattern>/add-supervisor</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateSupervisor</servlet-name>
+        <servlet-class>org.servlet.employee.supervisor.UpdateSupervisor</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateSupervisor</servlet-name>
+        <url-pattern>/update-supervisor</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteSupervisor</servlet-name>
+        <servlet-class>org.servlet.employee.supervisor.DeleteSupervisor</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteSupervisor</servlet-name>
+        <url-pattern>/delete-supervisor</url-pattern>
+    </servlet-mapping>
 </web-app>

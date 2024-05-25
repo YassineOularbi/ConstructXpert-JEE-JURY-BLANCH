@@ -43,7 +43,7 @@
                         <i class="fa-solid fa-users active-i"></i>
                         <span class="text nav-text active-span">Team</span>
                     </a>
-                    <a class="nav-link my-2">
+                    <a class="nav-link my-2" href="supervisors">
                         <i class="fa-solid fa-user-tie"></i>
                         <span class="text nav-text">Supervisor</span>
                     </a>
@@ -117,19 +117,19 @@
                     <label for="title">Title :</label>
                     <i class="fa-solid fa-recycle"></i>
                     <input type="text" id="title" class="title" name="title"
-                           placeholder="Enter equipment title " required value="${material.getTitle()}">
+                           placeholder="Enter material title " required value="${material.getTitle()}">
                 </div>
                 <div class="type">
                     <label for="type">Type :</label>
                     <i class="fa-solid fa-dna"></i>
                     <input type="text" id="type" class="type" name="type"
-                           placeholder="Enter equipment type " required value="${material.getType()}">
+                           placeholder="Enter material type " required value="${material.getType()}">
                 </div>
                 <div class="provider">
                     <label for="provider">Provider :</label>
                     <i class="fa-solid fa-store"></i>
                     <input type="text" id="provider" class="provider" name="provider"
-                           placeholder="Enter equipment provider " required value="${material.getProvider()}">
+                           placeholder="Enter material provider " required value="${material.getProvider()}">
                 </div>
             </div>
             <div class="resource-right resource">
@@ -141,13 +141,13 @@
                     <label for="provider">Picture :</label>
                     <i class="fa-solid fa-image"></i>
                     <input type="url" id="picture" class="picture" name="picture"
-                           placeholder="Enter equipment picture " required value="${material.getPicture()}">
+                           placeholder="Enter material picture " required value="${material.getPicture()}">
                 </div>
                 <div class="quantity">
                     <label for="quantity">Quantity :</label>
                     <i class="fa-solid fa-layer-group"></i>
                     <input type="number" id="quantity" class="quantity" name="quantity"
-                           placeholder="Enter equipment quantity" required value="${material.getQuantity()}">
+                           placeholder="Enter material quantity" required value="${material.getQuantity()}">
                 </div>
             </div>
             <input hidden="hidden" value="${material.getId()}" name="id">

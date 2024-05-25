@@ -1,9 +1,7 @@
-package org.servlet.employee;
+package org.servlet.employee.supervisor;
 
-import org.model.Supervisor;
-import org.model.Team;
+import org.dto.UserDTO;
 import org.service.SupervisorService;
-import org.service.TeamService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -11,26 +9,20 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "EmployeeServlet", value = "/EmployeeServlet")
-public class EmployeeServlet extends HttpServlet {
+@WebServlet(name = "DisplaySupervisors", value = "/DisplaySupervisors")
+public class DisplaySupervisors extends HttpServlet {
     SupervisorService supervisorService = new SupervisorService();
-    TeamService teamService = new TeamService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-        Supervisor supervisor = new Supervisor("yassine", "John Doe", "Project Manager", true, null);
-        System.out.println(supervisor);
-
-        Team teamMember = new Team(2L,"yassine", "Jane Smith", "Developer", true, null);
-        System.out.println(teamMember);
-
         try {
-            supervisorService.add(supervisor);
-            teamService.update(teamMember);
+            request.setAttribute("supervisors", supervisorService.getAllSupervisors());
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        HttpSession session = request.getSession();
+        UserDTO userDTO = (UserDTO) session.getAttribute("user");
+        request.setAttribute("user", userDTO);
+        this.getServletContext().getRequestDispatcher("/Supervisors.jsp").forward(request, response);
     }
 
     @Override

@@ -12,7 +12,13 @@
     <list default="true" id="19efa339-2073-4c37-96e1-5edffce9bc32" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../BRIEF-WEATHER-APP/BRIEF-WEATHER-APP.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../BRIEF-WEATHER-APP/src/City.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/servlet/resource/material/DeleteMaterial.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/servlet/employee/supervisor/AddSupervisor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/servlet/employee/supervisor/DeleteSupervisor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/servlet/employee/supervisor/DisplaySupervisors.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/servlet/employee/supervisor/UpdateSupervisor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/CreateSupervisor.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Supervisors.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/UpdateSupervisor.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Magerama-cinema-BM/src/main/java/jee/javapack/servlets/CinemaHome.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../QUIZ-JAVA/QUIZ-JAVA.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../STUDENT-MANAGEMENT-SPRINGBOOT-ANGULAR" afterDir="false" />
@@ -51,6 +57,22 @@
       <change afterPath="$PROJECT_DIR$/../../hibernate/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../hibernate/src/main/webapp/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/service/SupervisorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/service/SupervisorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/employee/EmployeeServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/CreateEquipment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/CreateEquipment.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/CreateMaterial.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/CreateMaterial.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/CreateProject.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/CreateProject.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/CreateVehicle.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/CreateVehicle.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Dashboard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Equipments.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Equipments.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Materials.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Materials.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Projects.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Projects.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/UpdateEquipment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/UpdateEquipment.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/UpdateMaterial.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/UpdateMaterial.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/UpdateProject.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/UpdateProject.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/UpdateVehicle.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/UpdateVehicle.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Vehicles.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Vehicles.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/ViewProject.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ViewProject.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -196,7 +218,7 @@
       <updated>1716389413926</updated>
       <workItem from="1716389415112" duration="33152000" />
       <workItem from="1716475878828" duration="2157000" />
-      <workItem from="1716504740734" duration="38681000" />
+      <workItem from="1716504740734" duration="43516000" />
     </task>
     <servers />
   </component>
