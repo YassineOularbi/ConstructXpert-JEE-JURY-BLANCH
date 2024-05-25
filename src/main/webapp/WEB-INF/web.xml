@@ -75,5 +75,12 @@
         <servlet-name>DeleteVehicle</servlet-name>
         <url-pattern>/delete-vehicle</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>UpdateVehicle</servlet-name>
+        <servlet-class>org.servlet.resource.vehicle.UpdateVehicle</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateVehicle</servlet-name>
+        <url-pattern>/update-vehicle</url-pattern>
+    </servlet-mapping>
 </web-app>

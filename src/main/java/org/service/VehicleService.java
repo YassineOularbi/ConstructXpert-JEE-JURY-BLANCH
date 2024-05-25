@@ -1,5 +1,6 @@
 package org.service;
 
+import org.model.Resource;
 import org.model.Vehicle;
 import org.repository.ResourceRepository;
 import org.repository.ResourceRepositoryImpl;
@@ -14,8 +15,8 @@ public class VehicleService {
         return resourceRepository.getAllVehicle();
     }
 
-    public Vehicle getById(Long id) throws SQLException, ClassNotFoundException {
-        return (Vehicle) resourceRepository.getById(id);
+    public Resource getById(Long id) throws SQLException, ClassNotFoundException {
+        return  resourceRepository.getById(id);
     }
 
     public void add(Vehicle vehicle) throws SQLException, ClassNotFoundException {
