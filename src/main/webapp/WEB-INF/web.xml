@@ -83,4 +83,36 @@
         <servlet-name>UpdateVehicle</servlet-name>
         <url-pattern>/update-vehicle</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DisplayEquipments</servlet-name>
+        <servlet-class>org.servlet.resource.equipment.DisplayEquipments</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisplayEquipments</servlet-name>
+        <url-pattern>/equipments</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddEquipment</servlet-name>
+        <servlet-class>org.servlet.resource.equipment.AddEquipment</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddEquipment</servlet-name>
+        <url-pattern>/add-equipment</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateEquipment</servlet-name>
+        <servlet-class>org.servlet.resource.equipment.UpdateEquipment</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateEquipment</servlet-name>
+        <url-pattern>/update-equipment</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteEquipment</servlet-name>
+        <servlet-class>org.servlet.resource.equipment.DeleteEquipment</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteEquipment</servlet-name>
+        <url-pattern>/delete-equipment</url-pattern>
+    </servlet-mapping>
 </web-app>

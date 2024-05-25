@@ -1,6 +1,7 @@
 package org.service;
 
 import org.model.Equipment;
+import org.model.Resource;
 import org.repository.ResourceRepository;
 import org.repository.ResourceRepositoryImpl;
 
@@ -14,8 +15,8 @@ public class EquipmentService {
         return resourceRepository.getAllEquipment();
     }
 
-    public Equipment getById(Long id) throws SQLException, ClassNotFoundException {
-        return (Equipment) resourceRepository.getById(id);
+    public Resource getById(Long id) throws SQLException, ClassNotFoundException {
+        return resourceRepository.getById(id);
     }
 
     public void add(Equipment equipment) throws SQLException, ClassNotFoundException {

@@ -51,7 +51,7 @@
                         <i class="fa-solid fa-truck-front"></i>
                         <span class="text nav-text">Vehicle</span>
                     </a>
-                    <a class="nav-link my-2">
+                    <a class="nav-link my-2" href="equipments">
                         <i class="fa-solid fa-screwdriver-wrench"></i>
                         <span class="text nav-text">Equipment</span>
                     </a>
@@ -129,7 +129,7 @@
                     <label for="provider">Provider :</label>
                     <i class="fa-solid fa-store"></i>
                     <input type="text" id="provider" class="provider" name="provider"
-                           placeholder="Enter resource provider " required>
+                           placeholder="Enter vehicle provider " required>
                 </div>
             </div>
             <div class="resource-right resource">
@@ -141,13 +141,13 @@
                     <label for="provider">Picture :</label>
                     <i class="fa-solid fa-image"></i>
                     <input type="url" id="picture" class="picture" name="picture"
-                           placeholder="Enter resource picture " required>
+                           placeholder="Enter vehicle picture " required>
                 </div>
                 <div class="quantity">
                     <label for="quantity">Quantity :</label>
                     <i class="fa-solid fa-layer-group"></i>
                     <input type="number" id="quantity" class="quantity" name="quantity"
-                           placeholder="Enter resource quantity" required>
+                           placeholder="Enter vehicle quantity" required>
                 </div>
             </div>
             <button type="submit" class="btn resource-btn">Create</button>

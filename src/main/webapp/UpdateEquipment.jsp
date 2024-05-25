@@ -1,13 +1,14 @@
 <%--
   Created by IntelliJ IDEA.
   User: user
-  Date: 23/05/2024
-  Time: 10:23
+  Date: 24/05/2024
+  Time: 16:07
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,24 +16,26 @@
     <link rel="shortcut icon" href="assets/logo-head.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style><%@include file="css/dashboard.css"%></style>
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
+
 <body>
 <nav class="sidebar">
     <div class="menu-bar">
         <div class="menu d-flex flex-column justify-content-between">
             <div class="first-option">
                 <div class="menu-links">
-                    <a class="nav-link hovered my-2" href="dashboard">
+                    <a class="nav-link my-2" href="dashboard">
                         <i class='bx bxs-dashboard'></i>
                         <span class="text nav-text">Dashboard</span>
                     </a>
-                    <a class="nav-link my-2 active" href="projects">
+                    <a class="nav-link my-2" href="projects">
                         <i class='bx bxs-building-house'></i>
                         <span class="text nav-text">Project</span>
                     </a>
@@ -48,7 +51,7 @@
                         <i class="fa-solid fa-truck-front"></i>
                         <span class="text nav-text">Vehicle</span>
                     </a>
-                    <a class="nav-link my-2" href="equipments">
+                    <a class="nav-link hovered my-2 active" href="equipments">
                         <i class="fa-solid fa-screwdriver-wrench"></i>
                         <span class="text nav-text">Equipment</span>
                     </a>
@@ -101,66 +104,63 @@
             <img src="${user.getPicture()}">
         </div>
 </header>
-<section class="main">
-    <div class="cardBox">
-        <div class="card">
-            <div>
-                <div class="numbers">1,504</div>
-                <div class="cardName">Projects</div>
-            </div>
-
-            <div class="iconBx">
-                <i class="fa-solid fa-rocket"></i>
-            </div>
-        </div>
-
-        <div class="card">
-            <div>
-                <div class="numbers">80</div>
-                <div class="cardName">Resource</div>
-            </div>
-
-            <div class="iconBx">
-                <i class="fa-solid fa-building-wheat"></i>
-            </div>
-        </div>
-
-        <div class="card">
-            <div>
-                <div class="numbers">284</div>
-                <div class="cardName">Employee</div>
-            </div>
-
-            <div class="iconBx">
-                <i class="fa-solid fa-building-user"></i>
-            </div>
-        </div>
-
-        <div class="card">
-            <div>
-                <div class="numbers">$7,842</div>
-                <div class="cardName">Budget</div>
-            </div>
-
-            <div class="iconBx">
-                <i class="fa-brands fa-bitcoin"></i>
-            </div>
+<section class=" main">
+    <div class="main-header d-flex flex-row justify-content-between">
+        <div class="main-section">
+            <h6>Equipments <span>&#x2794; Update Equipment</span></h6>
         </div>
     </div>
-    <div class="chartsBx">
-        <div class="chart"> <canvas id="chart-1"></canvas> </div>
-        <div class="chart"> <canvas id="chart-2"></canvas> </div>
+    <div class="create">
+        <form action="update-equipment" method="post" class="d-flex flex-row">
+            <div class="resource-left resource">
+                <div class="title">
+                    <label for="title">Title :</label>
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <input type="text" id="title" class="title" name="title"
+                           placeholder="Enter equipment title " required value="${equipment.getTitle()}">
+                </div>
+                <div class="type">
+                    <label for="type">Type :</label>
+                    <i class="fa-solid fa-dna"></i>
+                    <input type="text" id="type" class="type" name="type"
+                           placeholder="Enter equipment type " required value="${equipment.getType()}">
+                </div>
+                <div class="provider">
+                    <label for="provider">Provider :</label>
+                    <i class="fa-solid fa-store"></i>
+                    <input type="text" id="provider" class="provider" name="provider"
+                           placeholder="Enter equipment provider " required value="${equipment.getProvider()}">
+                </div>
+            </div>
+            <div class="resource-right resource">
+                <div class="acquisitionDate">
+                    <label for="acquisitionDate">Acquisition Date :</label>
+                    <input type="date" id="acquisitionDate" class="acquisitionDate" name="acquisitionDate" required value="${equipment.getAcquisitionDate()}">
+                </div>
+                <div class="picture">
+                    <label for="provider">Picture :</label>
+                    <i class="fa-solid fa-image"></i>
+                    <input type="url" id="picture" class="picture" name="picture"
+                           placeholder="Enter equipment picture " required value="${equipment.getPicture()}">
+                </div>
+                <div class="quantity">
+                    <label for="quantity">Quantity :</label>
+                    <i class="fa-solid fa-layer-group"></i>
+                    <input type="number" id="quantity" class="quantity" name="quantity"
+                           placeholder="Enter equipment quantity" required value="${equipment.getQuantity()}">
+                </div>
+            </div>
+            <input hidden="hidden" value="${equipment.getId()}" name="id">
+            <button type="submit" class="btn resource-btn">Create</button>
+        </form>
     </div>
-    <div id='calendar'></div>
 </section>
 <script src="https://kit.fontawesome.com/6150be860f.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
-<script><%@include file="js/chart.js"%></script>
-<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.13/index.global.min.js'></script>
-<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.13/index.global.min.js'></script>
-<script><%@include file="js/calendar.js"%></script>
+
 
 
 
 </body>
-</html>
+
+</html></html>
