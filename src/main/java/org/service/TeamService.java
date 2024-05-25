@@ -1,5 +1,6 @@
 package org.service;
 
+import org.model.Employee;
 import org.model.Team;
 import org.repository.EmployeeRepository;
 import org.repository.EmployeeRepositoryImpl;
@@ -13,8 +14,8 @@ public class TeamService {
         return employeeRepository.getAllTeam();
     }
 
-    public Team getById(Long id) throws SQLException, ClassNotFoundException {
-        return (Team) employeeRepository.getById(id);
+    public Employee getById(Long id) throws SQLException, ClassNotFoundException {
+        return employeeRepository.getById(id);
     }
 
     public void add(Team team) throws SQLException, ClassNotFoundException {

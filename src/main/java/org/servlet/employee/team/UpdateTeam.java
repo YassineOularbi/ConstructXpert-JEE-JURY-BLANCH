@@ -1,8 +1,8 @@
-package org.servlet.employee.supervisor;
+package org.servlet.employee.team;
 
 import org.dto.UserDTO;
-import org.model.Supervisor;
-import org.service.SupervisorService;
+import org.model.Team;
+import org.service.TeamService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -10,21 +10,21 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "UpdateSupervisor", value = "/UpdateSupervisor")
-public class UpdateSupervisor extends HttpServlet {
-    SupervisorService supervisorService = new SupervisorService();
+@WebServlet(name = "UpdateTeam", value = "/UpdateTeam")
+public class UpdateTeam extends HttpServlet {
+    TeamService teamService = new TeamService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long id = Long.valueOf(request.getParameter("id"));
         try {
-            request.setAttribute("supervisor", supervisorService.getById(id));
+            request.setAttribute("team", teamService.getById(id));
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         HttpSession session = request.getSession();
         UserDTO userDTO = (UserDTO) session.getAttribute("user");
         request.setAttribute("user", userDTO);
-        this.getServletContext().getRequestDispatcher("/UpdateSupervisor.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/UpdateTeam.jsp").forward(request, response);
     }
 
     @Override
@@ -33,16 +33,16 @@ public class UpdateSupervisor extends HttpServlet {
         String name = request.getParameter("name");
         String type = request.getParameter("type");
         String picture = request.getParameter("picture");
-        Supervisor supervisor = new Supervisor(id, name, type, picture, true);
+        Team team = new Team(id, name, type, picture, true);
         try {
-            supervisorService.update(supervisor);
-            request.setAttribute("supervisors", supervisorService.getAllSupervisors());
+            teamService.update(team);
+            request.setAttribute("teams", teamService.getAllTeams());
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         HttpSession session = request.getSession();
         UserDTO userDTO = (UserDTO) session.getAttribute("user");
         request.setAttribute("user", userDTO);
-        this.getServletContext().getRequestDispatcher("/Supervisors.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/Teams.jsp").forward(request, response);
     }
 }
