@@ -139,4 +139,12 @@
         <servlet-name>UpdateMaterial</servlet-name>
         <url-pattern>/update-material</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteMaterial</servlet-name>
+        <servlet-class>org.servlet.resource.material.DeleteMaterial</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteMaterial</servlet-name>
+        <url-pattern>/delete-material</url-pattern>
+    </servlet-mapping>
 </web-app>
