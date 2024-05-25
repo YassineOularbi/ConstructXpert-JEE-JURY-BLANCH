@@ -115,4 +115,12 @@
         <servlet-name>DeleteEquipment</servlet-name>
         <url-pattern>/delete-equipment</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DisplayMaterials</servlet-name>
+        <servlet-class>org.servlet.resource.material.DisplayMaterials</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisplayMaterials</servlet-name>
+        <url-pattern>/materials</url-pattern>
+    </servlet-mapping>
 </web-app>
