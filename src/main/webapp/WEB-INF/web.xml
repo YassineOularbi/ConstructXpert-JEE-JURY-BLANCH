@@ -83,4 +83,12 @@
         <servlet-name>UpdateVehicle</servlet-name>
         <url-pattern>/update-vehicle</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DisplayEquipments</servlet-name>
+        <servlet-class>org.servlet.resource.equipment.DisplayEquipments</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisplayEquipments</servlet-name>
+        <url-pattern>/equipments</url-pattern>
+    </servlet-mapping>
 </web-app>

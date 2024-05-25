@@ -52,7 +52,7 @@
                         <i class="fa-solid fa-truck-front"></i>
                         <span class="text nav-text">Vehicle</span>
                     </a>
-                    <a class="nav-link my-2">
+                    <a class="nav-link my-2" href="equipments">
                         <i class="fa-solid fa-screwdriver-wrench"></i>
                         <span class="text nav-text">Equipment</span>
                     </a>
