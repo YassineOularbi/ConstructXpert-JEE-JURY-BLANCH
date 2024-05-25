@@ -131,4 +131,12 @@
         <servlet-name>AddMaterial</servlet-name>
         <url-pattern>/add-material</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateMaterial</servlet-name>
+        <servlet-class>org.servlet.resource.material.UpdateMaterial</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateMaterial</servlet-name>
+        <url-pattern>/update-material</url-pattern>
+    </servlet-mapping>
 </web-app>

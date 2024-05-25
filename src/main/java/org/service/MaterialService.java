@@ -1,6 +1,7 @@
 package org.service;
 
 import org.model.Material;
+import org.model.Resource;
 import org.repository.ResourceRepository;
 import org.repository.ResourceRepositoryImpl;
 
@@ -14,8 +15,8 @@ public class MaterialService {
         return resourceRepository.getAllMaterial();
     }
 
-    public Material getById(Long id) throws SQLException, ClassNotFoundException {
-        return (Material) resourceRepository.getById(id);
+    public Resource getById(Long id) throws SQLException, ClassNotFoundException {
+        return resourceRepository.getById(id);
     }
 
     public void add(Material material) throws SQLException, ClassNotFoundException {

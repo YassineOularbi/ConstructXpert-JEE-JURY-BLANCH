@@ -12,8 +12,8 @@
     <list default="true" id="19efa339-2073-4c37-96e1-5edffce9bc32" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../BRIEF-WEATHER-APP/BRIEF-WEATHER-APP.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../BRIEF-WEATHER-APP/src/City.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/servlet/resource/material/AddMaterial.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/CreateMaterial.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/servlet/resource/material/UpdateMaterial.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/UpdateMaterial.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Magerama-cinema-BM/src/main/java/jee/javapack/servlets/CinemaHome.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../QUIZ-JAVA/QUIZ-JAVA.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../STUDENT-MANAGEMENT-SPRINGBOOT-ANGULAR" afterDir="false" />
@@ -51,9 +51,9 @@
       <change afterPath="$PROJECT_DIR$/../../hibernate/src/main/webapp/WEB-INF/jsp/update-student-form.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../hibernate/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../hibernate/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/resource/equipment/AddEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/resource/equipment/AddEquipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/resource/equipment/DisplayEquipments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/resource/equipment/DisplayEquipments.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/resource/equipment/UpdateEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/resource/equipment/UpdateEquipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/service/MaterialService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/service/MaterialService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/UpdateEquipment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/UpdateEquipment.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,8 +70,8 @@
         <option value="Enum" />
         <option value="CSS File" />
         <option value="Class" />
-        <option value="Jsp File" />
         <option value="Servlet" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -199,7 +199,7 @@
       <updated>1716389413926</updated>
       <workItem from="1716389415112" duration="33152000" />
       <workItem from="1716475878828" duration="2157000" />
-      <workItem from="1716504740734" duration="37193000" />
+      <workItem from="1716504740734" duration="38553000" />
     </task>
     <servers />
   </component>
