@@ -107,4 +107,12 @@
         <servlet-name>UpdateEquipment</servlet-name>
         <url-pattern>/update-equipment</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteEquipment</servlet-name>
+        <servlet-class>org.servlet.resource.equipment.DeleteEquipment</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteEquipment</servlet-name>
+        <url-pattern>/delete-equipment</url-pattern>
+    </servlet-mapping>
 </web-app>
