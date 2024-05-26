@@ -700,8 +700,8 @@ a{
     margin: 0;
 }
 .selected{
-    background-color: #ff914c5d;
-    border: 1px solid var(--primary-color);
+    background-color: #ff914c39;
+    border: 2px solid var(--primary-color);
 }
 .project-card{
     position: relative;
@@ -954,3 +954,294 @@ a{
 .resource-head span{
     color: var(--primary-color);
 }
+/* Tasks */
+.tasks{
+    width: 100%;
+    height: 90%;
+    gap: 30px;
+    padding: 10px;
+}
+.add-task{
+    font-size: 15px;
+    padding: 5px 50px;
+    font-weight: bold;
+    border: 2px dashed var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 10px;
+}
+.tasks .todo{
+    height: 100%;
+    width: 30%;
+    border-radius: 15px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.128);
+}
+.tasks .doing{
+    height: 100%;
+    width: 30%;
+    border-radius: 15px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.128);
+}
+.tasks .done{
+    height: 100%;
+    width: 30%;
+    border-radius: 15px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.128);
+}
+.tasks .task-title{
+    width: 100%;
+    height: 10%;
+    background-color: var(--primary-color);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 15px;
+}
+.tasks .task-action{
+    width: 100%;
+    height: 13%;
+    padding: 15px;
+}
+.task-action a{
+    padding: 5px 134px;
+    border: 2px dashed var(--primary-color);
+    border-radius: 15px;
+    font-size: 20px;
+    color: var(--primary-color);
+}
+.task-title h6{
+    font-size: 14px;
+    font-weight: bold;
+}
+.tasks .task{
+    width: 100%;
+    height: 73%;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 10px;
+}
+.task .task-overflow{
+    height: auto;
+    gap: 10px;
+}
+.task .task-view{
+    width: 100%;
+    height: 100px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+}
+.task-view .up{
+    width: 100%;
+    height: 30%;
+    padding: 10px;
+}
+.task-view .up .days-left{
+    font-size: 13px;
+    color: grey;
+}
+.task-view .up h6{
+    font-size: 14px;
+    font-weight: bold;
+}
+.task-view .middle{
+    width: 100%;
+    height: 40%;
+    padding: 0 10px;
+    line-height: 15px;
+}
+.task-view .middle span{
+    font-size: 10px;
+    color: gray;
+}
+.task .down{
+    width: 100%;
+    height: 30%;
+    padding: 0 10px;
+}
+.task .down div{
+    width: 30%;
+    height: 100%;
+}
+.priority{
+    padding: 10px 5px;
+}
+.priority-bar{
+    border-radius: 5px;
+    padding: 0 40px;
+}
+.contributor{
+    position: relative;
+    padding: 0 30px;
+}
+.contributor img{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+}
+.contributor .plus{
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    height: 20px;
+    width: 20px;
+    padding-bottom: 10px;
+    z-index: -1000;
+    border-radius: 100%;
+    background-color: gray;
+}
+.attachement-comment div{
+    font-size: 13px;
+    gap: 5px;
+}
+.create-task{
+    width: 98%;
+    height: 86%;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.create-task form{
+    width: 100%;
+    height: 100%;
+}
+.create-task .form-task{
+    width: 100%;
+    height: 100%;
+}
+.form-task .task-head{
+    width: 100%;
+    height: 20%;
+}
+.form-task .task-head div{
+    position: relative;
+    height: 100%;
+    width: 30%;
+    padding: 10px;
+}
+.form-task label{
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.form-task i{
+    position: absolute;
+    bottom: 25px;
+    left: 15px;
+}
+.form-task input{
+    width: 100%;
+    outline: none;
+    padding-left: 30px;
+    border-radius: 7px;
+    height: 30px;
+    border: 1px solid var(--black-color);
+}
+.form-task .task-desc{
+    width: 100%;
+    height: 25%;
+    padding: 10px;
+}
+.form-task textarea{
+    width: 100%;
+    height: 80%;
+    padding-left: 10px;
+    outline: none;
+    border-radius: 7px;
+    border: 1px solid var(--black-color);
+}
+.form-task .task-action{
+    width: 100%;
+    height: 55%;
+}
+.form-task .task-action div{
+    width: 25%;
+    height: 100%;
+    padding: 10px;
+}
+.form-task .left label{
+    width: 100%;
+    height: 20%;
+    border: 1px solid var(--black-color);
+    border-radius: 10px;
+    padding: 7px;
+    cursor: pointer;
+}
+.form-task .task-action h6{
+    font-size: 16px;
+    font-weight: bold;
+}
+.form-task .left label .button{
+    height: 30px;
+    width: 100%;
+    border-radius: 6px;
+    border: none;
+    text-align: center;
+    padding-top: 5px;
+    cursor: pointer;
+}
+.form-task .left label .btn-low{
+    background-color: rgba(255, 255, 0, 0.511);
+    color: darkkhaki;
+}
+.form-task .left label .btn-medium{
+    background-color: rgba(172, 255, 47, 0.594);
+    color: green;
+}
+.form-task .left label .btn-high{
+    background-color:rgba(250, 128, 114, 0.616);
+    color: red;
+}
+.form-task .left label .btn-done{
+    background-color: rgba(172, 255, 47, 0.594);
+    color: green;
+}
+.form-task .left label .btn-inprogress{
+    background-color: rgba(255, 255, 0, 0.511);
+    color: darkkhaki;
+}
+.form-task .left label .btn-todo{
+    background-color:rgba(250, 128, 114, 0.616);
+    color: red;
+}
+.form-task .middle-2 label{
+    margin-top: 15px;
+    position: relative;
+    border: 2px dashed var(--primary-color);
+}
+.form-task .middle-2 label i{
+    top: 25%;
+    left: 45%;
+    font-size: 20px;
+    color: var(--primary-color);
+}
+.form-task .right div{
+    width: 100%;
+}
+.form-task .right div label{
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: var(--grey-color);
+    padding: 15px 70px;
+    position: relative;
+}
+.form-task .right div label i{
+    left: 60%;
+    top: 20px;
+}
+.form-task .right .btn{
+    width: 100%;
+    height: 50px;
+}
+.form-task .right .btn button{
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--primary-color);
+    font-size: 15px;
+    font-weight: bold;
+}
+
