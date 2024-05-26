@@ -234,7 +234,7 @@
                                     <label class="roofling-type" ><input style="display: none;" type="radio" value="Metal" id="rooflingType" class="rooflingType" name="roofingType" data-price="100">
                                         <img src="assets/metal.png" alt=""><p style="padding-left: 25px;">Metal</p>
                                     </label>
-                                    <label class="roofling-type" ><input style="display: none;" type="radio" value="Metal" id="rooflingType" class="rooflingType" name="roofingType" data-price="50">
+                                    <label class="roofling-type" ><input style="display: none;" type="radio" value="Tiles" id="rooflingType" class="rooflingType" name="roofingType" data-price="50">
                                         <img src="assets/tiles.png" alt=""><p style="padding-left: 25px;">Tiles</p>
                                     </label>
                                 </div>

@@ -142,7 +142,12 @@
                 </div>
                 <div class="resource-head project-head d-flex flex-row justify-content-between align-items-center">
                     <p>Job type : ${supervisor.getJobType()}</p>
-                    <span>Available &#x2794;</span>
+                    <c:if test="${supervisor.getAvailability() eq true}">
+                        <span>Available &#x2794;</span>
+                    </c:if>
+                    <c:if test="${supervisor.getAvailability() eq false}">
+                        <span>Not Available &#x274C;</span>
+                    </c:if>
                 </div>
             </div>
         </c:forEach>

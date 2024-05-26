@@ -208,3 +208,182 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const button = document.querySelector('.to-resource');
+  const formTask = document.querySelector('.form-task');
+  const formResource = document.querySelector('.form-resource');
+
+  button.addEventListener('click', () => {
+        formTask.style.display = "none";
+        formResource.style.display = "flex";
+  })
+});
+document.addEventListener('DOMContentLoaded', function () {
+  const button = document.querySelector('.to-employee');
+  const formResource = document.querySelector('.form-resource');
+  const formEmployee = document.querySelector('.form-employee')
+
+  button.addEventListener('click', () => {
+        formResource.style.display = "none";
+        formEmployee.style.display = "flex";
+  })
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const checkboxes = document.querySelectorAll('.vehicle-check');
+
+  checkboxes.forEach(function (checkbox) {
+      checkbox.addEventListener('change', function () {
+        const quantityInput = this.nextElementSibling; 
+          if (this.checked) {
+              quantityInput.disabled = false;
+              this.closest('label').classList.add('selected');
+          } else {
+            quantityInput.disabled = true;
+            quantityInput.value = '';
+            this.closest('label').classList.remove('selected');
+          }
+      });
+  });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const checkboxes = document.querySelectorAll('.equipment-check');
+
+  checkboxes.forEach(function (checkbox) {
+      checkbox.addEventListener('change', function () {
+        const quantityInput = this.nextElementSibling; 
+        if (this.checked) {
+            quantityInput.disabled = false;
+            this.closest('label').classList.add('selected');
+        } else {
+          quantityInput.disabled = true;
+          quantityInput.value = '';
+          this.closest('label').classList.remove('selected');
+        }
+      });
+  });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const checkboxes = document.querySelectorAll('.material-check');
+
+  checkboxes.forEach(function (checkbox) {
+      checkbox.addEventListener('change', function () {
+        const quantityInput = this.nextElementSibling; 
+        if (this.checked) {
+            quantityInput.disabled = false;
+            this.closest('label').classList.add('selected');
+        } else {
+          quantityInput.disabled = true;
+          quantityInput.value = '';
+          this.closest('label').classList.remove('selected');
+        }
+      });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const inputs = document.querySelectorAll('#Input');
+
+  inputs.forEach(function (input) {
+      input.addEventListener('input', function () {
+          const max = parseInt(this.max, 10);
+          const quantityLabel = this.closest('label').querySelector('.quantity');
+          if (parseInt(this.value, 10) > max) {
+            this.value = max;
+            quantityLabel.style.color = "red";
+        } else {
+          quantityLabel.style.color = "green";
+        }
+      });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const checkboxes = document.querySelectorAll('.supervisor-check');
+
+  checkboxes.forEach(function (checkbox) {
+      checkbox.addEventListener('change', function () {
+        checkboxes.forEach(function (r) {
+          r.closest('label').classList.remove('selected');
+        });
+          if (this.checked) {
+              this.closest('label').classList.add('selected');
+          }
+      });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const checkboxes = document.querySelectorAll('.team-check');
+
+  checkboxes.forEach(function (checkbox) {
+      checkbox.addEventListener('change', function () {
+        checkboxes.forEach(function (r) {
+          r.closest('label').classList.remove('selected');
+        });
+          if (this.checked) {
+              this.closest('label').classList.add('selected');
+          }
+      });
+  });
+});
+
+
+// drag & drop
+
+document.addEventListener('DOMContentLoaded', function () {
+  const allTasks = document.querySelectorAll(".task-view");
+  const allBoxes = document.querySelectorAll(".tbox .task-overflow");
+
+  allTasks.forEach(task => {
+      task.addEventListener('dragstart', function () {
+          task.classList.add('isdragging');
+      });
+
+      task.addEventListener('dragend', function () {
+          task.classList.remove('isdragging');
+      });
+  });
+
+  allBoxes.forEach(box => {
+    box.addEventListener('dragover', (e) => {
+      e.preventDefault();
+    });
+
+    box.addEventListener('drop', function (e) {
+      e.preventDefault();
+      const curTask = document.querySelector(".isdragging");
+      if (curTask) {
+        this.appendChild(curTask);
+
+        const taskId = curTask.getAttribute("data-id");
+        
+        let newStatus;
+        if (this.closest('.todo')) {
+          newStatus = 'TODO';
+        } else if (this.closest('.doing')) {
+          newStatus = 'IN_PROGRESS';
+        } else if (this.closest('.done')) {
+          newStatus = 'COMPLETED';
+        }
+          fetch(`http://localhost:8080/ConstructXpert_JEE_JURY_BLANCH_war_exploded/update-task-status`, {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                  id: taskId,
+                  status: newStatus
+              })
+        }) .then(r => {
+            console.log('ok')
+        })
+      }
+    });
+  });
+});

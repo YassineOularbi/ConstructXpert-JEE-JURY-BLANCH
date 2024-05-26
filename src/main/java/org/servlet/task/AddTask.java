@@ -1,11 +1,13 @@
 package org.servlet.task;
 
+import org.dto.ResourceDTO;
 import org.dto.UserDTO;
 import org.enums.Priority;
+import org.enums.ResourceType;
 import org.enums.Status;
+import org.model.Resource;
 import org.model.Task;
-import org.repository.TaskRepository;
-import org.repository.TaskRepositoryImpl;
+import org.repository.*;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -14,13 +16,15 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
 @WebServlet(name = "AddTask", value = "/AddTask")
 public class AddTask extends HttpServlet {
     TaskRepository taskRepository = new TaskRepositoryImpl();
+    ResourceRepository resourceRepository = new ResourceRepositoryImpl();
+    TaskResourceRepository taskResourceRepository = new TaskResourceRepositoryImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -30,6 +34,14 @@ public class AddTask extends HttpServlet {
         String name = request.getParameter("name");
         request.setAttribute("projectName", name);
         request.setAttribute("id", id);
+        try {
+            List<Resource> resources = resourceRepository.getAllAvailable();
+            request.setAttribute("vehicles", resources.stream().filter(resource -> resource.getResourceType().equals(ResourceType.VEHICLE)).collect(Collectors.toList()));
+            request.setAttribute("equipments", resources.stream().filter(resource -> resource.getResourceType().equals(ResourceType.EQUIPMENT)).collect(Collectors.toList()));
+            request.setAttribute("materials", resources.stream().filter(resource -> resource.getResourceType().equals(ResourceType.MATERIAL)).collect(Collectors.toList()));
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         this.getServletContext().getRequestDispatcher("/CreateTask.jsp").forward(request, response);
     }
 
@@ -46,8 +58,29 @@ public class AddTask extends HttpServlet {
         LocalDate date = LocalDate.now();
         Date dateStart = Date.valueOf(date);
         Task task = new Task(title, type, dateStart, dateEnd, description, priority, status);
+        String[] vehicles = request.getParameterValues("vehicle");
+        String[] vehiclesQuantity = request.getParameterValues("quantityVehicle");
+        String[] equipments = request.getParameterValues("equipment");
+        String[] equipmentsQuantity = request.getParameterValues("quantityEquipment");
+        String[] materials = request.getParameterValues("material");
+        String[] materialsQuantity = request.getParameterValues("quantityMaterial");
+        List<ResourceDTO> resourceDTOList = new ArrayList<>();
+        for (int i = 0; i < vehicles.length; i++){
+            ResourceDTO resourceDTO = new ResourceDTO(Long.valueOf(vehicles[i]), vehiclesQuantity[i]);
+            resourceDTOList.add(resourceDTO);
+        }
+        for (int i = 0; i < equipments.length; i++){
+            ResourceDTO resourceDTO = new ResourceDTO(Long.valueOf(equipments[i]), equipmentsQuantity[i]);
+            resourceDTOList.add(resourceDTO);
+        }
+        for (int i = 0; i < materials.length; i++){
+            ResourceDTO resourceDTO = new ResourceDTO(Long.valueOf(materials[i]), materialsQuantity[i]);
+            resourceDTOList.add(resourceDTO);
+        }
         try {
-            taskRepository.add(id, task);
+            Long idTask = taskRepository.add(id, task);
+            taskResourceRepository.AffectResourceToTask(idTask, resourceDTOList);
+            taskResourceRepository.UpdateResourceQuantity(resourceDTOList);
             List<Task> taskList = taskRepository.getAll(id);
             request.setAttribute("taskToDo", taskList.stream().filter(task1 -> task1.getStatus().equals(Status.TODO)).collect(Collectors.toList()));
             request.setAttribute("taskInProgress", taskList.stream().filter(task1 -> task1.getStatus().equals(Status.IN_PROGRESS)).collect(Collectors.toList()));

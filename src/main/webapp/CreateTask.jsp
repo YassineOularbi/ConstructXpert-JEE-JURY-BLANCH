@@ -1,10 +1,12 @@
 <%--
   Created by IntelliJ IDEA.
   User: user
-  Date: 26/05/2024
-  Time: 01:46
+  Date: 24/05/2024
+  Time: 00:26
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -110,7 +112,7 @@
         </div>
     </div>
     <div class="create-task">
-        <form action="" method="post">
+        <form action="add-task" method="post">
             <div class="form-task">
                 <div class="task-head d-flex flex-row justify-content-between">
                     <div class="task-title">
@@ -181,19 +183,98 @@
                                 <i class="fa-solid fa-eye"></i>
                             </label>
                         </div>
-                        <div class="btn">
+                        <div class="btn-task">
                             <input hidden="hidden" value="${id}" name="id">
                             <input hidden="hidden" value="${projectName}" name="name">
-                            <button type="submit">Create</button>
+                            <button type="button" class="to-resource">Next &#x2794;</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div style="display: none;" class="form-resource">
-
+            <div style="display: none;" class="form-resource flex-column justify-content-between">
+                <div class="vehicle">
+                    <h6>Choose vehicle :</h6>
+                    <div class="overflow">
+                        <div class="scroll  d-flex flex-row">
+                            <c:forEach var="vehicle" items="${vehicles}">
+                            <label for="vehicle${vehicle.getId()}">
+                                <img src="${vehicle.getPicture()}" alt="">
+                                <input type="checkbox" name="vehicle" class="vehicle-check" id="vehicle${vehicle.getId()}" value="${vehicle.getId()}">
+                                <input type="number" id="Input" max="${vehicle.getQuantity()}" name="quantityVehicle" disabled>
+                                <p class="quantity">Qte</p>
+                            </label>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </div>
+                <div class="equipment">
+                    <h6>Choose equipment :</h6>
+                    <div class="overflow">
+                        <div class="scroll  d-flex flex-row">
+                            <c:forEach var="equipment" items="${equipments}">
+                            <label for="equipment${equipment.getId()}">
+                                <img src="${equipment.getPicture()}" alt="">
+                                <input type="checkbox" name="equipment" class="equipment-check" id="equipment${equipment.getId()}" value="${equipment.getId()}" hidden>
+                                <input type="number" id="Input" max="${equipment.getQuantity()}" name="quantityEquipment" disabled>
+                                <p class="quantity">Qte</p>
+                            </label>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </div>
+                <div class="material">
+                    <h6>Choose material :</h6>
+                    <div class="overflow">
+                        <div class="scroll  d-flex flex-row">
+                            <c:forEach var="material" items="${materials}">
+                            <label for="material${material.getId()}">
+                                <img src="${material.getPicture()}" alt="">
+                                <input type="checkbox" name="material" class="material-check" id="material${material.getId()}" value="${material.getId()}" hidden>
+                                <input type="number" id="Input" max="${material.getQuantity()}" name="quantityMaterial" disabled>
+                                <p class="quantity">Qte</p>
+                            </label>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </div>
+                <div class="resource-action">
+                    <button type="button" class="to-employee">Next &#x2794;</button>
+                </div>
             </div>
-            <div style="display: none;" class="form-employee">
+            <div style="display: none;" class="form-employee flex-column justify-content-between">
+                <div class="supervisor">
+                    <h6>Choose supervisor :</h6>
+                    <div class="overflow">
+                        <div class="scroll d-flex flex-row">
+                            <label for="supervisor1">
+                                <img src="https://media.jewson.co.uk/f_auto,q_auto/t_Zoom/global/product-images/56232" alt="">
+                                <input type="radio" class="supervisor-check" name="supervisor" id="supervisor1" hidden>
+                                <p>Yassine</p>
+                            </label>
+                        </div>
+                    </div>
 
+                </div>
+                <div class="team">
+                    <h6>Choose team :</h6>
+                    <div class="overflow">
+                        <div class="scroll d-flex flex-row">
+                            <label for="team1">
+                                <img src="https://media.jewson.co.uk/f_auto,q_auto/t_Zoom/global/product-images/56232" alt="">
+                                <input type="radio" class="team-check" name="team" id="team1" hidden>
+                                <p>Yassine</p>
+                            </label>
+                            <label for="team2">
+                                <img src="https://media.jewson.co.uk/f_auto,q_auto/t_Zoom/global/product-images/56232" alt="">
+                                <input type="radio" class="team-check" name="team" id="team2" hidden>
+                                <p>Yassine</p>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="action-submit">
+                    <button type="submit">Create</button>
+                </div>
             </div>
         </form>
     </div>
@@ -203,7 +284,6 @@
         crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/6150be860f.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
-
 <script><%@include file="js/script.js"%></script>
 
 

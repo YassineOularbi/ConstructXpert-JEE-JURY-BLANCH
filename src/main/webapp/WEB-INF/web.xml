@@ -227,4 +227,12 @@
         <servlet-name>AddTask</servlet-name>
         <url-pattern>/add-task</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateTaskStatus</servlet-name>
+        <servlet-class>org.servlet.task.UpdateTaskStatus</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateTaskStatus</servlet-name>
+        <url-pattern>/update-task-status</url-pattern>
+    </servlet-mapping>
 </web-app>

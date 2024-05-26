@@ -121,11 +121,10 @@
             <div class="task-action">
                 <a href=""><i class="fa-solid fa-plus"></i></a>
             </div>
-            <div class="task">
+            <div class="task tbox">
                 <div class="task-overflow  d-flex flex-column">
                     <c:forEach var="task" items="${taskToDo}">
-                    <div class="task-view">
-                        <a href="view-task?id=${task.getId()}">
+                    <a href="view-task?id=${task.getId()}"class="task-view" draggable="true" data-id="${task.getId()}">
                             <div class="up d-flex flex-row justify-content-between">
                                 <h6>${task.getTitle()}</h6>
                                 <div class="days-left">
@@ -166,7 +165,6 @@
                                 </div>
                             </div>
                         </a>
-                    </div>
                     </c:forEach>
                 </div>
             </div>
@@ -179,11 +177,10 @@
             <div class="task-action">
                 <a href=""><i class="fa-solid fa-plus"></i></a>
             </div>
-            <div class="task">
+            <div class="task tbox">
                 <div class="task-overflow  d-flex flex-column">
                     <c:forEach var="task" items="${taskInProgress}">
-                        <div class="task-view">
-                            <a href="view-task?id=${task.getId()}">
+                        <a href="view-task?id=${task.getId()}" class="task-view" draggable="true" data-id="${task.getId()}">
                                 <div class="up d-flex flex-row justify-content-between">
                                     <h6>${task.getTitle()}</h6>
                                     <div class="days-left">
@@ -224,7 +221,6 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
                     </c:forEach>
                 </div>
             </div>
@@ -237,11 +233,10 @@
             <div class="task-action">
                 <a href=""><i class="fa-solid fa-plus"></i></a>
             </div>
-            <div class="task">
+            <div class="task tbox">
                 <div class="task-overflow  d-flex flex-column">
                     <c:forEach var="task" items="${taskCompleted}">
-                        <div class="task-view">
-                            <a href="view-task?id=${task.getId()}">
+                        <a href="view-task?id=${task.getId()}" class="task-view" draggable="true" data-id="${task.getId()}">
                                 <div class="up d-flex flex-row justify-content-between">
                                     <h6>${task.getTitle()}</h6>
                                     <div class="days-left">
@@ -282,7 +277,6 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
                     </c:forEach>
                 </div>
             </div>
