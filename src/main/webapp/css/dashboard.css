@@ -1019,7 +1019,8 @@ a{
     padding: 10px;
 }
 .task .task-overflow{
-    height: auto;
+    min-height: 100%;
+    max-height: auto;
     gap: 10px;
 }
 .task .task-view{
@@ -1027,6 +1028,7 @@ a{
     height: 100px;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
     border-radius: 10px;
+    cursor: move;
 }
 .task-view .up{
     width: 100%;
@@ -1050,6 +1052,9 @@ a{
 .task-view .middle span{
     font-size: 10px;
     color: gray;
+}
+.task-view.isdragging{
+    background-color: var(--secondary-color);
 }
 .task .down{
     width: 100%;
@@ -1231,11 +1236,12 @@ a{
     left: 60%;
     top: 20px;
 }
-.form-task .right .btn{
+.form-task .right .btn-task{
     width: 100%;
     height: 50px;
+    align-content: center;
 }
-.form-task .right .btn button{
+.form-task .right .btn-task button{
     width: 100%;
     height: 40px;
     border-radius: 10px;
@@ -1243,5 +1249,168 @@ a{
     background-color: var(--primary-color);
     font-size: 15px;
     font-weight: bold;
+    text-align: center;
 }
+.form-resource{
+    width: 100%;
+    height: 100%;
+}
+.form-resource .vehicle{
+    width: 100%;
+    height: 25%;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+.form-resource .equipment{
+    width: 100%;
+    height: 25%;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+.form-resource .material{
+    width: 100%;
+    height: 25%;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+.form-resource .resource-action{
+    position: relative;
+    width: 100%;
+    height: 10%;
+}
+.form-resource h6{
+    font-size: 13px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+.form-resource .overflow{
+    width: 100%;
+    height: 105%;
+    overflow: hidden;
+    overflow-x:scroll;
+    margin-bottom: 10px;
+}
+.form-resource .scroll{
+    height: 100%;
+    width:max-content;
+    gap: 20px;
+    flex-wrap: nowrap;
+}
+.form-resource label{
+    position: relative;
+    width: 140px;
+    height: 100px;
+    border-radius: 10px;
+    border: 1px solid var(--black-color);
+}
+.form-resource label img{
+    height: 70%;
+    width: 100%;
+    border-radius: 10px;
+}
+.form-resource label input{
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    width: 70%;
+    height: 20%;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid var(--secondary-color);
+}
+.form-resource label p{
+    width: 15%;
+    height: 20%;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 7px;
+    right: 7px;
+    margin: 0;
+}
+.form-resource .resource-action button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #FF914C;
+    width: 150px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.form-employee{
+    width: 100%;
+    height: 100%;
 
+}
+.form-employee .supervisor{
+    width: 100%;
+    height: 40%;
+    padding: 10px;
+}
+.form-employee .team{
+    width: 100%;
+    height: 40%;
+    padding: 10px;
+}
+.form-employee .action-submit{
+    width: 100%;
+    height: 10%;
+    padding: 10px;
+    position: relative;
+}
+.form-employee h6{
+    font-size: 15px;
+    font-weight: bold;
+}
+.form-employee .overflow{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-x:scroll;
+    margin-bottom: 10px;
+}
+.form-employee .scroll{
+    height: 100%;
+    width:max-content;
+    gap: 40px;
+    flex-wrap: nowrap;
+}
+.form-employee label{
+    position: relative;
+    width: 200px;
+    height: 140px;
+    border: 1px solid var(--black-color);
+    border-radius: 10px;
+    padding: 4px;
+}
+.form-employee img{
+    width: 190px;
+    height: 110px;
+    border-radius: 10px;
+}
+.form-employee input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+}
+.form-employee p{
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+}
+.form-employee .action-submit button{
+    background-color: var(--primary-color);
+    border: none;
+    width: 150px;
+    height: 35px;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-weight: bold;
+}

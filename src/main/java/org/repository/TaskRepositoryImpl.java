@@ -40,7 +40,7 @@ public class TaskRepositoryImpl implements TaskRepository {
     }
 
     @Override
-    public void add(Long id, Task task) throws SQLException, ClassNotFoundException {
+    public Long add(Long id, Task task) throws SQLException, ClassNotFoundException {
         Connection connection = databaseConfig.getConnection();
         String query = "INSERT INTO task (title, type, start_date, end_date, description, priority, status, id_project) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement statement = connection.prepareStatement(query);
@@ -53,8 +53,19 @@ public class TaskRepositoryImpl implements TaskRepository {
         statement.setString(7, task.getStatus().name());
         statement.setLong(8, id);
         statement.executeUpdate();
+        String getIdQuery = "SELECT id FROM task WHERE id_project = ? AND title = ?";
+        PreparedStatement getIdStatement = connection.prepareStatement(getIdQuery);
+        getIdStatement.setLong(1, id);
+        getIdStatement.setString(2, task.getTitle());
+        ResultSet resultSet = getIdStatement.executeQuery();
+        Long idTask = null;
+        if (resultSet.next()) {
+           idTask = resultSet.getLong("id");
+        }
+        getIdStatement.close();
         statement.close();
         connection.close();
+        return idTask;
     }
 
     @Override
