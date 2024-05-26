@@ -1,4 +1,12 @@
-
+<%--
+  Created by IntelliJ IDEA.
+  User: user
+  Date: 24/05/2024
+  Time: 00:26
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -115,17 +123,18 @@
             </div>
             <div class="task">
                 <div class="task-overflow  d-flex flex-column">
+                    <c:forEach var="task" items="${taskToDo}">
                     <div class="task-view">
-                        <a href="add-ressource?id=${task.getId()}">
+                        <a href="view-task?id=${task.getId()}">
                             <div class="up d-flex flex-row justify-content-between">
-                                <h6>Make architecte plan</h6>
+                                <h6>${task.getTitle()}</h6>
                                 <div class="days-left">
                                     <i class="fa-regular fa-clock"></i>
                                     <span>6 days</span>
                                 </div>
                             </div>
                             <div class="middle">
-                                <span>Defines a 3D grooved border. The effect depends on the border-color value</span>
+                                <span>${task.getDescription()}</span>
                             </div>
                             <div class="down d-flex flex-row justify-content-between">
                                 <div class="attachement-comment d-flex flex-row justify-content-around">
@@ -139,8 +148,15 @@
                                     </div>
                                 </div>
                                 <div class="priority">
-                                    <div class="priority-bar">
-                                    </div>
+                                    <c:if test="${task.getPriority() eq 'HIGH'}">
+                                    <div style="background-color: red" class="priority-bar"></div>
+                                    </c:if>
+                                    <c:if test="${task.getPriority() eq 'MEDIUM'}">
+                                     <div style="background-color: green" class="priority-bar"></div>
+                                     </c:if>
+                                    <c:if test="${task.getPriority() eq 'LOW'}">
+                                        <div style="background-color: yellow" class="priority-bar"></div>
+                                      </c:if>
                                 </div>
                                 <div class="contributor">
                                     <img src="assets/metal.png" alt="">
@@ -151,7 +167,7 @@
                             </div>
                         </a>
                     </div>
-
+                    </c:forEach>
                 </div>
             </div>
         </div>
@@ -165,7 +181,51 @@
             </div>
             <div class="task">
                 <div class="task-overflow  d-flex flex-column">
-
+                    <c:forEach var="task" items="${taskInProgress}">
+                        <div class="task-view">
+                            <a href="view-task?id=${task.getId()}">
+                                <div class="up d-flex flex-row justify-content-between">
+                                    <h6>${task.getTitle()}</h6>
+                                    <div class="days-left">
+                                        <i class="fa-regular fa-clock"></i>
+                                        <span>6 days</span>
+                                    </div>
+                                </div>
+                                <div class="middle">
+                                    <span>${task.getDescription()}</span>
+                                </div>
+                                <div class="down d-flex flex-row justify-content-between">
+                                    <div class="attachement-comment d-flex flex-row justify-content-around">
+                                        <div class="attachement d-flex flex-row align-items-center">
+                                            <i class="fa-solid fa-paperclip"></i>
+                                            <span>5</span>
+                                        </div>
+                                        <div class="comment d-flex flex-row align-items-center">
+                                            <i class="fa-regular fa-comment-dots"></i>
+                                            <span>2</span>
+                                        </div>
+                                    </div>
+                                    <div class="priority">
+                                        <c:if test="${task.getPriority() eq 'HIGH'}">
+                                            <div style="background-color: red" class="priority-bar"></div>
+                                        </c:if>
+                                        <c:if test="${task.getPriority() eq 'MEDIUM'}">
+                                            <div style="background-color: green" class="priority-bar"></div>
+                                        </c:if>
+                                        <c:if test="${task.getPriority() eq 'LOW'}">
+                                            <div style="background-color: yellow" class="priority-bar"></div>
+                                        </c:if>
+                                    </div>
+                                    <div class="contributor">
+                                        <img src="assets/metal.png" alt="">
+                                        <section class="plus">
+                                            +
+                                        </section>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>
@@ -179,7 +239,51 @@
             </div>
             <div class="task">
                 <div class="task-overflow  d-flex flex-column">
-
+                    <c:forEach var="task" items="${taskCompleted}">
+                        <div class="task-view">
+                            <a href="view-task?id=${task.getId()}">
+                                <div class="up d-flex flex-row justify-content-between">
+                                    <h6>${task.getTitle()}</h6>
+                                    <div class="days-left">
+                                        <i class="fa-regular fa-clock"></i>
+                                        <span>6 days</span>
+                                    </div>
+                                </div>
+                                <div class="middle">
+                                    <span>${task.getDescription()}</span>
+                                </div>
+                                <div class="down d-flex flex-row justify-content-between">
+                                    <div class="attachement-comment d-flex flex-row justify-content-around">
+                                        <div class="attachement d-flex flex-row align-items-center">
+                                            <i class="fa-solid fa-paperclip"></i>
+                                            <span>5</span>
+                                        </div>
+                                        <div class="comment d-flex flex-row align-items-center">
+                                            <i class="fa-regular fa-comment-dots"></i>
+                                            <span>2</span>
+                                        </div>
+                                    </div>
+                                    <div class="priority">
+                                        <c:if test="${task.getPriority() eq 'HIGH'}">
+                                            <div style="background-color: red" class="priority-bar"></div>
+                                        </c:if>
+                                        <c:if test="${task.getPriority() eq 'MEDIUM'}">
+                                            <div style="background-color: green" class="priority-bar"></div>
+                                        </c:if>
+                                        <c:if test="${task.getPriority() eq 'LOW'}">
+                                            <div style="background-color: yellow" class="priority-bar"></div>
+                                        </c:if>
+                                    </div>
+                                    <div class="contributor">
+                                        <img src="assets/metal.png" alt="">
+                                        <section class="plus">
+                                            +
+                                        </section>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>

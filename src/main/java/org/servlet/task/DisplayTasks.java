@@ -2,6 +2,7 @@ package org.servlet.task;
 
 import org.dto.UserDTO;
 import org.enums.Status;
+import org.model.Task;
 import org.repository.TaskRepository;
 import org.repository.TaskRepositoryImpl;
 
@@ -10,6 +11,8 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @WebServlet(name = "DisplayTasks", value = "/DisplayTasks")
@@ -25,12 +28,11 @@ public class DisplayTasks extends HttpServlet {
         request.setAttribute("projectName", name);
         request.setAttribute("id", id);
         try {
-            request.setAttribute("taskToDo", taskRepository.getAll().stream().filter(task -> task.getStatus().equals(Status.TODO)).collect(Collectors.toList()));
-            request.setAttribute("taskInProgress", taskRepository.getAll().stream().filter(task -> task.getStatus().equals(Status.IN_PROGRESS)).collect(Collectors.toList()));
-            request.setAttribute("taskCompeted", taskRepository.getAll().stream().filter(task -> task.getStatus().equals(Status.COMPLETED)).collect(Collectors.toList()));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+            List<Task> taskList = taskRepository.getAll(id);
+            request.setAttribute("taskToDo", taskList.stream().filter(task -> task.getStatus().equals(Status.TODO)).collect(Collectors.toList()));
+            request.setAttribute("taskInProgress", taskList.stream().filter(task -> task.getStatus().equals(Status.IN_PROGRESS)).collect(Collectors.toList()));
+            request.setAttribute("taskCompleted", taskList.stream().filter(task -> task.getStatus().equals(Status.COMPLETED)).collect(Collectors.toList()));
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         this.getServletContext().getRequestDispatcher("/Tasks.jsp").forward(request, response);

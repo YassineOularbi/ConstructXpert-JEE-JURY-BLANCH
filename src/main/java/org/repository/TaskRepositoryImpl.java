@@ -14,12 +14,13 @@ public class TaskRepositoryImpl implements TaskRepository {
     DatabaseConfig databaseConfig = new DatabaseConfig();
 
     @Override
-    public List<Task> getAll() throws SQLException, ClassNotFoundException {
+    public List<Task> getAll(Long id) throws SQLException, ClassNotFoundException {
         List<Task> tasks = new ArrayList<>();
         Connection connection = databaseConfig.getConnection();
-        String query = "SELECT * FROM task";
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(query);
+        String query = "SELECT * FROM task WHERE id_project = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setLong(1, id);
+        ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {
             Task task = new Task();
             task.setId(resultSet.getLong("id"));

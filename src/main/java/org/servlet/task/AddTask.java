@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
@@ -47,9 +48,10 @@ public class AddTask extends HttpServlet {
         Task task = new Task(title, type, dateStart, dateEnd, description, priority, status);
         try {
             taskRepository.add(id, task);
-            request.setAttribute("taskToDo", taskRepository.getAll().stream().filter(task1 -> task1.getStatus().equals(Status.TODO)).collect(Collectors.toList()));
-            request.setAttribute("taskInProgress", taskRepository.getAll().stream().filter(task1 -> task1.getStatus().equals(Status.IN_PROGRESS)).collect(Collectors.toList()));
-            request.setAttribute("taskCompeted", taskRepository.getAll().stream().filter(task1 -> task1.getStatus().equals(Status.COMPLETED)).collect(Collectors.toList()));
+            List<Task> taskList = taskRepository.getAll(id);
+            request.setAttribute("taskToDo", taskList.stream().filter(task1 -> task1.getStatus().equals(Status.TODO)).collect(Collectors.toList()));
+            request.setAttribute("taskInProgress", taskList.stream().filter(task1 -> task1.getStatus().equals(Status.IN_PROGRESS)).collect(Collectors.toList()));
+            request.setAttribute("taskCompleted", taskList.stream().filter(task1-> task1.getStatus().equals(Status.COMPLETED)).collect(Collectors.toList()));
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
