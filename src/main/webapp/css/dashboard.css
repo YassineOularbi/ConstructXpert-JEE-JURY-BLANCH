@@ -700,8 +700,8 @@ a{
     margin: 0;
 }
 .selected{
-    background-color: #ff914c5d;
-    border: 1px solid var(--primary-color);
+    background-color: #ff914c39;
+    border: 2px solid var(--primary-color);
 }
 .project-card{
     position: relative;
@@ -1095,3 +1095,154 @@ a{
     font-size: 13px;
     gap: 5px;
 }
+.create-task{
+    width: 98%;
+    height: 86%;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.create-task form{
+    width: 100%;
+    height: 100%;
+}
+.create-task .form-task{
+    width: 100%;
+    height: 100%;
+}
+.form-task .task-head{
+    width: 100%;
+    height: 20%;
+}
+.form-task .task-head div{
+    position: relative;
+    height: 100%;
+    width: 30%;
+    padding: 10px;
+}
+.form-task label{
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.form-task i{
+    position: absolute;
+    bottom: 25px;
+    left: 15px;
+}
+.form-task input{
+    width: 100%;
+    outline: none;
+    padding-left: 30px;
+    border-radius: 7px;
+    height: 30px;
+    border: 1px solid var(--black-color);
+}
+.form-task .task-desc{
+    width: 100%;
+    height: 25%;
+    padding: 10px;
+}
+.form-task textarea{
+    width: 100%;
+    height: 80%;
+    padding-left: 10px;
+    outline: none;
+    border-radius: 7px;
+    border: 1px solid var(--black-color);
+}
+.form-task .task-action{
+    width: 100%;
+    height: 55%;
+}
+.form-task .task-action div{
+    width: 25%;
+    height: 100%;
+    padding: 10px;
+}
+.form-task .left label{
+    width: 100%;
+    height: 20%;
+    border: 1px solid var(--black-color);
+    border-radius: 10px;
+    padding: 7px;
+    cursor: pointer;
+}
+.form-task .task-action h6{
+    font-size: 16px;
+    font-weight: bold;
+}
+.form-task .left label .button{
+    height: 30px;
+    width: 100%;
+    border-radius: 6px;
+    border: none;
+    text-align: center;
+    padding-top: 5px;
+    cursor: pointer;
+}
+.form-task .left label .btn-low{
+    background-color: rgba(255, 255, 0, 0.511);
+    color: darkkhaki;
+}
+.form-task .left label .btn-medium{
+    background-color: rgba(172, 255, 47, 0.594);
+    color: green;
+}
+.form-task .left label .btn-high{
+    background-color:rgba(250, 128, 114, 0.616);
+    color: red;
+}
+.form-task .left label .btn-done{
+    background-color: rgba(172, 255, 47, 0.594);
+    color: green;
+}
+.form-task .left label .btn-inprogress{
+    background-color: rgba(255, 255, 0, 0.511);
+    color: darkkhaki;
+}
+.form-task .left label .btn-todo{
+    background-color:rgba(250, 128, 114, 0.616);
+    color: red;
+}
+.form-task .middle-2 label{
+    margin-top: 15px;
+    position: relative;
+    border: 2px dashed var(--primary-color);
+}
+.form-task .middle-2 label i{
+    top: 25%;
+    left: 45%;
+    font-size: 20px;
+    color: var(--primary-color);
+}
+.form-task .right div{
+    width: 100%;
+}
+.form-task .right div label{
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: var(--grey-color);
+    padding: 15px 70px;
+    position: relative;
+}
+.form-task .right div label i{
+    left: 60%;
+    top: 20px;
+}
+.form-task .right .btn{
+    width: 100%;
+    height: 50px;
+}
+.form-task .right .btn button{
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--primary-color);
+    font-size: 15px;
+    font-weight: bold;
+}
+

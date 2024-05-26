@@ -176,3 +176,35 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   })
 });
+
+// task
+
+document.addEventListener('DOMContentLoaded', function () {
+  const status = document.querySelectorAll('.status');
+
+  status.forEach(function (input) {
+      input.addEventListener('change', function () {
+          status.forEach(function (inp) {
+              inp.closest('label').classList.remove('selected');
+          });
+          if (this.checked) {
+              this.closest('label').classList.add('selected');
+          }
+      });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const priorityInputs = document.querySelectorAll('.priority');
+
+  priorityInputs.forEach(function (input) {
+      input.addEventListener('change', function () {
+          priorityInputs.forEach(function (inp) {
+              inp.closest('label').classList.remove('selected');
+          });
+          if (this.checked) {
+              this.closest('label').classList.add('selected');
+          }
+      });
+  });
+});

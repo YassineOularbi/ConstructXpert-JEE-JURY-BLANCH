@@ -12,8 +12,8 @@
     <list default="true" id="19efa339-2073-4c37-96e1-5edffce9bc32" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../BRIEF-WEATHER-APP/BRIEF-WEATHER-APP.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../BRIEF-WEATHER-APP/src/City.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/servlet/task/DisplayTasks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Tasks.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/servlet/task/AddTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/CreateTask.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Magerama-cinema-BM/src/main/java/jee/javapack/servlets/CinemaHome.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../QUIZ-JAVA/QUIZ-JAVA.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../STUDENT-MANAGEMENT-SPRINGBOOT-ANGULAR" afterDir="false" />
@@ -52,11 +52,13 @@
       <change afterPath="$PROJECT_DIR$/../../hibernate/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../hibernate/src/main/webapp/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/task/TaskServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Projects.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Projects.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ViewProject.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ViewProject.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/repository/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/repository/TaskRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/repository/TaskRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/repository/TaskRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/task/DisplayTasks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/task/DisplayTasks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Tasks.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Tasks.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/test.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,9 +74,9 @@
         <option value="Interface" />
         <option value="Enum" />
         <option value="CSS File" />
+        <option value="Jsp File" />
         <option value="Class" />
         <option value="Servlet" />
-        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -202,7 +204,7 @@
       <updated>1716389413926</updated>
       <workItem from="1716389415112" duration="33152000" />
       <workItem from="1716475878828" duration="2157000" />
-      <workItem from="1716504740734" duration="48478000" />
+      <workItem from="1716504740734" duration="55069000" />
     </task>
     <servers />
   </component>

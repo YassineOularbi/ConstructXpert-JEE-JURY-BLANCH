@@ -219,4 +219,12 @@
         <servlet-name>DisplayTasks</servlet-name>
         <url-pattern>/tasks</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AddTask</servlet-name>
+        <servlet-class>org.servlet.task.AddTask</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddTask</servlet-name>
+        <url-pattern>/add-task</url-pattern>
+    </servlet-mapping>
 </web-app>

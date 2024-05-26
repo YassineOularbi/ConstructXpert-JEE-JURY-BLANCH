@@ -1,4 +1,10 @@
-
+<%--
+  Created by IntelliJ IDEA.
+  User: user
+  Date: 26/05/2024
+  Time: 01:46
+  To change this template use File | Settings | File Templates.
+--%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,89 +106,96 @@
 <section class=" main">
     <div class="main-header d-flex flex-row justify-content-between">
         <div class="main-section d-flex flex-row justify-content-between" style="width: 100%;">
-            <h6>Projects <span>&#x2794; Project Tasks</span> <span>&#x2794; ${projectName}</span></h6>
-            <a class="add-task" href="add-task?id=${id}&name=${projectName}">Add Task</a>
+            <h6>Projects <span>&#x2794; Create Task</span> <span>&#x2794; ${projectName}</span></h6>
         </div>
     </div>
-    <div class="tasks d-flex flex-row justify-content-center">
-        <div class="todo">
-            <div class="task-title d-flex flex-row justify-content-between">
-                <h6>Todo list </h6>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            <div class="task-action">
-                <a href=""><i class="fa-solid fa-plus"></i></a>
-            </div>
-            <div class="task">
-                <div class="task-overflow  d-flex flex-column">
-                    <div class="task-view">
-                        <a href="add-ressource?id=${task.getId()}">
-                            <div class="up d-flex flex-row justify-content-between">
-                                <h6>Make architecte plan</h6>
-                                <div class="days-left">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <span>6 days</span>
-                                </div>
-                            </div>
-                            <div class="middle">
-                                <span>Defines a 3D grooved border. The effect depends on the border-color value</span>
-                            </div>
-                            <div class="down d-flex flex-row justify-content-between">
-                                <div class="attachement-comment d-flex flex-row justify-content-around">
-                                    <div class="attachement d-flex flex-row align-items-center">
-                                        <i class="fa-solid fa-paperclip"></i>
-                                        <span>5</span>
-                                    </div>
-                                    <div class="comment d-flex flex-row align-items-center">
-                                        <i class="fa-regular fa-comment-dots"></i>
-                                        <span>2</span>
-                                    </div>
-                                </div>
-                                <div class="priority">
-                                    <div class="priority-bar">
-                                    </div>
-                                </div>
-                                <div class="contributor">
-                                    <img src="assets/metal.png" alt="">
-                                    <section class="plus">
-                                        +
-                                    </section>
-                                </div>
-                            </div>
-                        </a>
+    <div class="create-task">
+        <form action="" method="post">
+            <div class="form-task">
+                <div class="task-head d-flex flex-row justify-content-between">
+                    <div class="task-title">
+                        <label for="title">Task title :</label>
+                        <i class="fa-solid fa-thumbtack"></i>
+                        <input type="text" id="title" class="title" name="title" placeholder="Enter task title "
+                               required>
                     </div>
-
+                    <div class="task-type">
+                        <label for="type">Task type :</label>
+                        <i class="fa-solid fa-font-awesome"></i>
+                        <input type="text" id="type" class="type" name="type" placeholder="Enter task type "
+                               required>
+                    </div>
+                    <div class="due-date">
+                        <label for="date">Task due date :</label>
+                        <input type="date" id="date" class="date" name="date" required>
+                    </div>
+                </div>
+                <div class="task-desc">
+                    <div class="task-description">
+                        <label for="date">Task description :</label>
+                        <textarea id="description" class="description" name="description" required></textarea>
+                    </div>
+                </div>
+                <div class="task-action d-flex flex-row justify-content-between">
+                    <div class="left d-flex flex-column justify-content-between">
+                        <h6>Priority &#x2794;</h6>
+                        <label for="high">
+                            <input hidden type="radio" class="priority" id="high" name="priority" value="HIGH">
+                            <p class="btn-high button">High</p>
+                        </label>
+                        <label for="medium">
+                            <input hidden type="radio" class="priority" id="medium" name="priority" value="MEDIUM">
+                            <p class="btn-medium button">Medium</p>
+                        </label>
+                        <label for="low">
+                            <input hidden type="radio" class="priority" id="low" name="priority" value="LOW">
+                            <p class="btn-low button">Low</p>
+                        </label>
+                    </div>
+                    <div class="div middle-1 left d-flex flex-column justify-content-between">
+                        <h6>Status &#x2794;</h6>
+                        <label for="done">
+                            <input hidden type="radio" class="status" id="done" name="status" value="COMPLETED">
+                            <p class="btn-done button">Done</p>
+                        </label>
+                        <label for="inprogress">
+                            <input hidden type="radio" class="status" id="inprogress" name="status" value="IN_PROGRESS">
+                            <p class="btn-inprogress button">Pending</p>
+                        </label>
+                        <label for="todo">
+                            <input hidden type="radio" class="status" id="todo" name="status" value="TODO">
+                            <p class="btn-todo button">ToDo</p>
+                        </label>
+                    </div>
+                    <div class="middle-2 left">
+                        <h6 for="priority">CheckList :</h6>
+                        <label for="checklist">
+                            <i class="fa-solid fa-plus"></i>
+                        </label>
+                    </div>
+                    <div class="right d-flex flex-column justify-content-between">
+                        <div>
+                            <h6 for="priority">Notification :</h6>
+                            <label for="notification">
+                                <span>Suivre</span>
+                                <i class="fa-solid fa-eye"></i>
+                            </label>
+                        </div>
+                        <div class="btn">
+                            <input hidden="hidden" value="${id}" name="id">
+                            <input hidden="hidden" value="${projectName}" name="name">
+                            <button type="submit">Create</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="doing">
-            <div class="task-title d-flex flex-row justify-content-between">
-                <h6>InProgress list </h6>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            <div class="task-action">
-                <a href=""><i class="fa-solid fa-plus"></i></a>
-            </div>
-            <div class="task">
-                <div class="task-overflow  d-flex flex-column">
+            <div style="display: none;" class="form-resource">
 
-                </div>
             </div>
-        </div>
-        <div class="done">
-            <div class="task-title d-flex flex-row justify-content-between">
-                <h6>Completed list </h6>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            <div class="task-action">
-                <a href=""><i class="fa-solid fa-plus"></i></a>
-            </div>
-            <div class="task">
-                <div class="task-overflow  d-flex flex-column">
+            <div style="display: none;" class="form-employee">
 
-                </div>
             </div>
-        </div>
+        </form>
     </div>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -190,6 +203,7 @@
         crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/6150be860f.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+
 <script><%@include file="js/script.js"%></script>
 
 
