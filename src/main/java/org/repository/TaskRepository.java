@@ -1,5 +1,6 @@
 package org.repository;
 
+import org.dto.TaskDTO;
 import org.enums.Status;
 import org.model.Task;
 
@@ -13,4 +14,5 @@ public interface TaskRepository {
     void delete(Long id) throws SQLException, ClassNotFoundException;
     Task getById(Long id) throws SQLException, ClassNotFoundException;
     void updateTaskStatus(Long id, Status status) throws SQLException, ClassNotFoundException;
+    TaskDTO getTaskWithAssociated(Long id) throws SQLException, ClassNotFoundException;
 }

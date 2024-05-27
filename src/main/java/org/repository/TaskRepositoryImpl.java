@@ -1,11 +1,19 @@
 package org.repository;
 
 import org.config.DatabaseConfig;
+import org.dto.TaskDTO;
+import org.enums.EmployeeType;
 import org.enums.Priority;
+import org.enums.ResourceType;
 import org.enums.Status;
+import org.model.Resource;
+import org.model.Supervisor;
 import org.model.Task;
+import org.model.Team;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -132,5 +140,86 @@ public class TaskRepositoryImpl implements TaskRepository {
         statement.executeUpdate();
         statement.close();
         connection.close();
+    }
+
+    @Override
+    public TaskDTO getTaskWithAssociated(Long id) throws SQLException, ClassNotFoundException {
+        TaskDTO taskDTO = new TaskDTO();
+        Connection connection = databaseConfig.getConnection();
+        String query = "SELECT * FROM task WHERE id = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setLong(1, id);
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()){
+            taskDTO.setId(resultSet.getLong("id"));
+            taskDTO.setTitle(resultSet.getString("title"));
+            taskDTO.setType(resultSet.getString("type"));
+            taskDTO.setStartDate(resultSet.getDate("start_date"));
+            taskDTO.setEndDate(resultSet.getDate("end_date"));
+            LocalDate today = LocalDate.now();
+            LocalDate startDate = taskDTO.getStartDate().toLocalDate();
+            taskDTO.setDaysLeft((int) ChronoUnit.DAYS.between(startDate, today));
+            taskDTO.setDescription(resultSet.getString("description"));
+            taskDTO.setPriority(Priority.valueOf(resultSet.getString("priority")));
+            taskDTO.setStatus(Status.valueOf(resultSet.getString("status")));
+            Supervisor supervisor = new Supervisor();
+            String querySupervisor = "SELECT employee.id, employee.name, employee.job_type, employee.picture, employee.availability, employee.employee_type FROM task_employee JOIN task ON task_employee.id_task = task.id JOIN employee ON task_employee.id_employee = employee.id WHERE task.id = ? AND employee.employee_type = ?";
+            PreparedStatement statementSupervisor = connection.prepareStatement(querySupervisor);
+            statementSupervisor.setLong(1, id);
+            statementSupervisor.setString(2, EmployeeType.SUPERVISOR.toString());
+            ResultSet resultSetSupervisor = statementSupervisor.executeQuery();
+            if (resultSetSupervisor.next()){
+                supervisor.setId(resultSetSupervisor.getLong("employee.id"));
+                supervisor.setName(resultSetSupervisor.getString("employee.name"));
+                supervisor.setJobType(resultSetSupervisor.getString("employee.job_type"));
+                supervisor.setPicture(resultSetSupervisor.getString("employee.picture"));
+                supervisor.setAvailability(resultSetSupervisor.getBoolean("employee.availability"));
+                supervisor.setEmployeeType(EmployeeType.valueOf(resultSetSupervisor.getString("employee.employee_type")));
+            }
+            taskDTO.setSupervisor(supervisor);
+            statementSupervisor.close();
+            resultSetSupervisor.close();
+            Team team = new Team();
+            String queryTeam = "SELECT employee.id, employee.name, employee.job_type, employee.picture, employee.availability, employee.employee_type FROM task_employee JOIN task ON task_employee.id_task = task.id JOIN employee ON task_employee.id_employee = employee.id WHERE task.id = ? AND employee.employee_type = ?";
+            PreparedStatement statementTeam = connection.prepareStatement(queryTeam);
+            statementTeam.setLong(1, id);
+            statementTeam.setString(2, EmployeeType.TEAM.toString());
+            ResultSet resultSetTeam = statementTeam.executeQuery();
+            if (resultSetTeam.next()){
+                team.setId(resultSetTeam.getLong("employee.id"));
+                team.setName(resultSetTeam.getString("employee.name"));
+                team.setJobType(resultSetTeam.getString("employee.job_type"));
+                team.setPicture(resultSetTeam.getString("employee.picture"));
+                team.setAvailability(resultSetTeam.getBoolean("employee.availability"));
+                team.setEmployeeType(EmployeeType.valueOf(resultSetTeam.getString("employee.employee_type")));
+            }
+            taskDTO.setTeam(team);
+            statementTeam.close();
+            resultSetTeam.close();
+            List<Resource> resources = new ArrayList<>();
+            String queryResource = "SELECT resource.id, resource.title, resource.type, resource.provider, resource.acquisition_date, resource.picture, resource.quantity, resource.availability, resource.resource_type FROM task_resource JOIN task ON task_resource.id_task = task.id JOIN resource ON task_resource.id_resource = resource.id WHERE task.id = ? ORDER BY resource_type DESC";
+            PreparedStatement statementResources = connection.prepareStatement(queryResource);
+            statementResources.setLong(1, id);
+            ResultSet resultSetResources = statementResources.executeQuery();
+            while (resultSetResources.next()){
+                Resource resource = new Resource();
+                resource.setId(resultSetResources.getLong("resource.id"));
+                resource.setTitle(resultSetResources.getString("resource.title"));
+                resource.setType(resultSetResources.getString("resource.type"));
+                resource.setProvider(resultSetResources.getString("resource.provider"));
+                resource.setAcquisitionDate(resultSetResources.getDate("resource.acquisition_date"));
+                resource.setPicture(resultSetResources.getString("resource.picture"));
+                resource.setQuantity(resultSetResources.getString("resource.quantity"));
+                resource.setAvailability(resultSetResources.getBoolean("resource.availability"));
+                resource.setResourceType(ResourceType.valueOf(resultSetResources.getString("resource.resource_type")));
+                resources.add(resource);
+            }
+            taskDTO.setResourceList(resources);
+            statementResources.close();
+            resultSetResources.close();
+        }
+        statement.close();
+        resultSet.close();
+        return taskDTO;
     }
 }
