@@ -259,4 +259,12 @@
         <servlet-name>UpdateTask</servlet-name>
         <url-pattern>/update-task</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ExportResources</servlet-name>
+        <servlet-class>org.servlet.resource.ExportResources</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExportResources</servlet-name>
+        <url-pattern>/export-resources</url-pattern>
+    </servlet-mapping>
 </web-app>

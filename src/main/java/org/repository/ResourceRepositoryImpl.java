@@ -121,6 +121,32 @@ public class ResourceRepositoryImpl implements ResourceRepository {
     }
 
     @Override
+    public List<Resource> getAllResource() throws SQLException, ClassNotFoundException {
+        List<Resource> resources = new ArrayList<>();
+        Connection connection = databaseConfig.getConnection();
+        String query = "SELECT * FROM resource";
+        PreparedStatement statement = connection.prepareStatement(query);
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            Resource resource = new Resource();
+            resource.setId(resultSet.getLong("id"));
+            resource.setTitle(resultSet.getString("title"));
+            resource.setType(resultSet.getString("type"));
+            resource.setProvider(resultSet.getString("provider"));
+            resource.setAcquisitionDate(resultSet.getDate("acquisition_date"));
+            resource.setPicture(resultSet.getString("picture"));
+            resource.setQuantity(resultSet.getString("quantity"));
+            resource.setAvailability(resultSet.getBoolean("availability"));
+            resource.setResourceType(ResourceType.valueOf(resultSet.getString("resource_type")));
+            resources.add(resource);
+        }
+        resultSet.close();
+        statement.close();
+        connection.close();
+        return resources;
+    }
+
+    @Override
     public void add(Resource resource) throws SQLException, ClassNotFoundException {
         Connection connection = databaseConfig.getConnection();
         String query = "INSERT INTO resource (title, type, provider, acquisition_date, picture, quantity, availability, resource_type) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
