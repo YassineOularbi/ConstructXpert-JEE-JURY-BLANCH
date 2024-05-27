@@ -121,4 +121,16 @@ public class TaskRepositoryImpl implements TaskRepository {
         connection.close();
         return task;
     }
+
+    @Override
+    public void updateTaskStatus(Long id, Status status) throws SQLException, ClassNotFoundException {
+        Connection connection = databaseConfig.getConnection();
+        String query = "UPDATE task SET status = ? WHERE id = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, String.valueOf(status));
+        statement.setLong(2, id);
+        statement.executeUpdate();
+        statement.close();
+        connection.close();
+    }
 }

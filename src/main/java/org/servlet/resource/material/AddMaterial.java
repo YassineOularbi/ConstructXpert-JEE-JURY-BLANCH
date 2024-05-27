@@ -1,7 +1,10 @@
 package org.servlet.resource.material;
 
 import org.dto.UserDTO;
+import org.enums.ResourceType;
 import org.model.Material;
+import org.repository.ResourceRepository;
+import org.repository.ResourceRepositoryImpl;
 import org.service.MaterialService;
 
 import javax.servlet.*;
@@ -14,6 +17,7 @@ import java.sql.SQLException;
 @WebServlet(name = "AddMaterial", value = "/AddMaterial")
 public class AddMaterial extends HttpServlet {
     MaterialService materialService = new MaterialService();
+    ResourceRepository resourceRepository = new ResourceRepositoryImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -34,6 +38,7 @@ public class AddMaterial extends HttpServlet {
         Material material = new Material(title, type, provider, acquisitionDate, picture, quantity, true);
         try {
             materialService.add(material);
+            request.setAttribute("total_material", resourceRepository.countResourceByType(ResourceType.MATERIAL));
             request.setAttribute("materials", materialService.getAllMaterials());
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);

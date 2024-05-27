@@ -1,7 +1,10 @@
 package org.servlet.employee.supervisor;
 
 import org.dto.UserDTO;
+import org.enums.EmployeeType;
 import org.model.Supervisor;
+import org.repository.EmployeeRepository;
+import org.repository.EmployeeRepositoryImpl;
 import org.service.SupervisorService;
 
 import javax.servlet.*;
@@ -14,6 +17,7 @@ import java.sql.SQLException;
 @WebServlet(name = "AddSupervisor", value = "/AddSupervisor")
 public class AddSupervisor extends HttpServlet {
     SupervisorService supervisorService = new SupervisorService();
+    EmployeeRepository employeeRepository = new EmployeeRepositoryImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -30,6 +34,7 @@ public class AddSupervisor extends HttpServlet {
         Supervisor supervisor = new Supervisor(name, type, picture, true);
         try {
             supervisorService.add(supervisor);
+            request.setAttribute("total_supervisor", employeeRepository.countEmployeeByType(EmployeeType.SUPERVISOR));
             request.setAttribute("supervisors", supervisorService.getAllSupervisors());
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);

@@ -48,7 +48,8 @@ public class AddProject extends HttpServlet {
                 wallMaterial, foundationType, roofingType, areaSize, budget, planFloor, picture);
         try {
             projectRepository.add(project);
-            request.setAttribute("projects", projectRepository.getAll());
+            request.setAttribute("projects", projectRepository.projectProgress());
+            request.setAttribute("total_project", projectRepository.allProjects());
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }

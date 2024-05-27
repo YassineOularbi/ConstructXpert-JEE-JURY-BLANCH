@@ -1,7 +1,10 @@
 package org.servlet.resource.equipment;
 
 import org.dto.UserDTO;
+import org.enums.ResourceType;
 import org.model.Equipment;
+import org.repository.ResourceRepository;
+import org.repository.ResourceRepositoryImpl;
 import org.service.EquipmentService;
 
 import javax.servlet.*;
@@ -14,6 +17,7 @@ import java.sql.SQLException;
 @WebServlet(name = "UpdateEquipment", value = "/UpdateEquipment")
 public class UpdateEquipment extends HttpServlet {
     EquipmentService equipmentService = new EquipmentService();
+    ResourceRepository resourceRepository = new ResourceRepositoryImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long id = Long.valueOf(request.getParameter("id"));
@@ -41,6 +45,7 @@ public class UpdateEquipment extends HttpServlet {
         Equipment equipment = new Equipment(id, title, type, provider, acquisitionDate, picture, quantity, true);
         try {
             equipmentService.update(equipment);
+            request.setAttribute("total_equipment", resourceRepository.countResourceByType(ResourceType.EQUIPMENT));
             request.setAttribute("equipments", equipmentService.getAllEquipment());
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);

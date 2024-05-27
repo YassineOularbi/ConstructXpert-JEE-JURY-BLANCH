@@ -1,5 +1,6 @@
 package org.repository;
 
+import org.dto.ProjectDTO;
 import org.model.Project;
 
 import java.sql.SQLException;
@@ -11,4 +12,7 @@ public interface ProjectRepository {
     void update(Project Project) throws SQLException, ClassNotFoundException;
     void delete(Long id) throws SQLException, ClassNotFoundException;
     Project getById(Long id) throws SQLException, ClassNotFoundException;
+    Integer allProjects() throws SQLException, ClassNotFoundException;
+    Double countBudget() throws SQLException, ClassNotFoundException;
+    List<ProjectDTO> projectProgress() throws  SQLException, ClassNotFoundException;
 }

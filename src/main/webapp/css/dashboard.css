@@ -754,7 +754,6 @@ a{
     height: 5px;
     border-radius: 3px;
     transition: var(--tran-04);
-    background-color: var(--primary-color);
 }
 .project-card .project-details{
     padding: 0 15px;
@@ -1412,5 +1411,199 @@ a{
     position: absolute;
     right: 0;
     bottom: 0;
+    font-weight: bold;
+}
+.task-details{
+    width: 96%;
+    height: 300px;
+    padding: 20px;
+    margin: 20px;
+    border-bottom: 2px solid var(--grey-color);
+    position: relative;
+}
+.task-details h6{
+    font-size: 16px;
+    font-weight: bold;
+}
+.task-details .details{
+    width: 25%;
+    height: 70%;
+}
+.task-details .details .status{
+    font-size: 15px;
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+    background-color: green;
+    border-radius: 10px;
+    padding-top: 4px;
+    text-align: center;
+    margin: 0;
+}
+.task-details div{
+    margin-bottom: 7px;
+}
+.task-details .details span{
+    font-size: 14px;
+    padding-left: 5px;
+}
+.task-details .details i{
+    font-size: 14px;
+}
+.task-details .details p{
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    padding-right: 7px;
+}
+.task-details .details .desc{
+    width: 320%;
+}
+.task-details a{
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+    padding: 6px 20px;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 13px;
+    font-weight: bold;
+}
+.employee-details{
+    width: 96%;
+    height: 100px;
+    padding: 20px;
+    margin: 20px;
+    border-bottom: 2px solid var(--grey-color);
+    position: relative;
+}
+.employee-details .employee{
+    width: 40%;
+    height: 100%;
+}
+.employee-details .employee span{
+    font-size: 14px;
+    padding-left: 5px;
+}
+.employee-details .employee p{
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    padding-right: 7px;
+    margin: 0;
+    padding-left: 10px;
+}
+.employee-details .user{
+    width: 200px;
+    height: 30px;
+    border-radius: 0;
+}
+.employee-details img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: relative;
+}
+.employee-details a{
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+    padding: 6px 20px;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 13px;
+    font-weight: bold;
+}
+.employee-details h6{
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: -20px;
+}
+.resource-details{
+    width: 96%;
+    height: 200px;
+    padding: 20px;
+    margin: 20px;
+    border-bottom: 2px solid var(--grey-color);
+    position: relative;
+}
+.resource-details h6{
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: -20px;
+}
+.resource-details .overflow{
+    width: 100%;
+    height: 75%;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+.resource-details .scroll{
+    height: 100%;
+    width: auto;
+    gap: 40px;
+}
+.resource-details label{
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    border: 1px solid var(--black-color);
+    padding: 5px;
+}
+.resource-details img{
+    width: 97%;
+    height: 97%;
+}
+.resource-details .update-resource{
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+    padding: 6px 20px;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 13px;
+    font-weight: bold;
+}
+.resource-details .add-resource{
+    position: absolute;
+    right: 100px;
+    bottom: 15px;
+    padding: 6px 20px;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: var(--black-color);
+    font-size: 13px;
+    font-weight: bold;
+}
+.task-action{
+    width: 96%;
+    height: 70px;
+    padding: 20px;
+    margin: 20px;
+    position: relative;
+}
+.task-action .delete{
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+    padding: 6px 20px;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 13px;
+    font-weight: bold;
+}
+.task-action .save{
+    position: absolute;
+    right: 100px;
+    bottom: 15px;
+    padding: 6px 20px;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: var(--black-color);
+    font-size: 13px;
     font-weight: bold;
 }

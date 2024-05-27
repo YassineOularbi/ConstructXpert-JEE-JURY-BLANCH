@@ -1,5 +1,6 @@
 package org.repository;
 
+import org.enums.Status;
 import org.model.Task;
 
 import java.sql.SQLException;
@@ -11,4 +12,5 @@ public interface TaskRepository {
     void update(Task task) throws SQLException, ClassNotFoundException;
     void delete(Long id) throws SQLException, ClassNotFoundException;
     Task getById(Long id) throws SQLException, ClassNotFoundException;
+    void updateTaskStatus(Long id, Status status) throws SQLException, ClassNotFoundException;
 }

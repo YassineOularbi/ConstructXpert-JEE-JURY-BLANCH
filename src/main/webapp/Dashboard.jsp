@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: user
@@ -105,7 +106,7 @@
     <div class="cardBox">
         <div class="card">
             <div>
-                <div class="numbers">1,504</div>
+                <div class="numbers">${total_project}</div>
                 <div class="cardName">Projects</div>
             </div>
 
@@ -116,7 +117,7 @@
 
         <div class="card">
             <div>
-                <div class="numbers">80</div>
+                <div class="numbers">${total_resource}</div>
                 <div class="cardName">Resource</div>
             </div>
 
@@ -127,7 +128,7 @@
 
         <div class="card">
             <div>
-                <div class="numbers">284</div>
+                <div class="numbers">${total_employee}</div>
                 <div class="cardName">Employee</div>
             </div>
 
@@ -138,7 +139,7 @@
 
         <div class="card">
             <div>
-                <div class="numbers">$7,842</div>
+                <div class="numbers">$${total_budget}K</div>
                 <div class="cardName">Budget</div>
             </div>
 
@@ -160,7 +161,124 @@
 <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.13/index.global.min.js'></script>
 <script><%@include file="js/calendar.js"%></script>
 
+<script>
+    const ctx1 = document.getElementById("chart-1").getContext("2d");
+    const myChart = new Chart(ctx1, {
+        type: "doughnut",
+        data: {
+            labels: ["Project", "Resource", "employee"],
+            datasets: [
+                {
+                    label: "# of Votes",
+                    data: [${total_project}, ${total_resource}, ${total_employee}],
+                    backgroundColor: [
+                        "#FF914C",
+                        "#FFBD59",
+                        "#D9D9D9",
+                    ],
+                },
+            ],
+        },
+        options: {
+            responsive: true,
+        },
+    });
 
+    const ctx2 = document.getElementById("chart-2").getContext("2d");
+    const myChart2 = new Chart(ctx2, {
+        type: "bar",
+        data: {
+
+            labels: [
+                <c:forEach var="project" items="${projects}">
+                "${project.getName()}",
+                </c:forEach>
+            ],
+            datasets: [
+                {
+                    label: "Budget",
+                    data: [
+                        <c:forEach var="project" items="${projects}">
+                        ${project.getBudget()},
+                        </c:forEach>
+                    ],
+                    backgroundColor: [
+                        "#FF914C",
+                        "#FFBD59",
+                        "#D9D9D9",
+                    ],
+                },
+            ],
+        },
+        options: {
+            responsive: true,
+        },
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+
+        var events = [
+            <c:forEach var="project" items="${projects}">
+            {
+                title: '${project.getName()}',
+                start: '${project.getDateStart()}',
+                end: '${project.getDateEnd()}',
+                extendedProps: {
+                    contributors: [
+                        '${project.getPicture()}',
+                        '${user.getPicture()}'
+                    ],
+                    progress: ${project.getProgress()}
+                }
+            },
+            </c:forEach>
+        ];
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            events: events,
+            eventContent: function(info) {
+                var card = document.createElement('div');
+                card.classList.add('fc-event-card');
+
+                var title = document.createElement('div');
+                title.classList.add('fc-title');
+                title.textContent = info.event.title;
+                card.appendChild(title);
+
+                if (info.event.extendedProps.contributors) {
+                    var contributorsContainer = document.createElement('div');
+                    contributorsContainer.classList.add('fc-contributors');
+
+                    info.event.extendedProps.contributors.forEach(function(url) {
+                        var img = document.createElement('img');
+                        img.src = url;
+                        contributorsContainer.appendChild(img);
+                    });
+
+                    card.appendChild(contributorsContainer);
+                }
+
+                if (info.event.extendedProps.progress !== undefined) {
+                    var progressContainer = document.createElement('div');
+                    progressContainer.classList.add('fc-progress');
+
+                    var progressBar = document.createElement('div');
+                    progressBar.classList.add('fc-progress-bar');
+                    progressBar.style.width = info.event.extendedProps.progress + '%';
+
+                    progressContainer.appendChild(progressBar);
+                    card.appendChild(progressContainer);
+                }
+
+                return { domNodes: [card] };
+            }
+        });
+
+        calendar.render();
+    });
+</script>
 
 </body>
 </html>

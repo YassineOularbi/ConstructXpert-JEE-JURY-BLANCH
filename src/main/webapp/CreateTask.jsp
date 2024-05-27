@@ -129,7 +129,7 @@
                     </div>
                     <div class="due-date">
                         <label for="date">Task due date :</label>
-                        <input type="date" id="date" class="date" name="date" required>
+                        <input type="date" id="date" class="date" name="date" min="${limit}" required>
                     </div>
                 </div>
                 <div class="task-desc">
@@ -246,11 +246,13 @@
                     <h6>Choose supervisor :</h6>
                     <div class="overflow">
                         <div class="scroll d-flex flex-row">
-                            <label for="supervisor1">
-                                <img src="https://media.jewson.co.uk/f_auto,q_auto/t_Zoom/global/product-images/56232" alt="">
-                                <input type="radio" class="supervisor-check" name="supervisor" id="supervisor1" hidden>
-                                <p>Yassine</p>
+                            <c:forEach var="supervisor" items="${supervisors}">
+                            <label for="supervisor${supervisor.getId()}">
+                                <img src="${supervisor.getPicture()}" alt="">
+                                <input type="radio" class="supervisor-check" name="supervisor" id="supervisor${supervisor.getId()}" value="${supervisor.getId()}" hidden>
+                                <p>${supervisor.getName()}</p>
                             </label>
+                            </c:forEach>
                         </div>
                     </div>
 
@@ -259,16 +261,13 @@
                     <h6>Choose team :</h6>
                     <div class="overflow">
                         <div class="scroll d-flex flex-row">
-                            <label for="team1">
-                                <img src="https://media.jewson.co.uk/f_auto,q_auto/t_Zoom/global/product-images/56232" alt="">
-                                <input type="radio" class="team-check" name="team" id="team1" hidden>
-                                <p>Yassine</p>
+                            <c:forEach var="team" items="${teams}">
+                            <label for="team${team.getId()}">
+                                <img src="${team.getPicture()}" alt="">
+                                <input type="radio" class="team-check" name="team" id="team${team.getId()}" value="${team.getId()}" hidden>
+                                <p>${team.getName()}</p>
                             </label>
-                            <label for="team2">
-                                <img src="https://media.jewson.co.uk/f_auto,q_auto/t_Zoom/global/product-images/56232" alt="">
-                                <input type="radio" class="team-check" name="team" id="team2" hidden>
-                                <p>Yassine</p>
-                            </label>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>

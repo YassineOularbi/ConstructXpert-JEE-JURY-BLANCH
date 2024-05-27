@@ -63,6 +63,29 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
+    public List<Employee> allAvailableEmployee() throws SQLException, ClassNotFoundException {
+        List<Employee> employees = new ArrayList<>();
+        Connection connection = databaseConfig.getConnection();
+        String query = "SELECT * FROM employee WHERE availability = true";
+        PreparedStatement statement = connection.prepareStatement(query);
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            Employee employee = new Employee();
+            employee.setId(resultSet.getLong("id"));
+            employee.setName(resultSet.getString("name"));
+            employee.setJobType(resultSet.getString("job_type"));
+            employee.setPicture(resultSet.getString("picture"));
+            employee.setAvailability(resultSet.getBoolean("availability"));
+            employee.setEmployeeType(EmployeeType.valueOf(resultSet.getString("employee_type")));
+            employees.add(employee);
+        }
+        resultSet.close();
+        statement.close();
+        connection.close();
+        return employees;
+    }
+
+    @Override
     public void add(Employee employee) throws SQLException, ClassNotFoundException {
         Connection connection = databaseConfig.getConnection();
         String query = "INSERT INTO employee (name, job_type, picture, availability, employee_type) VALUES (?, ?, ?, ?, ?)";
@@ -125,5 +148,32 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         statement.close();
         connection.close();
         return employee;
+    }
+
+    @Override
+    public Integer allEmployees() throws SQLException, ClassNotFoundException {
+        Connection connection = databaseConfig.getConnection();
+        String query = "SELECT COUNT(*) AS total_employee FROM employee";
+        PreparedStatement statement = connection.prepareStatement(query);
+        ResultSet resultSet = statement.executeQuery();
+        Integer total = 0;
+        if(resultSet.next()){
+            total = resultSet.getInt("total_employee");
+        }
+        return total;
+    }
+
+    @Override
+    public Integer countEmployeeByType(EmployeeType employeeType) throws SQLException, ClassNotFoundException {
+        Connection connection = databaseConfig.getConnection();
+        String query = "SELECT COUNT(*) AS total_employee FROM employee WHERE employee_type = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, String.valueOf(employeeType));
+        ResultSet resultSet = statement.executeQuery();
+        Integer total = 0;
+        if(resultSet.next()){
+            total = resultSet.getInt("total_employee");
+        }
+        return total;
     }
 }

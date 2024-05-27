@@ -55,7 +55,8 @@ public class UpdateProject extends HttpServlet {
                 wallMaterial, foundationType, roofingType, areaSize, budget, planFloor, picture);
         try {
             projectRepository.update(project);
-            request.setAttribute("projects", projectRepository.getAll());
+            request.setAttribute("projects", projectRepository.projectProgress());
+            request.setAttribute("total_project", projectRepository.allProjects());
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }

@@ -107,7 +107,7 @@
     <div class="main-header d-flex flex-row justify-content-between">
         <div class="main-section">
             <h6>Projects</h6>
-            <span>Number of projects : 12</span>
+            <span>Number of projects : ${total_project}</span>
         </div>
         <div class="main-actions d-flex flex-row justify-content-around">
             <div class="filter">
@@ -147,13 +147,13 @@
                 <span>Progress </span>
                 <div class="progress-project">
                     <c:if test="${project.getStatus() eq 'TODO'}">
-                    <div style="width: 10%" class="progressed"></div>
+                    <div style="width: ${project.getProgress()}%; background-color: red" class="progressed"></div>
                     </c:if>
                     <c:if test="${project.getStatus() eq 'IN_PROGRESS'}">
-                        <div style="width: 50%" class="progressed"></div>
+                        <div style="width: ${project.getProgress()}%; background-color: darkgreen" class="progressed"></div>
                     </c:if>
                     <c:if test="${project.getStatus() eq 'COMPLETED'}">
-                        <div style="width: 90%" class="progressed"></div>
+                        <div style="width: ${project.getProgress()}%; background: #FF914C" class="progressed"></div>
                     </c:if>
                 </div>
             </div>

@@ -18,7 +18,8 @@ public class DeleteProject extends HttpServlet {
         Long id = Long.valueOf(request.getParameter("id"));
         try {
             projectRepository.delete(id);
-            request.setAttribute("projects", projectRepository.getAll());
+            request.setAttribute("projects", projectRepository.projectProgress());
+            request.setAttribute("total_project", projectRepository.allProjects());
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }

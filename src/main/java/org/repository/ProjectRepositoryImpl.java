@@ -1,6 +1,7 @@
 package org.repository;
 
 import org.config.DatabaseConfig;
+import org.dto.ProjectDTO;
 import org.enums.Status;
 import org.model.Project;
 
@@ -152,6 +153,104 @@ public class ProjectRepositoryImpl implements ProjectRepository {
         statement.close();
         connection.close();
         return project;
+    }
+
+    @Override
+    public Integer allProjects() throws SQLException, ClassNotFoundException {
+        Connection connection = databaseConfig.getConnection();
+        String query = "SELECT COUNT(*) AS total_project FROM project";
+        PreparedStatement statement = connection.prepareStatement(query);
+        ResultSet resultSet = statement.executeQuery();
+        Integer total = 0;
+        if(resultSet.next()){
+            total = resultSet.getInt("total_project");
+        }
+        return total;
+    }
+
+    @Override
+    public Double countBudget() throws SQLException, ClassNotFoundException {
+        Connection connection = databaseConfig.getConnection();
+        String query = "SELECT SUM(budget) AS total_budget FROM project";
+        PreparedStatement statement = connection.prepareStatement(query);
+        ResultSet resultSet = statement.executeQuery();
+        Double total = 0.00;
+        if(resultSet.next()){
+            total = resultSet.getDouble("total_budget");
+        }
+        return total;
+    }
+
+    @Override
+    public List<ProjectDTO> projectProgress() throws SQLException, ClassNotFoundException {
+        List<ProjectDTO> projectDTOList = new ArrayList<>();
+        Connection connection = databaseConfig.getConnection();
+        String query = "SELECT * FROM project";
+        PreparedStatement statement = connection.prepareStatement(query);
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()){
+            ProjectDTO projectDTO = new ProjectDTO();
+            projectDTO.setName(resultSet.getString("name"));
+            projectDTO.setId(resultSet.getLong("id"));
+            projectDTO.setGeolocation(resultSet.getString("geolocation"));
+            projectDTO.setDateStart(resultSet.getDate("date_start"));
+            projectDTO.setDateEnd(resultSet.getDate("date_end"));
+            projectDTO.setPicture(resultSet.getString("picture"));
+            projectDTO.setBudget(resultSet.getDouble("budget"));
+            projectDTO.setAreaSize(resultSet.getDouble("area_size"));
+            projectDTO.setRoom(resultSet.getInt("room"));
+            projectDTO.setStatus(Status.valueOf(resultSet.getString("status")));
+            String queryDone = "SELECT COUNT(*) as total_done FROM task WHERE id_project = ? AND status = ?";
+            PreparedStatement statementDone = connection.prepareStatement(queryDone);
+            statementDone.setLong(1, projectDTO.getId());
+            statementDone.setString(2, Status.COMPLETED.toString());
+            ResultSet resultSetDone = statementDone.executeQuery();
+            if (resultSetDone.next()){
+                projectDTO.setTaskDone(resultSetDone.getInt("total_done"));
+            }
+            statementDone.close();
+            resultSetDone.close();
+            String queryTotal = "SELECT COUNT(*) as total_task FROM task WHERE id_project = ?";
+            PreparedStatement statementTotal = connection.prepareStatement(queryTotal);
+            statementTotal.setLong(1, projectDTO.getId());
+            ResultSet resultSetTotal = statementTotal.executeQuery();
+            if (resultSetTotal.next()){
+                projectDTO.setTotalTask(resultSetTotal.getInt("total_task"));
+            }
+            statementTotal.close();
+            resultSetTotal.close();
+            if (projectDTO.getTotalTask() > 0) {
+                double progress = ((double) projectDTO.getTaskDone() / projectDTO.getTotalTask()) * 100;
+                projectDTO.setProgress((int) progress);
+            }
+            if (projectDTO.getTotalTask() == 0){
+                String updateProjectToTODO = "UPDATE project SET status = ? WHERE id = ?";
+                PreparedStatement statementTODO = connection.prepareStatement(updateProjectToTODO);
+                statementTODO.setString(1, Status.TODO.toString());
+                statementTODO.setLong(2, projectDTO.getId());
+                statementTODO.executeUpdate();
+                statementTODO.close();
+            } else if (projectDTO.getProgress()<100) {
+                String updateProjectToINPROGRESS = "UPDATE project SET status = ? WHERE id = ?";
+                PreparedStatement statementINPROGRESS = connection.prepareStatement(updateProjectToINPROGRESS);
+                statementINPROGRESS.setString(1, Status.IN_PROGRESS.toString());
+                statementINPROGRESS.setLong(2, projectDTO.getId());
+                statementINPROGRESS.executeUpdate();
+                statementINPROGRESS.close();
+            } else if (projectDTO.getProgress()==100) {
+                String updateProjectToDONE = "UPDATE project SET status = ? WHERE id = ?";
+                PreparedStatement statementDONE = connection.prepareStatement(updateProjectToDONE);
+                statementDONE.setString(1, Status.COMPLETED.toString());
+                statementDONE.setLong(2, projectDTO.getId());
+                statementDONE.executeUpdate();
+                statementDONE.close();
+            }
+        projectDTOList.add(projectDTO);
+        }
+        statement.close();
+        resultSet.close();
+        connection.close();
+        return projectDTOList;
     }
 
 }

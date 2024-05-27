@@ -1,18 +1,21 @@
 package org.servlet.task;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.enums.Status;
+import org.repository.TaskRepository;
+import org.repository.TaskRepositoryImpl;
 
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.io.InputStream;
+import java.sql.SQLException;
+import java.util.Map;
 
 @WebServlet(name = "UpdateTaskStatus", value = "/UpdateTaskStatus")
 public class UpdateTaskStatus extends HttpServlet {
+    TaskRepository taskRepository = new TaskRepositoryImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -20,13 +23,17 @@ public class UpdateTaskStatus extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        InputStream inputStream = request.getInputStream();
-        JsonReader jsonReader = Json.createReader(inputStream);
-        JsonObject jsonObject = jsonReader.readObject();
-        jsonReader.close();
-        Long id = Long.valueOf(String.valueOf(jsonObject.getJsonNumber("id")));
-        String status = jsonObject.getString("status");
-        System.out.println("id: " + id);
-        System.out.println("status: " + status);
+        ObjectMapper objectMapper = new ObjectMapper();
+        Map<String, Object> requestData = objectMapper.readValue(request.getInputStream(), new TypeReference<Map<String, Object>>() {});
+
+        String idString = (String) requestData.get("id");
+        Long id = Long.valueOf(idString);
+        String status = (String) requestData.get("status");
+        try {
+            taskRepository.updateTaskStatus(id, Status.valueOf(status));
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
+
 }

@@ -16,7 +16,8 @@ public class DisplayProjects extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            request.setAttribute("projects", projectRepository.getAll());
+            request.setAttribute("projects", projectRepository.projectProgress());
+            request.setAttribute("total_project", projectRepository.allProjects());
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }

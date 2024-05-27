@@ -1,11 +1,11 @@
 <%--
   Created by IntelliJ IDEA.
   User: user
-  Date: 24/05/2024
-  Time: 00:26
+  Date: 27/05/2024
+  Time: 13:55
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page pageEncoding="UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +17,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <style><%@include file="css/style.css"%></style>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <style><%@include file="css/dashboard.css"%></style>
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -34,7 +33,7 @@
                         <i class='bx bxs-dashboard'></i>
                         <span class="text nav-text">Dashboard</span>
                     </a>
-                    <a class="nav-link my-2" href="projects">
+                    <a class="nav-link my-2 active  hovered" href="projects">
                         <i class='bx bxs-building-house'></i>
                         <span class="text nav-text">Project</span>
                     </a>
@@ -46,7 +45,7 @@
                         <i class="fa-solid fa-user-tie"></i>
                         <span class="text nav-text">Supervisor</span>
                     </a>
-                    <a class="nav-link  hovered my-2 active" href="vehicles">
+                    <a class="nav-link my-2" href="vehicles">
                         <i class="fa-solid fa-truck-front"></i>
                         <span class="text nav-text">Vehicle</span>
                     </a>
@@ -105,67 +104,104 @@
 </header>
 <section class="main">
     <div class="main-header d-flex flex-row justify-content-between">
-        <div class="main-section">
-            <h6>Vehicles</h6>
-            <span>Number of vehicles : ${total_vehicle}</span>
+        <div class="main-section d-flex flex-row justify-content-between" style="width: 100%;">
+            <h6>Projects <span>&#x2794; View Task</span> <span>&#x2794; ${projectName}</span></h6>
         </div>
-        <div class="main-actions d-flex flex-row justify-content-around">
-            <div class="filter">
-                <i class="fa-solid fa-filter"></i>
-                <span>Filter</span>
+    </div>
+    <div class="task-details">
+        <h6>Title Task</h6>
+        <div class="details">
+            <div class="d-flex flex-row justify-content-between">
+                <div>
+                    <i class="fa-solid fa-signal"></i>
+                    <span>Status </span>
+                </div>
+                <p class="status"> Done</p>
             </div>
-            <div class="featured">
-                <span>Featured</span>
-                <i class="fa-solid fa-sort-down"></i>
+            <div class="d-flex flex-row justify-content-between">
+                <div>
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Priority </span>
+                </div>
+                <p class="status"> High</p>
             </div>
-            <div class="sort">
-                <i class="fa-brands fa-microsoft"></i>
-                <i class="fa-solid fa-list"></i>
+            <div class="d-flex flex-row justify-content-between">
+                <div>
+                    <i class="fa-brands fa-square-font-awesome-stroke"></i>
+                    <span>Type </span>
+                </div>
+                <p> Enginnering</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between">
+                <div>
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span>Due date </span>
+                </div>
+                <p> 24 march 2025</p>
+            </div>
+            <div class="desc d-flex flex-column justify-content-between">
+                <div>
+                    <i class="fa-solid fa-font"></i>
+                    <span>Description </span>
+                </div>
+                <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae, sunt! Pariatur consequuntur debitis deleniti quisquam rerum quae vitae accusantium in dolor non laborum, neque animi fugiat cum, praesentium explicabo! Animi.</span>
+            </div>
+        </div>
+        <a class="update-task" href="">Update</a>
+    </div>
+    <div class="employee-details">
+        <h6>Employee</h6>
+        <div class="employee">
+            <div class="d-flex flex-row justify-content-between">
+                <div>
+                    <i class="fa-solid fa-user-tie"></i>
+                    <span>Leader </span>
+                </div>
+                <div class="user d-flex flex-row justify-content-start align-items-center">
+                    <img src="assets/logo-head.png" alt="">
+                    <p>Mohammed</p>
+                </div>
+
+            </div>
+            <div class="d-flex flex-row justify-content-between">
+                <div>
+                    <i class="fa-solid fa-people-group"></i>
+                    <span>Team </span>
+                </div>
+                <div class="user d-flex flex-row justify-content-start align-items-center">
+                    <img src="assets/logo-head.png" alt="">
+                    <p>Team A</p>
+                </div>
+            </div>
+            <a class="update-employee" href="">Update</a>
+        </div>
+    </div>
+    <div class="resource-details">
+        <h6>Resources</h6>
+        <div class="overflow">
+            <div class="scroll  d-flex flex-row">
+                <c:forEach var="material" items="${materials}">
+                    <label for="material${material.getId()}">
+                        <img src="assets/silicate-brick.png" alt="">
+                    </label>
+                </c:forEach>
+                <a class="update-resource" href="">Update</a>
+                <a class="add-resource" href="">Add</a>
             </div>
         </div>
     </div>
-    <div class="main-scroll  d-flex flex-row">
-        <c:forEach var="vehicle" items="${vehicles}">
-        <div class="project-card card justify-content-between d-flex flex-column">
-            <div class="dropdown">
-                <button class="btn dropdown-toggle-split" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-ellipsis"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item item-update" href="update-vehicle?id=${vehicle.getId()}">Update</a></li>
-                    <li><a class="dropdown-item" href="delete-vehicle?id=${vehicle.getId()}">Delete</a></li>
-                </ul>
-            </div>
-            <img style="height: 200px;" src="${vehicle.getPicture()}" class="card-img-top project-img" alt="Room Image">
-            <div class="project-head d-flex flex-row justify-content-between align-items-center">
-                <h6>${vehicle.getTitle()}</h6>
-                <span>${vehicle.getType()}</span>
-            </div>
-            <div class="resource-head project-head d-flex flex-row justify-content-between align-items-center">
-                <p>Quantity : ${vehicle.getQuantity()} u</p>
-                <c:if test="${vehicle.getAvailability() eq true}">
-                <span>Available &#x2794;</span>
-                </c:if>
-                <c:if test="${vehicle.getAvailability() eq false}">
-                    <span>Not Available &#x274C;</span>
-                </c:if>
-            </div>
-        </div>
-        </c:forEach>
-        <div class="add">
-            <a href="add-vehicle">
-                <i class="fa-thin fa-plus"></i>
-                <h6>Add Vehicle</h6>
-            </a>
-        </div>
+    <div class="task-action">
+        <a class="save" href="">Save</a>
+        <a class="delete" href="">Delete</a>
     </div>
 </section>
 <script src="https://kit.fontawesome.com/6150be860f.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
-<script><%@include file="js/script.js"%></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+<script><%@include file="js/chart.js"%></script>
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.13/index.global.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.13/index.global.min.js'></script>
+<script><%@include file="js/calendar.js"%></script>
 
 </body>
 </html>
+

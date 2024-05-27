@@ -371,18 +371,27 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (this.closest('.done')) {
           newStatus = 'COMPLETED';
         }
-          fetch(`http://localhost:8080/ConstructXpert_JEE_JURY_BLANCH_war_exploded/update-task-status`, {
+        console.log(taskId)
+          console.log(newStatus)
+          fetch("http://localhost:8080/ConstructXpert_JEE_JURY_BLANCH_war_exploded/update-task-status", {
               method: 'POST',
               headers: {
-                  'Content-Type': 'application/json',
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
               },
               body: JSON.stringify({
                   id: taskId,
                   status: newStatus
               })
-        }) .then(r => {
-            console.log('ok')
-        })
+          }).then(response => {
+              if (response.ok) {
+                  console.log("ok");
+              } else {
+                  console.log("not okkkkkkkkkk");
+              }
+          }).catch(error => {
+              console.error("Fetch error:", error);
+          });
       }
     });
   });

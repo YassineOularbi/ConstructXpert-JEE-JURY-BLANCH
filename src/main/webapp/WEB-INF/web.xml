@@ -12,6 +12,14 @@
         <url-pattern>/auth</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>DashboardServlet</servlet-name>
+        <servlet-class>org.servlet.DashboardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DashboardServlet</servlet-name>
+        <url-pattern>/dashboard</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>DisplayProjects</servlet-name>
         <servlet-class>org.servlet.project.DisplayProjects</servlet-class>
     </servlet>

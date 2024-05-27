@@ -107,7 +107,7 @@
   <div class="main-header d-flex flex-row justify-content-between">
     <div class="main-section">
       <h6>Teams</h6>
-      <span>Number of teams : 12</span>
+      <span>Number of teams : ${total_team}</span>
     </div>
     <div class="main-actions d-flex flex-row justify-content-around">
       <div class="filter">
