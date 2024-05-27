@@ -1,5 +1,6 @@
 package org.servlet.task;
 
+import org.dto.TaskDTO;
 import org.dto.UserDTO;
 import org.enums.Status;
 import org.model.Task;
@@ -28,7 +29,7 @@ public class DisplayTasks extends HttpServlet {
         request.setAttribute("projectName", name);
         request.setAttribute("id", id);
         try {
-            List<Task> taskList = taskRepository.getAll(id);
+            List<TaskDTO> taskList = taskRepository.getAllTaskWithAssociated(id);
             request.setAttribute("taskToDo", taskList.stream().filter(task -> task.getStatus().equals(Status.TODO)).collect(Collectors.toList()));
             request.setAttribute("taskInProgress", taskList.stream().filter(task -> task.getStatus().equals(Status.IN_PROGRESS)).collect(Collectors.toList()));
             request.setAttribute("taskCompleted", taskList.stream().filter(task -> task.getStatus().equals(Status.COMPLETED)).collect(Collectors.toList()));

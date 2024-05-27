@@ -129,7 +129,12 @@
                                 <h6>${task.getTitle()}</h6>
                                 <div class="days-left">
                                     <i class="fa-regular fa-clock"></i>
-                                    <span>6 days</span>
+                                    <c:if test="${task.getDaysLeft() eq 0}">
+                                        <span>Today</span>
+                                    </c:if>
+                                    <c:if test="${task.getDaysLeft() ne 0}">
+                                        <span>${task.getDaysLeft()} days</span>
+                                    </c:if>
                                 </div>
                             </div>
                             <div class="middle">
@@ -158,7 +163,7 @@
                                       </c:if>
                                 </div>
                                 <div class="contributor">
-                                    <img src="assets/metal.png" alt="">
+                                    <img src="${task.getSupervisor().getPicture()}" alt="">
                                     <section class="plus">
                                         +
                                     </section>
@@ -185,7 +190,12 @@
                                     <h6>${task.getTitle()}</h6>
                                     <div class="days-left">
                                         <i class="fa-regular fa-clock"></i>
-                                        <span>6 days</span>
+                                        <c:if test="${task.getDaysLeft() eq 0}">
+                                            <span>Today</span>
+                                        </c:if>
+                                        <c:if test="${task.getDaysLeft() ne 0}">
+                                            <span>${task.getDaysLeft()} days</span>
+                                        </c:if>
                                     </div>
                                 </div>
                                 <div class="middle">
@@ -214,7 +224,7 @@
                                         </c:if>
                                     </div>
                                     <div class="contributor">
-                                        <img src="assets/metal.png" alt="">
+                                        <img src="${task.getSupervisor().getPicture()}" alt="">
                                         <section class="plus">
                                             +
                                         </section>
@@ -241,7 +251,12 @@
                                     <h6>${task.getTitle()}</h6>
                                     <div class="days-left">
                                         <i class="fa-regular fa-clock"></i>
-                                        <span>6 days</span>
+                                        <c:if test="${task.getDaysLeft() eq 0}">
+                                        <span>Today</span>
+                                        </c:if>
+                                        <c:if test="${task.getDaysLeft() ne 0}">
+                                            <span>${task.getDaysLeft()} days</span>
+                                        </c:if>
                                     </div>
                                 </div>
                                 <div class="middle">
@@ -270,7 +285,7 @@
                                         </c:if>
                                     </div>
                                     <div class="contributor">
-                                        <img src="assets/metal.png" alt="">
+                                        <img src="${task.getSupervisor().getPicture()}" alt="">
                                         <section class="plus">
                                             +
                                         </section>

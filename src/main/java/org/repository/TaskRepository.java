@@ -15,4 +15,5 @@ public interface TaskRepository {
     Task getById(Long id) throws SQLException, ClassNotFoundException;
     void updateTaskStatus(Long id, Status status) throws SQLException, ClassNotFoundException;
     TaskDTO getTaskWithAssociated(Long id) throws SQLException, ClassNotFoundException;
+    List<TaskDTO> getAllTaskWithAssociated(Long id) throws SQLException, ClassNotFoundException;
 }
