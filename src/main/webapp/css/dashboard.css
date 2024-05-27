@@ -1434,7 +1434,6 @@ a{
     font-weight: bold;
     width: 100px;
     height: 30px;
-    background-color: green;
     border-radius: 10px;
     padding-top: 4px;
     text-align: center;
@@ -1578,14 +1577,14 @@ a{
     font-size: 13px;
     font-weight: bold;
 }
-.task-action{
+.task-actionn{
     width: 96%;
     height: 70px;
     padding: 20px;
     margin: 20px;
     position: relative;
 }
-.task-action .delete{
+.task-actionn .delete{
     position: absolute;
     right: 0;
     bottom: 15px;
@@ -1596,7 +1595,7 @@ a{
     font-size: 13px;
     font-weight: bold;
 }
-.task-action .save{
+.task-actionn .save{
     position: absolute;
     right: 100px;
     bottom: 15px;

@@ -109,45 +109,61 @@
         </div>
     </div>
     <div class="task-details">
-        <h6>Title Task</h6>
+        <h6>${task.getTitle()}</h6>
         <div class="details">
             <div class="d-flex flex-row justify-content-between">
                 <div>
                     <i class="fa-solid fa-signal"></i>
                     <span>Status </span>
                 </div>
-                <p class="status"> Done</p>
+                <c:if test="${task.getStatus() eq 'COMPLETED'}">
+                <p style="background-color: darkgreen" class="status"> Done</p>
+                </c:if>
+                <c:if test="${task.getStatus() eq 'IN_PROGRESS'}">
+                    <p style="background-color: orange" class="status"> InProgress</p>
+                </c:if>
+                <c:if test="${task.getStatus() eq 'TODO'}">
+                    <p style="background-color: darkred" class="status"> ToDo</p>
+                </c:if>
             </div>
             <div class="d-flex flex-row justify-content-between">
                 <div>
                     <i class="fa-solid fa-bolt"></i>
                     <span>Priority </span>
                 </div>
-                <p class="status"> High</p>
+                <c:if test="${task.getPriority() eq 'HIGH'}">
+                <p style="background-color: red" class="status"> High</p>
+                </c:if>
+                <c:if test="${task.getPriority() eq 'MEDIUM'}">
+                    <p style="background-color: green" class="status"> Medium</p>
+                </c:if>
+                <c:if test="${task.getPriority() eq 'LOW'}">
+                    <p style="background-color: orange" class="status"> Low</p>
+                </c:if>
             </div>
             <div class="d-flex flex-row justify-content-between">
                 <div>
                     <i class="fa-brands fa-square-font-awesome-stroke"></i>
                     <span>Type </span>
                 </div>
-                <p> Enginnering</p>
+                <p> ${task.getType()}</p>
             </div>
             <div class="d-flex flex-row justify-content-between">
                 <div>
                     <i class="fa-solid fa-calendar-check"></i>
                     <span>Due date </span>
                 </div>
-                <p> 24 march 2025</p>
+                <p> ${task.getEndDate()}</p>
             </div>
             <div class="desc d-flex flex-column justify-content-between">
                 <div>
                     <i class="fa-solid fa-font"></i>
                     <span>Description </span>
                 </div>
-                <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae, sunt! Pariatur consequuntur debitis deleniti quisquam rerum quae vitae accusantium in dolor non laborum, neque animi fugiat cum, praesentium explicabo! Animi.</span>
+                <span>${task.getDescription()}</span>
             </div>
         </div>
-        <a class="update-task" href="">Update</a>
+        <a class="update-task" href="update-task?id=${task.getId()}">Update</a>
     </div>
     <div class="employee-details">
         <h6>Employee</h6>
@@ -158,8 +174,8 @@
                     <span>Leader </span>
                 </div>
                 <div class="user d-flex flex-row justify-content-start align-items-center">
-                    <img src="assets/logo-head.png" alt="">
-                    <p>Mohammed</p>
+                    <img src="${task.getSupervisor().getPicture()}" alt="">
+                    <p>${task.getSupervisor().getName()}</p>
                 </div>
 
             </div>
@@ -169,30 +185,30 @@
                     <span>Team </span>
                 </div>
                 <div class="user d-flex flex-row justify-content-start align-items-center">
-                    <img src="assets/logo-head.png" alt="">
-                    <p>Team A</p>
+                    <img src="${task.getTeam().getPicture()}" alt="">
+                    <p>${task.getTeam().getName()}</p>
                 </div>
             </div>
-            <a class="update-employee" href="">Update</a>
+            <a class="update-employee" href="update-task-employee?idTask=${task.getId()}&idSupervisor=${task.getSupervisor().getId()}&idTeam=${task.getTeam().getId()}">Update</a>
         </div>
     </div>
     <div class="resource-details">
         <h6>Resources</h6>
         <div class="overflow">
             <div class="scroll  d-flex flex-row">
-                <c:forEach var="material" items="${materials}">
-                    <label for="material${material.getId()}">
-                        <img src="assets/silicate-brick.png" alt="">
+                <c:forEach var="resource" items="${task.getResourceList()}">
+                    <label for="material${resource.getId()}">
+                        <img src="${resource.getPicture()}" alt="">
                     </label>
                 </c:forEach>
-                <a class="update-resource" href="">Update</a>
-                <a class="add-resource" href="">Add</a>
+                <a class="update-resource" href="update-task-resource?id=${task.getId()}">Update</a>
+                <a class="add-resource" href="add-task-resource?id=${task.getId()}">Add</a>
             </div>
         </div>
     </div>
-    <div class="task-action">
-        <a class="save" href="">Save</a>
-        <a class="delete" href="">Delete</a>
+    <div class="task-actionn">
+        <a class="save" href="tasks?id=${id}">Save</a>
+        <a class="delete" href="delete-task?id${task.getId()}">Delete</a>
     </div>
 </section>
 <script src="https://kit.fontawesome.com/6150be860f.js" crossorigin="anonymous"></script>
