@@ -222,4 +222,89 @@ public class TaskRepositoryImpl implements TaskRepository {
         resultSet.close();
         return taskDTO;
     }
+
+    @Override
+    public List<TaskDTO> getAllTaskWithAssociated(Long id) throws SQLException, ClassNotFoundException {
+        List<TaskDTO> tasks = new ArrayList<>();
+        Connection connection = databaseConfig.getConnection();
+        String queryTasks = "SELECT * FROM task WHERE id_project = ?";
+        PreparedStatement statementTasks = connection.prepareStatement(queryTasks);
+        statementTasks.setLong(1, id);
+        ResultSet resultSetTasks = statementTasks.executeQuery();
+        while (resultSetTasks.next()) {
+            TaskDTO taskDTO = new TaskDTO();
+            taskDTO.setId(resultSetTasks.getLong("id"));
+            taskDTO.setTitle(resultSetTasks.getString("title"));
+            taskDTO.setType(resultSetTasks.getString("type"));
+            taskDTO.setStartDate(resultSetTasks.getDate("start_date"));
+            taskDTO.setEndDate(resultSetTasks.getDate("end_date"));
+            LocalDate today = LocalDate.now();
+            LocalDate startDate = taskDTO.getStartDate().toLocalDate();
+            taskDTO.setDaysLeft((int) ChronoUnit.DAYS.between(startDate, today));
+            taskDTO.setDescription(resultSetTasks.getString("description"));
+            taskDTO.setPriority(Priority.valueOf(resultSetTasks.getString("priority")));
+            taskDTO.setStatus(Status.valueOf(resultSetTasks.getString("status")));
+            Supervisor supervisor = new Supervisor();
+            String querySupervisor = "SELECT employee.id, employee.name, employee.job_type, employee.picture, employee.availability, employee.employee_type FROM task_employee JOIN employee ON task_employee.id_employee = employee.id WHERE task_employee.id_task = ? AND employee.employee_type = ?";
+            PreparedStatement statementSupervisor = connection.prepareStatement(querySupervisor);
+            statementSupervisor.setLong(1, taskDTO.getId());
+            statementSupervisor.setString(2, EmployeeType.SUPERVISOR.toString());
+            ResultSet resultSetSupervisor = statementSupervisor.executeQuery();
+            if (resultSetSupervisor.next()) {
+                supervisor.setId(resultSetSupervisor.getLong("employee.id"));
+                supervisor.setName(resultSetSupervisor.getString("employee.name"));
+                supervisor.setJobType(resultSetSupervisor.getString("employee.job_type"));
+                supervisor.setPicture(resultSetSupervisor.getString("employee.picture"));
+                supervisor.setAvailability(resultSetSupervisor.getBoolean("employee.availability"));
+                supervisor.setEmployeeType(EmployeeType.valueOf(resultSetSupervisor.getString("employee.employee_type")));
+            }
+            statementSupervisor.close();
+            resultSetSupervisor.close();
+            taskDTO.setSupervisor(supervisor);
+            Team team = new Team();
+            String queryTeam = "SELECT employee.id, employee.name, employee.job_type, employee.picture, employee.availability, employee.employee_type FROM task_employee JOIN employee ON task_employee.id_employee = employee.id WHERE task_employee.id_task = ? AND employee.employee_type = ?";
+            PreparedStatement statementTeam = connection.prepareStatement(queryTeam);
+            statementTeam.setLong(1, taskDTO.getId());
+            statementTeam.setString(2, EmployeeType.TEAM.toString());
+            ResultSet resultSetTeam = statementTeam.executeQuery();
+            if (resultSetTeam.next()) {
+                team.setId(resultSetTeam.getLong("employee.id"));
+                team.setName(resultSetTeam.getString("employee.name"));
+                team.setJobType(resultSetTeam.getString("employee.job_type"));
+                team.setPicture(resultSetTeam.getString("employee.picture"));
+                team.setAvailability(resultSetTeam.getBoolean("employee.availability"));
+                team.setEmployeeType(EmployeeType.valueOf(resultSetTeam.getString("employee.employee_type")));
+            }
+            statementTeam.close();
+            resultSetTeam.close();
+            taskDTO.setTeam(team);
+            List<Resource> resources = new ArrayList<>();
+            String queryResource = "SELECT resource.id, resource.title, resource.type, resource.provider, resource.acquisition_date, resource.picture, resource.quantity, resource.availability, resource.resource_type FROM task_resource JOIN resource ON task_resource.id_resource = resource.id WHERE task_resource.id_task = ? ORDER BY resource.resource_type DESC";
+            PreparedStatement statementResources = connection.prepareStatement(queryResource);
+            statementResources.setLong(1, taskDTO.getId());
+            ResultSet resultSetResources = statementResources.executeQuery();
+            while (resultSetResources.next()) {
+                Resource resource = new Resource();
+                resource.setId(resultSetResources.getLong("resource.id"));
+                resource.setTitle(resultSetResources.getString("resource.title"));
+                resource.setType(resultSetResources.getString("resource.type"));
+                resource.setProvider(resultSetResources.getString("resource.provider"));
+                resource.setAcquisitionDate(resultSetResources.getDate("resource.acquisition_date"));
+                resource.setPicture(resultSetResources.getString("resource.picture"));
+                resource.setQuantity(resultSetResources.getString("resource.quantity"));
+                resource.setAvailability(resultSetResources.getBoolean("resource.availability"));
+                resource.setResourceType(ResourceType.valueOf(resultSetResources.getString("resource.resource_type")));
+                resources.add(resource);
+            }
+            statementResources.close();
+            resultSetResources.close();
+            taskDTO.setResourceList(resources);
+            tasks.add(taskDTO);
+        }
+        statementTasks.close();
+        resultSetTasks.close();
+        connection.close();
+        return tasks;
+    }
+
 }

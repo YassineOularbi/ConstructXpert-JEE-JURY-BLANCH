@@ -124,12 +124,17 @@
             <div class="task tbox">
                 <div class="task-overflow  d-flex flex-column">
                     <c:forEach var="task" items="${taskToDo}">
-                    <a href="view-task?id=${task.getId()}"class="task-view" draggable="true" data-id="${task.getId()}">
+                    <a href="view-task?id=${id}&name=${projectName}&idTask=${task.getId()}"class="task-view" draggable="true" data-id="${task.getId()}">
                             <div class="up d-flex flex-row justify-content-between">
                                 <h6>${task.getTitle()}</h6>
                                 <div class="days-left">
                                     <i class="fa-regular fa-clock"></i>
-                                    <span>6 days</span>
+                                    <c:if test="${task.getDaysLeft() eq 0}">
+                                        <span>Today</span>
+                                    </c:if>
+                                    <c:if test="${task.getDaysLeft() ne 0}">
+                                        <span>${task.getDaysLeft()} days</span>
+                                    </c:if>
                                 </div>
                             </div>
                             <div class="middle">
@@ -158,7 +163,7 @@
                                       </c:if>
                                 </div>
                                 <div class="contributor">
-                                    <img src="assets/metal.png" alt="">
+                                    <img src="${task.getSupervisor().getPicture()}" alt="">
                                     <section class="plus">
                                         +
                                     </section>
@@ -180,12 +185,17 @@
             <div class="task tbox">
                 <div class="task-overflow  d-flex flex-column">
                     <c:forEach var="task" items="${taskInProgress}">
-                        <a href="view-task?id=${task.getId()}" class="task-view" draggable="true" data-id="${task.getId()}">
+                        <a href="view-task?id=${id}&name=${projectName}&idTask=${task.getId()}" class="task-view" draggable="true" data-id="${task.getId()}">
                                 <div class="up d-flex flex-row justify-content-between">
                                     <h6>${task.getTitle()}</h6>
                                     <div class="days-left">
                                         <i class="fa-regular fa-clock"></i>
-                                        <span>6 days</span>
+                                        <c:if test="${task.getDaysLeft() eq 0}">
+                                            <span>Today</span>
+                                        </c:if>
+                                        <c:if test="${task.getDaysLeft() ne 0}">
+                                            <span>${task.getDaysLeft()} days</span>
+                                        </c:if>
                                     </div>
                                 </div>
                                 <div class="middle">
@@ -214,7 +224,7 @@
                                         </c:if>
                                     </div>
                                     <div class="contributor">
-                                        <img src="assets/metal.png" alt="">
+                                        <img src="${task.getSupervisor().getPicture()}" alt="">
                                         <section class="plus">
                                             +
                                         </section>
@@ -236,12 +246,17 @@
             <div class="task tbox">
                 <div class="task-overflow  d-flex flex-column">
                     <c:forEach var="task" items="${taskCompleted}">
-                        <a href="view-task?id=${task.getId()}" class="task-view" draggable="true" data-id="${task.getId()}">
+                        <a href="view-task?id=${id}&name=${projectName}&idTask=${task.getId()}" class="task-view" draggable="true" data-id="${task.getId()}">
                                 <div class="up d-flex flex-row justify-content-between">
                                     <h6>${task.getTitle()}</h6>
                                     <div class="days-left">
                                         <i class="fa-regular fa-clock"></i>
-                                        <span>6 days</span>
+                                        <c:if test="${task.getDaysLeft() eq 0}">
+                                        <span>Today</span>
+                                        </c:if>
+                                        <c:if test="${task.getDaysLeft() ne 0}">
+                                            <span>${task.getDaysLeft()} days</span>
+                                        </c:if>
                                     </div>
                                 </div>
                                 <div class="middle">
@@ -270,7 +285,7 @@
                                         </c:if>
                                     </div>
                                     <div class="contributor">
-                                        <img src="assets/metal.png" alt="">
+                                        <img src="${task.getSupervisor().getPicture()}" alt="">
                                         <section class="plus">
                                             +
                                         </section>

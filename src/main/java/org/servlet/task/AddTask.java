@@ -1,6 +1,7 @@
 package org.servlet.task;
 
 import org.dto.ResourceDTO;
+import org.dto.TaskDTO;
 import org.dto.UserDTO;
 import org.enums.EmployeeType;
 import org.enums.Priority;
@@ -96,7 +97,7 @@ public class AddTask extends HttpServlet {
             taskEmployeeRepository.UpdateEmployeeAvailability(supervisorId);
             taskEmployeeRepository.AffectEmployeeToTask(idTask, teamId);
             taskEmployeeRepository.UpdateEmployeeAvailability(teamId);
-            List<Task> taskList = taskRepository.getAll(id);
+            List<TaskDTO> taskList = taskRepository.getAllTaskWithAssociated(id);
             request.setAttribute("taskToDo", taskList.stream().filter(task1 -> task1.getStatus().equals(Status.TODO)).collect(Collectors.toList()));
             request.setAttribute("taskInProgress", taskList.stream().filter(task1 -> task1.getStatus().equals(Status.IN_PROGRESS)).collect(Collectors.toList()));
             request.setAttribute("taskCompleted", taskList.stream().filter(task1-> task1.getStatus().equals(Status.COMPLETED)).collect(Collectors.toList()));
