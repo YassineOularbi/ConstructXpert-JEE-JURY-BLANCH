@@ -124,7 +124,7 @@
             <div class="task tbox">
                 <div class="task-overflow  d-flex flex-column">
                     <c:forEach var="task" items="${taskToDo}">
-                    <a href="view-task?id=${task.getId()}"class="task-view" draggable="true" data-id="${task.getId()}">
+                    <a href="view-task?id=${id}&name=${projectName}&idTask=${task.getId()}"class="task-view" draggable="true" data-id="${task.getId()}">
                             <div class="up d-flex flex-row justify-content-between">
                                 <h6>${task.getTitle()}</h6>
                                 <div class="days-left">
@@ -180,7 +180,7 @@
             <div class="task tbox">
                 <div class="task-overflow  d-flex flex-column">
                     <c:forEach var="task" items="${taskInProgress}">
-                        <a href="view-task?id=${task.getId()}" class="task-view" draggable="true" data-id="${task.getId()}">
+                        <a href="view-task?id=${id}&name=${projectName}&idTask=${task.getId()}" class="task-view" draggable="true" data-id="${task.getId()}">
                                 <div class="up d-flex flex-row justify-content-between">
                                     <h6>${task.getTitle()}</h6>
                                     <div class="days-left">
@@ -236,7 +236,7 @@
             <div class="task tbox">
                 <div class="task-overflow  d-flex flex-column">
                     <c:forEach var="task" items="${taskCompleted}">
-                        <a href="view-task?id=${task.getId()}" class="task-view" draggable="true" data-id="${task.getId()}">
+                        <a href="view-task?id=${id}&name=${projectName}&idTask=${task.getId()}" class="task-view" draggable="true" data-id="${task.getId()}">
                                 <div class="up d-flex flex-row justify-content-between">
                                     <h6>${task.getTitle()}</h6>
                                     <div class="days-left">

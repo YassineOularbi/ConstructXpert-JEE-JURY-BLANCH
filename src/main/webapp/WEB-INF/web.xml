@@ -251,5 +251,12 @@
         <servlet-name>ViewTask</servlet-name>
         <url-pattern>/view-task</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>UpdateTask</servlet-name>
+        <servlet-class>org.servlet.task.UpdateTask</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateTask</servlet-name>
+        <url-pattern>/update-task</url-pattern>
+    </servlet-mapping>
 </web-app>

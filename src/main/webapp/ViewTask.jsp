@@ -163,7 +163,7 @@
                 <span>${task.getDescription()}</span>
             </div>
         </div>
-        <a class="update-task" href="update-task?id=${task.getId()}">Update</a>
+        <a class="update-task" href="update-task?id=${id}&name=${projectName}&idTask=${task.getId()}">Update</a>
     </div>
     <div class="employee-details">
         <h6>Employee</h6>

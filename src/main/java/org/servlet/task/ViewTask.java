@@ -16,6 +16,7 @@ public class ViewTask extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long id = Long.valueOf(request.getParameter("id"));
+        Long idTask = Long.valueOf(request.getParameter("idTask"));
         String name = request.getParameter("name");
         HttpSession session = request.getSession();
         UserDTO userDTO = (UserDTO) session.getAttribute("user");
@@ -23,7 +24,7 @@ public class ViewTask extends HttpServlet {
         request.setAttribute("projectName", name);
         request.setAttribute("id", id);
         try {
-            request.setAttribute("task", taskRepository.getTaskWithAssociated(id));
+            request.setAttribute("task", taskRepository.getTaskWithAssociated(idTask));
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
