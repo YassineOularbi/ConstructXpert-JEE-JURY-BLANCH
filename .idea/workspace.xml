@@ -12,10 +12,13 @@
     <list default="true" id="19efa339-2073-4c37-96e1-5edffce9bc32" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../BRIEF-WEATHER-APP/BRIEF-WEATHER-APP.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../BRIEF-WEATHER-APP/src/City.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/dto/ResourceDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/repository/TaskResourceRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/repository/TaskResourceRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/servlet/task/UpdateTaskStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/auth/ApplicationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/dto/ProjectDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/repository/TaskEmployeeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/repository/TaskEmployeeRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/servlet/DashboardServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/servlet/task/ViewTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/ViewTask.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Magerama-cinema-BM/src/main/java/jee/javapack/servlets/CinemaHome.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../QUIZ-JAVA/QUIZ-JAVA.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../STUDENT-MANAGEMENT-SPRINGBOOT-ANGULAR" afterDir="false" />
@@ -56,22 +59,54 @@
       <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/repository/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/repository/EmployeeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/repository/EmployeeRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/repository/EmployeeRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/repository/ProjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/repository/ProjectRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/repository/ProjectRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/repository/ProjectRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/repository/ResourceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/repository/ResourceRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/repository/ResourceRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/repository/ResourceRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/repository/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/repository/TaskRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/repository/TaskRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/repository/TaskRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/AuthenticationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/AuthenticationServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/employee/supervisor/AddSupervisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/employee/supervisor/AddSupervisor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/employee/supervisor/DeleteSupervisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/employee/supervisor/DeleteSupervisor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/employee/supervisor/DisplaySupervisors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/employee/supervisor/DisplaySupervisors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/employee/supervisor/UpdateSupervisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/employee/supervisor/UpdateSupervisor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/employee/team/AddTeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/employee/team/AddTeam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/employee/team/DeleteTeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/employee/team/DeleteTeam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/employee/team/DisplayTeams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/employee/team/DisplayTeams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/employee/team/UpdateTeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/employee/team/UpdateTeam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/project/AddProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/project/AddProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/project/DeleteProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/project/DeleteProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/project/DisplayProjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/project/DisplayProjects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/project/UpdateProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/project/UpdateProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/project/ViewProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/project/ViewProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/resource/equipment/AddEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/resource/equipment/AddEquipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/resource/equipment/DeleteEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/resource/equipment/DeleteEquipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/resource/equipment/DisplayEquipments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/resource/equipment/DisplayEquipments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/resource/equipment/UpdateEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/resource/equipment/UpdateEquipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/resource/material/AddMaterial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/resource/material/AddMaterial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/resource/material/DeleteMaterial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/resource/material/DeleteMaterial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/resource/material/DisplayMaterials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/resource/material/DisplayMaterials.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/resource/material/UpdateMaterial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/resource/material/UpdateMaterial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/resource/vehicle/AddVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/resource/vehicle/AddVehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/resource/vehicle/DeleteVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/resource/vehicle/DeleteVehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/resource/vehicle/DisplayVehicles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/resource/vehicle/DisplayVehicles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/resource/vehicle/UpdateVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/resource/vehicle/UpdateVehicle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/task/AddTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/task/AddTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/CreateProject.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/CreateProject.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/servlet/task/UpdateTaskStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servlet/task/UpdateTaskStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/CreateTask.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/CreateTask.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Dashboard.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/Equipments.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Equipments.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/Materials.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Materials.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Projects.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Projects.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/Supervisors.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Supervisors.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Tasks.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Tasks.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/Teams.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Teams.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/UpdateProject.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/UpdateProject.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/Vehicles.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Vehicles.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/chart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/test.html" afterDir="false" />
     </list>
@@ -84,13 +119,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaFXApplication" />
-        <option value="Filter" />
         <option value="Enum" />
         <option value="CSS File" />
-        <option value="Jsp File" />
-        <option value="Servlet" />
+        <option value="Filter" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Jsp File" />
+        <option value="Servlet" />
       </list>
     </option>
   </component>
@@ -170,7 +205,37 @@
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="53246" />
       </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
           <option name="USE_DEFAULT" value="true" />
@@ -218,7 +283,7 @@
       <updated>1716389413926</updated>
       <workItem from="1716389415112" duration="33152000" />
       <workItem from="1716475878828" duration="2157000" />
-      <workItem from="1716504740734" duration="74582000" />
+      <workItem from="1716504740734" duration="98637000" />
     </task>
     <servers />
   </component>

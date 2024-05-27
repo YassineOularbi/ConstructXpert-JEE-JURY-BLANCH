@@ -9,19 +9,13 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "AuthenticationServlet", value = "/AuthenticationServlet")
-public class AuthenticationServlet extends HttpServlet {
+@WebServlet(name = "DashboardServlet", value = "/DashboardServlet")
+public class DashboardServlet extends HttpServlet {
     ProjectRepository projectRepository = new ProjectRepositoryImpl();
     ResourceRepository resourceRepository = new ResourceRepositoryImpl();
     EmployeeRepository employeeRepository = new EmployeeRepositoryImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        this.getServletContext().getRequestDispatcher("/Authentication.jsp").forward(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         UserDTO userDTO = (UserDTO) session.getAttribute("user");
         request.setAttribute("user", userDTO);
@@ -35,5 +29,10 @@ public class AuthenticationServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
         this.getServletContext().getRequestDispatcher("/Dashboard.jsp").forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     }
 }

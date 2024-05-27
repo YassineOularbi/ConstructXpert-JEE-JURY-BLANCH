@@ -1,8 +1,8 @@
 // Charts
 
-const ctx1 = document.getElementById("chart-1").getContext("2d");
+/*const ctx1 = document.getElementById("chart-1").getContext("2d");
 const myChart = new Chart(ctx1, {
-  type: "polarArea",
+  type: "doughnut",
   data: {
     labels: ["Projet 1", "Projet 2", "Projet 3"],
     datasets: [
@@ -20,9 +20,9 @@ const myChart = new Chart(ctx1, {
   options: {
     responsive: true,
   },
-});
+}); */
 
-const ctx2 = document.getElementById("chart-2").getContext("2d");
+/* const ctx2 = document.getElementById("chart-2").getContext("2d");
 const myChart2 = new Chart(ctx2, {
   type: "bar",
   data: {
@@ -42,4 +42,4 @@ const myChart2 = new Chart(ctx2, {
   options: {
     responsive: true,
   },
-});
+}); */

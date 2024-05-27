@@ -193,4 +193,31 @@ public class ResourceRepositoryImpl implements ResourceRepository {
         connection.close();
         return resource;
     }
+
+    @Override
+    public Integer allResources() throws SQLException, ClassNotFoundException {
+        Connection connection = databaseConfig.getConnection();
+        String query = "SELECT COUNT(*) AS total_resource FROM resource";
+        PreparedStatement statement = connection.prepareStatement(query);
+        ResultSet resultSet = statement.executeQuery();
+        Integer total = 0;
+        if(resultSet.next()){
+            total = resultSet.getInt("total_resource");
+        }
+        return total;
+    }
+
+    @Override
+    public Integer countResourceByType(ResourceType resourceType) throws SQLException, ClassNotFoundException {
+        Connection connection = databaseConfig.getConnection();
+        String query = "SELECT COUNT(*) AS total_resource FROM resource WHERE resource_type = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, String.valueOf(resourceType));
+        ResultSet resultSet = statement.executeQuery();
+        Integer total = 0;
+        if(resultSet.next()){
+            total = resultSet.getInt("total_resource");
+        }
+        return total;
+    }
 }

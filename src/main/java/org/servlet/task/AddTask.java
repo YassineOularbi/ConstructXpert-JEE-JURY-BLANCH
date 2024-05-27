@@ -2,9 +2,11 @@ package org.servlet.task;
 
 import org.dto.ResourceDTO;
 import org.dto.UserDTO;
+import org.enums.EmployeeType;
 import org.enums.Priority;
 import org.enums.ResourceType;
 import org.enums.Status;
+import org.model.Employee;
 import org.model.Resource;
 import org.model.Task;
 import org.repository.*;
@@ -25,6 +27,8 @@ public class AddTask extends HttpServlet {
     TaskRepository taskRepository = new TaskRepositoryImpl();
     ResourceRepository resourceRepository = new ResourceRepositoryImpl();
     TaskResourceRepository taskResourceRepository = new TaskResourceRepositoryImpl();
+    EmployeeRepository employeeRepository = new EmployeeRepositoryImpl();
+    TaskEmployeeRepository taskEmployeeRepository = new TaskEmployeeRepositoryImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -34,11 +38,16 @@ public class AddTask extends HttpServlet {
         String name = request.getParameter("name");
         request.setAttribute("projectName", name);
         request.setAttribute("id", id);
+        LocalDate limitDate = LocalDate.now();
+        request.setAttribute("limit", limitDate);
         try {
             List<Resource> resources = resourceRepository.getAllAvailable();
             request.setAttribute("vehicles", resources.stream().filter(resource -> resource.getResourceType().equals(ResourceType.VEHICLE)).collect(Collectors.toList()));
             request.setAttribute("equipments", resources.stream().filter(resource -> resource.getResourceType().equals(ResourceType.EQUIPMENT)).collect(Collectors.toList()));
             request.setAttribute("materials", resources.stream().filter(resource -> resource.getResourceType().equals(ResourceType.MATERIAL)).collect(Collectors.toList()));
+            List<Employee> employees = employeeRepository.allAvailableEmployee();
+            request.setAttribute("supervisors", employees.stream().filter(employee -> employee.getEmployeeType().equals(EmployeeType.SUPERVISOR)).collect(Collectors.toList()));
+            request.setAttribute("teams", employees.stream().filter(employee -> employee.getEmployeeType().equals(EmployeeType.TEAM)).collect(Collectors.toList()));
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -77,10 +86,16 @@ public class AddTask extends HttpServlet {
             ResourceDTO resourceDTO = new ResourceDTO(Long.valueOf(materials[i]), materialsQuantity[i]);
             resourceDTOList.add(resourceDTO);
         }
+        Long supervisorId = Long.valueOf(request.getParameter("supervisor"));
+        Long teamId = Long.valueOf(request.getParameter("team"));
         try {
             Long idTask = taskRepository.add(id, task);
             taskResourceRepository.AffectResourceToTask(idTask, resourceDTOList);
             taskResourceRepository.UpdateResourceQuantity(resourceDTOList);
+            taskEmployeeRepository.AffectEmployeeToTask(idTask,supervisorId);
+            taskEmployeeRepository.UpdateEmployeeAvailability(supervisorId);
+            taskEmployeeRepository.AffectEmployeeToTask(idTask, teamId);
+            taskEmployeeRepository.UpdateEmployeeAvailability(teamId);
             List<Task> taskList = taskRepository.getAll(id);
             request.setAttribute("taskToDo", taskList.stream().filter(task1 -> task1.getStatus().equals(Status.TODO)).collect(Collectors.toList()));
             request.setAttribute("taskInProgress", taskList.stream().filter(task1 -> task1.getStatus().equals(Status.IN_PROGRESS)).collect(Collectors.toList()));

@@ -107,7 +107,7 @@
     <div class="main-header d-flex flex-row justify-content-between">
         <div class="main-section">
             <h6>Equipments</h6>
-            <span>Number of equipments : 12</span>
+            <span>Number of equipments : ${total_equipment}</span>
         </div>
         <div class="main-actions d-flex flex-row justify-content-around">
             <div class="filter">

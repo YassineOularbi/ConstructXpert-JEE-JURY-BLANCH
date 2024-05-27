@@ -107,7 +107,7 @@
     <div class="main-header d-flex flex-row justify-content-between">
         <div class="main-section">
             <h6>Materials</h6>
-            <span>Number of materials : 12</span>
+            <span>Number of materials : ${total_material}</span>
         </div>
         <div class="main-actions d-flex flex-row justify-content-around">
             <div class="filter">

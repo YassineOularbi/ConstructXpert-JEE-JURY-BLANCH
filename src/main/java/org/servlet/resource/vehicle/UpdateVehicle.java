@@ -1,7 +1,10 @@
 package org.servlet.resource.vehicle;
 
 import org.dto.UserDTO;
+import org.enums.ResourceType;
 import org.model.Vehicle;
+import org.repository.ResourceRepository;
+import org.repository.ResourceRepositoryImpl;
 import org.service.VehicleService;
 
 import javax.servlet.*;
@@ -14,10 +17,12 @@ import java.sql.SQLException;
 @WebServlet(name = "UpdateVehicle", value = "/UpdateVehicle")
 public class UpdateVehicle extends HttpServlet {
     VehicleService vehicleService = new VehicleService();
+    ResourceRepository resourceRepository = new ResourceRepositoryImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long id = Long.valueOf(request.getParameter("id"));
         try {
+            request.setAttribute("total_vehicle", resourceRepository.countResourceByType(ResourceType.VEHICLE));
             request.setAttribute("vehicle", vehicleService.getById(id));
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
